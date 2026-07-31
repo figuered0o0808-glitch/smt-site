@@ -826,6 +826,31 @@ p { margin: 0; }
   margin-bottom: 2.2rem;
 }
 
+.rodape__iniciativa {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-family: var(--fonte-dizeres);
+  font-size: 1.05rem;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.85);
+  margin: -0.8rem 0 2.4rem;
+}
+.rodape__iniciativa img {
+  height: 1.5rem;
+  width: auto;
+  display: inline-block;
+}
+
+.rodape__logo-real {
+  display: grid;
+  place-items: center;
+}
+.rodape__logo-real img {
+  height: 1.6rem;
+  width: auto;
+}
+
 .rodape__colunas {
   display: grid;
   gap: 2.2rem;
