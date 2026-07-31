@@ -714,12 +714,10 @@ p { margin: 0; }
 .governanca__celula:first-child { border-top: none; }
 
 @media (min-width: 900px) {
-  .governanca { grid-template-columns: repeat(3, 1fr); }
-  .governanca__celula {
-    border-top: none;
-    border-left: 1px solid rgba(16, 0, 35, 0.2);
-  }
-  .governanca__celula:first-child { border-left: none; }
+  .governanca { grid-template-columns: repeat(2, 1fr); }
+  .governanca__celula { border-top: 1px solid rgba(16, 0, 35, 0.2); }
+  .governanca__celula:nth-child(-n+2) { border-top: none; }
+  .governanca__celula:nth-child(even) { border-left: 1px solid rgba(16, 0, 35, 0.2); }
 }
 
 .cargo {
