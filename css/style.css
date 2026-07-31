@@ -539,6 +539,24 @@ p { margin: 0; }
   background-image: var(--listras);
 }
 
+/* Moldura com foto genérica tratada na marca (o chip continua por cima) */
+.midia--foto .midia__fundo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Faixa de imagem full-bleed entre seções */
+.banda { border-block: var(--fio); }
+.banda img {
+  display: block;
+  width: 100%;
+  height: clamp(200px, 30vw, 360px);
+  object-fit: cover;
+}
+
 .midia--conversa {
   grid-template-columns: 1fr;
   place-items: stretch;

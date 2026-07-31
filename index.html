@@ -20,7 +20,7 @@
   <link rel="icon" type="image/png" sizes="64x64" href="assets/favicon-64.png">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 
-  <link rel="stylesheet" href="css/style.css?v=19">
+  <link rel="stylesheet" href="css/style.css?v=20">
 
   <!-- Analytics sem cookies: preparado, desativado. Descomente e ajuste o domínio quando ativar.
   <script defer data-domain="[PLACEHOLDER: domínio]" src="https://plausible.io/js/script.js"></script>
@@ -133,7 +133,8 @@
             <h3 class="bloco__titulo">Videocast</h3>
             <p>Conversas em vídeo, publicadas em episódios.</p>
           </div>
-          <div class="midia midia--tela">
+          <div class="midia midia--tela midia--foto">
+            <img class="midia__fundo" src="assets/fotos/videocast-estudio.jpg" alt="" width="960" height="540" loading="lazy">
             <span class="midia__chip">[PLACEHOLDER: capa e link do episódio mais recente e do canal]</span>
           </div>
         </div>
@@ -147,7 +148,8 @@
             <p>Encontros ao vivo para conversar de perto.</p>
             <p class="bloco__acao"><a class="botao botao--grad apertavel" href="#contato">Quero promover um evento</a></p>
           </div>
-          <div class="midia midia--agenda">
+          <div class="midia midia--agenda midia--foto">
+            <img class="midia__fundo" src="assets/fotos/eventos-maos.jpg" alt="" width="960" height="190" loading="lazy">
             <span class="midia__chip">[PLACEHOLDER: agenda do próximo evento]</span>
           </div>
         </div>
@@ -187,8 +189,13 @@
       </div>
     </section>
 
+    <!-- ============ FAIXA DE IMAGEM ============ -->
+    <div class="banda" aria-hidden="true">
+      <img src="assets/fotos/plateia.jpg" alt="" width="960" height="400" loading="lazy">
+    </div>
+
     <!-- ============ PARTICIPE ============ -->
-    <section class="secao secao--fio" id="participe" aria-labelledby="titulo-participe">
+    <section class="secao" id="participe" aria-labelledby="titulo-participe">
       <div class="container">
         <div class="cabeca">
           <h2 id="titulo-participe" class="dizer">Participe</h2>

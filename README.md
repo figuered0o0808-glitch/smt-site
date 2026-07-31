@@ -71,4 +71,8 @@ Após o deploy, preencha o `og:url` no `<head>` com o domínio final.
 
 Quando o e-mail de contato existir, os três cards de "Portas de entrada" podem virar links `mailto:` com assunto pré-preenchido (um por porta), em vez de apontarem para `#contato`.
 
+## Imagens genéricas
+
+As fotos em `assets/fotos/` são imagens de banco com licença CC0 (StockSnap, sem atribuição obrigatória), tratadas em duotone com as cores da marca via script: `videocast-estudio.jpg` (stocksnap.io/photo/NJCWWNF3FM), `eventos-maos.jpg` (stocksnap.io/photo/IUJP9OI22I) e `plateia.jpg` (stocksnap.io/photo/HDS6BBHIRZ). São temporárias: quando houver fotos reais do projeto (gravações, eventos), substituir mantendo o mesmo tratamento.
+
 O kit oficial da marca está completo em `assets/marca/` (S e wordmark nas versões escura, branca, degradê, contorno e badge; sombra longa em `assets/logo-smt.png`). Favicon, apple-touch-icon e og.png são gerados a partir dele.
