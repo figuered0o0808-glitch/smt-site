@@ -34,7 +34,20 @@ python3 -m http.server 8080
 
 E abra `http://localhost:8080`.
 
-## Como fazer deploy
+## Site no ar
+
+Publicado via GitHub Pages: https://figuered0o0808-glitch.github.io/smt-site/
+Repositório: https://github.com/figuered0o0808-glitch/smt-site
+
+Para atualizar o site publicado, depois de editar os arquivos:
+
+```
+git add -A && git commit -m "descreva a mudança" && git push
+```
+
+O GitHub Pages republica sozinho em um ou dois minutos.
+
+## Como fazer deploy (alternativas)
 
 - **Netlify**: arraste a pasta do projeto em https://app.netlify.com/drop, pronto.
 - **Vercel**: `vercel` na raiz do projeto (ou importe o repositório no painel).
