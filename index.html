@@ -20,7 +20,7 @@
   <link rel="icon" type="image/png" sizes="64x64" href="assets/favicon-64.png">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 
-  <link rel="stylesheet" href="css/style.css?v=18">
+  <link rel="stylesheet" href="css/style.css?v=19">
 
   <!-- Analytics sem cookies: preparado, desativado. Descomente e ajuste o domínio quando ativar.
   <script defer data-domain="[PLACEHOLDER: domínio]" src="https://plausible.io/js/script.js"></script>
@@ -76,10 +76,10 @@
     <!-- ============ FAIXA-ÍNDICE ============ -->
     <nav class="faixa" aria-label="Frentes do hub">
       <div class="container faixa__trilho">
-        <a href="#videocast">Videocast</a>
         <a href="#redes">Redes sociais</a>
-        <a href="#eventos">Eventos presenciais</a>
         <a href="#comunidade">Comunidade digital</a>
+        <a href="#videocast">Videocast</a>
+        <a href="#eventos">Eventos presenciais</a>
       </div>
     </nav>
 
@@ -92,25 +92,13 @@
         <p class="apoio">O hub trabalha em quatro frentes.</p>
       </div>
 
-      <article class="bloco" id="videocast">
-        <div class="container bloco__grade">
-          <div class="bloco__info">
-            <p class="bloco__numero" aria-hidden="true">01</p>
-            <h3 class="bloco__titulo">Videocast</h3>
-            <p>Conversas em vídeo, publicadas em episódios.</p>
-          </div>
-          <div class="midia midia--tela">
-            <span class="midia__chip">[PLACEHOLDER: capa e link do episódio mais recente e do canal]</span>
-          </div>
-        </div>
-      </article>
-
       <article class="bloco" id="redes">
         <div class="container bloco__grade">
           <div class="bloco__info">
-            <p class="bloco__numero" aria-hidden="true">02</p>
+            <p class="bloco__numero" aria-hidden="true">01</p>
             <h3 class="bloco__titulo">Redes sociais</h3>
             <p>Conteúdo todos os dias nos perfis do hub.</p>
+            <p class="bloco__acao"><a class="botao botao--grad apertavel" href="#contato">Sou influenciador e quero participar</a></p>
           </div>
           <div class="midia midia--feed">
             <span class="midia__tile" aria-hidden="true"></span>
@@ -121,23 +109,10 @@
         </div>
       </article>
 
-      <article class="bloco" id="eventos">
-        <div class="container bloco__grade">
-          <div class="bloco__info">
-            <p class="bloco__numero" aria-hidden="true">03</p>
-            <h3 class="bloco__titulo">Eventos presenciais</h3>
-            <p>Encontros ao vivo para conversar de perto.</p>
-          </div>
-          <div class="midia midia--agenda">
-            <span class="midia__chip">[PLACEHOLDER: agenda do próximo evento]</span>
-          </div>
-        </div>
-      </article>
-
       <article class="bloco" id="comunidade">
         <div class="container bloco__grade">
           <div class="bloco__info">
-            <p class="bloco__numero" aria-hidden="true">04</p>
+            <p class="bloco__numero" aria-hidden="true">02</p>
             <h3 class="bloco__titulo">Comunidade digital</h3>
             <p>Conversa contínua entre quem participa do hub. A base é o Telegram.</p>
             <p class="bloco__acao"><a class="botao botao--grad apertavel" href="#contato">Entrar na comunidade</a></p>
@@ -147,6 +122,33 @@
             <span class="midia__balao midia__balao--dir" aria-hidden="true"></span>
             <span class="midia__balao" aria-hidden="true"></span>
             <span class="midia__chip">[PLACEHOLDER: link do grupo no Telegram e QR code]</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="bloco" id="videocast">
+        <div class="container bloco__grade">
+          <div class="bloco__info">
+            <p class="bloco__numero" aria-hidden="true">03</p>
+            <h3 class="bloco__titulo">Videocast</h3>
+            <p>Conversas em vídeo, publicadas em episódios.</p>
+          </div>
+          <div class="midia midia--tela">
+            <span class="midia__chip">[PLACEHOLDER: capa e link do episódio mais recente e do canal]</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="bloco" id="eventos">
+        <div class="container bloco__grade">
+          <div class="bloco__info">
+            <p class="bloco__numero" aria-hidden="true">04</p>
+            <h3 class="bloco__titulo">Eventos presenciais</h3>
+            <p>Encontros ao vivo para conversar de perto.</p>
+            <p class="bloco__acao"><a class="botao botao--grad apertavel" href="#contato">Quero promover um evento</a></p>
+          </div>
+          <div class="midia midia--agenda">
+            <span class="midia__chip">[PLACEHOLDER: agenda do próximo evento]</span>
           </div>
         </div>
       </article>
@@ -191,7 +193,6 @@
         <div class="cabeca">
           <h2 id="titulo-participe" class="dizer">Participe</h2>
         </div>
-        <p class="apoio">Escolha a porta. Todas levam ao contato.</p>
 
         <div class="portas">
           <a class="porta apertavel" href="#contato">
@@ -225,23 +226,29 @@
         <div class="cabeca">
           <h2 id="titulo-quem-faz" class="dizer">Quem faz</h2>
         </div>
-        <div class="governanca">
-          <div class="governanca__celula">
-            <p class="cargo">Direção executiva</p>
-            <div class="pessoa"><img class="pessoa__foto" src="assets/equipe/francisco-figueiredo.jpg" alt="" width="400" height="400"><p class="nome">Francisco Figueiredo</p></div>
-            <div class="pessoa"><img class="pessoa__foto" src="assets/equipe/luma-albuquerque.jpg" alt="" width="400" height="400"><p class="nome">Luma Albuquerque</p></div>
+        <div class="equipe">
+          <div class="equipe__linha">
+            <p class="cargo cargo--direcao">Direção executiva</p>
+            <div class="equipe__pessoas">
+              <div class="pessoa"><img class="pessoa__foto" src="assets/equipe/francisco-figueiredo.jpg" alt="" width="400" height="400"><p class="nome">Francisco Figueiredo</p></div>
+              <div class="pessoa"><img class="pessoa__foto" src="assets/equipe/luma-albuquerque.jpg" alt="" width="400" height="400"><p class="nome">Luma Albuquerque</p></div>
+            </div>
           </div>
-          <div class="governanca__celula">
+          <div class="equipe__linha">
             <p class="cargo">Coordenação de comunicação</p>
-            <div class="pessoa"><img class="pessoa__foto" src="assets/equipe/lauany-schultz.jpg" alt="" width="400" height="400"><p class="nome">Lauany Schultz</p></div>
-            <div class="pessoa"><img class="pessoa__foto" src="assets/equipe/matheus-oliveira.jpg" alt="" width="400" height="400"><p class="nome">Matheus Oliveira</p></div>
-            <div class="pessoa"><img class="pessoa__foto" src="assets/equipe/julia-mansur.jpg" alt="" width="400" height="400"><p class="nome">Júlia Mansur</p></div>
-            <div class="pessoa"><img class="pessoa__foto" src="assets/equipe/mateus-bunde.jpg" alt="" width="400" height="400"><p class="nome">Mateus Bunde</p></div>
+            <div class="equipe__pessoas">
+              <div class="pessoa"><img class="pessoa__foto" src="assets/equipe/lauany-schultz.jpg" alt="" width="400" height="400"><p class="nome">Lauany Schultz</p></div>
+              <div class="pessoa"><img class="pessoa__foto" src="assets/equipe/matheus-oliveira.jpg" alt="" width="400" height="400"><p class="nome">Matheus Oliveira</p></div>
+              <div class="pessoa"><img class="pessoa__foto" src="assets/equipe/julia-mansur.jpg" alt="" width="400" height="400"><p class="nome">Júlia Mansur</p></div>
+              <div class="pessoa"><img class="pessoa__foto" src="assets/equipe/mateus-bunde.jpg" alt="" width="400" height="400"><p class="nome">Mateus Bunde</p></div>
+            </div>
           </div>
-          <div class="governanca__celula">
+          <div class="equipe__linha">
             <p class="cargo">Coordenação de mobilização</p>
-            <div class="pessoa"><span class="pessoa__foto pessoa__foto--vazia" aria-hidden="true"></span><p class="nome">Lauanny Brandão</p></div>
-            <p class="ph-chip">[PLACEHOLDER: nomes da equipe de mobilização]</p>
+            <div class="equipe__pessoas">
+              <div class="pessoa"><span class="pessoa__foto pessoa__foto--vazia" aria-hidden="true"></span><p class="nome">Lauanny Brandão</p></div>
+              <p class="ph-chip">[PLACEHOLDER: nomes da equipe de mobilização]</p>
+            </div>
           </div>
         </div>
       </div>
