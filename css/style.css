@@ -306,6 +306,18 @@ p { margin: 0; }
   }
 }
 
+.fio-leitura {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -3px;
+  height: 3px;
+  background-image: var(--grad);
+  transform: scaleX(0);
+  transform-origin: left;
+  will-change: transform;
+}
+
 /* ==========================================================================
    Hero: a arte da sombra longa vive dentro de um quadro, cortada pela
    borda esquerda interna (nunca solta, nunca sangrando a viewport)
@@ -392,6 +404,14 @@ p { margin: 0; }
   border-bottom: 3px solid transparent;
 }
 .faixa__trilho a:hover { border-bottom-color: var(--rosa); }
+
+.faixa__trilho a[aria-current] {
+  border-bottom-color: transparent;
+  background-image: var(--grad);
+  background-repeat: no-repeat;
+  background-size: 100% 3px;
+  background-position: bottom;
+}
 
 @media (max-width: 600px) {
   .faixa__trilho {
@@ -488,12 +508,14 @@ p { margin: 0; }
   line-height: 1;
   color: var(--tinta);
   margin-bottom: 0.5rem;
+  transition: color 0.35s ease;
 }
 @supports (-webkit-text-stroke: 2px #000) {
   .bloco__numero {
     color: transparent;
     -webkit-text-stroke: 2px var(--tinta);
   }
+  .bloco--lido .bloco__numero { color: var(--tinta); }
 }
 
 .bloco__titulo {
@@ -616,46 +638,139 @@ p { margin: 0; }
 .bloco__acao { margin-top: 1.3rem; }
 
 /* ==========================================================================
-   O que defendemos: cinco agendas
+   O que defendemos: fileiras que crescem no hover, toque ou foco
    ========================================================================== */
 
-.agendas {
-  list-style: none;
-  margin: 1.8rem 0 0;
-  padding: 0;
+.eixos { margin-top: 1.8rem; }
+
+.eixo { border-top: var(--fio); }
+.eixo:last-child { border-bottom: var(--fio); }
+
+.eixo__topo {
   display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  grid-template-columns: auto 1fr auto auto;
+  align-items: center;
+  gap: 1.1rem;
+  width: 100%;
+  padding: 0.9rem 0.2rem;
+  background: none;
+  border: none;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
 }
 
-.agenda {
-  background: var(--branco);
-  border: var(--fio);
-  border-radius: 18px;
-  padding: 1.2rem 1.1rem;
-}
-
-.agenda::before {
+.eixo__topo::before {
   content: "";
-  display: block;
   width: 14px;
   height: 14px;
   border-radius: 5px;
   border: 2px solid var(--preto);
   background-image: var(--grad);
-  margin-bottom: 0.7rem;
 }
 
-.agenda__titulo {
+.eixo__titulo {
   font-family: var(--fonte-titulo);
   font-weight: 700;
-  font-size: 1.1rem;
-  margin-bottom: 0.25rem;
+  font-size: clamp(1.2rem, 2.4vw, 1.5rem);
+  line-height: 1.2;
 }
 
-.agenda p {
-  font-size: 0.9rem;
-  color: rgba(16, 0, 35, 0.75);
+.eixo__thumb {
+  width: 3.4rem;
+  height: 3.4rem;
+  object-fit: cover;
+  border: 2px solid var(--preto);
+  border-radius: 10px;
+  transition: opacity 0.25s ease;
+}
+
+.eixo__seta {
+  width: 2.2rem;
+  height: 2.2rem;
+  border: 3px solid var(--preto);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-family: var(--fonte-titulo);
+  font-weight: 800;
+  font-size: 1.25rem;
+  line-height: 1;
+  transition: transform 0.25s ease, background-color 0.15s ease;
+}
+
+.eixo__mais {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s ease;
+}
+
+.eixo__conteudo {
+  overflow: hidden;
+  min-height: 0;
+}
+
+.eixo:hover .eixo__mais,
+.eixo:focus-within .eixo__mais,
+.eixo[data-aberto="true"] .eixo__mais { grid-template-rows: 1fr; }
+
+.eixo:hover .eixo__seta,
+.eixo:focus-within .eixo__seta,
+.eixo[data-aberto="true"] .eixo__seta {
+  transform: rotate(45deg);
+  background-image: var(--grad);
+}
+
+.eixo:hover .eixo__thumb,
+.eixo:focus-within .eixo__thumb,
+.eixo[data-aberto="true"] .eixo__thumb { opacity: 0; }
+
+.eixo__grade {
+  display: grid;
+  gap: 1.3rem;
+  padding: 0.3rem 0.2rem 1.6rem;
+}
+
+@media (min-width: 900px) {
+  .eixo__grade {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    align-items: center;
+  }
+}
+
+.eixo__grade p { color: rgba(16, 0, 35, 0.85); }
+
+.eixo__jogo { margin-top: 0.8rem; font-weight: 600; }
+
+.eixo__jogo span {
+  font-family: var(--fonte-dizeres);
+  font-size: 0.95rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-right: 0.5rem;
+  color: var(--rosa);
+}
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .eixo__jogo span {
+    background-image: var(--grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}
+
+.eixo__imagem {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 2px solid var(--preto);
+  border-radius: 14px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .eixo__mais, .eixo__seta, .eixo__thumb { transition: none; }
 }
 
 /* ==========================================================================
@@ -694,6 +809,46 @@ p { margin: 0; }
   font-size: 0.95rem;
   color: rgba(16, 0, 35, 0.75);
   margin-top: 0.25rem;
+}
+
+.porta__assunto {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition: grid-template-rows 0.25s ease, opacity 0.2s ease 0.05s;
+}
+.porta__assunto > span {
+  display: block;
+  overflow: hidden;
+  min-height: 0;
+  font-family: var(--fonte-dizeres);
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  padding-top: 0.45rem;
+  color: rgba(16, 0, 35, 0.8);
+}
+.porta__assunto b {
+  font-weight: 400;
+  color: var(--rosa);
+}
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .porta__assunto b {
+    background-image: var(--grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}
+.porta:hover .porta__assunto,
+.porta:focus-visible .porta__assunto {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+@media (hover: none) {
+  .porta__assunto { grid-template-rows: 1fr; opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .porta__assunto, .bloco__numero { transition: none; }
 }
 
 .porta__disco {

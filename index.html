@@ -20,7 +20,7 @@
   <link rel="icon" type="image/png" sizes="64x64" href="assets/favicon-64.png">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 
-  <link rel="stylesheet" href="css/style.css?v=20">
+  <link rel="stylesheet" href="css/style.css?v=22">
 
   <!-- Analytics sem cookies: preparado, desativado. Descomente e ajuste o domínio quando ativar.
   <script defer data-domain="[PLACEHOLDER: domínio]" src="https://plausible.io/js/script.js"></script>
@@ -50,6 +50,7 @@
         <li><a href="#contato">Contato</a></li>
       </ul>
     </nav>
+    <div class="fio-leitura" aria-hidden="true"></div>
   </header>
 
   <main id="inicio">
@@ -164,28 +165,98 @@
         </div>
         <p class="apoio">Cinco agendas orientam as conversas do hub.</p>
 
-        <ul class="agendas">
-          <li class="agenda">
-            <h3 class="agenda__titulo">Vida e cuidado</h3>
-            <p>Saúde, cuidado e qualidade de vida.</p>
-          </li>
-          <li class="agenda">
-            <h3 class="agenda__titulo">Educação e futuro</h3>
-            <p>Escola, conhecimento e oportunidade.</p>
-          </li>
-          <li class="agenda">
-            <h3 class="agenda__titulo">Soberania e segurança</h3>
-            <p>Autonomia do país e segurança das pessoas.</p>
-          </li>
-          <li class="agenda">
-            <h3 class="agenda__titulo">Trabalho e prosperidade</h3>
-            <p>Renda, direitos e futuro do trabalho.</p>
-          </li>
-          <li class="agenda">
-            <h3 class="agenda__titulo">Território e natureza</h3>
-            <p>Clima, biomas e a vida em cada lugar.</p>
-          </li>
-        </ul>
+        <div class="eixos">
+          <div class="eixo">
+            <button class="eixo__topo" aria-expanded="false" aria-controls="eixo-vida">
+              <span class="eixo__titulo">Vida e cuidado</span>
+              <img class="eixo__thumb" src="assets/fotos/eixo-vida-thumb.jpg" alt="" width="240" height="240" loading="lazy">
+              <span class="eixo__seta" aria-hidden="true">+</span>
+            </button>
+            <div class="eixo__mais" id="eixo-vida">
+              <div class="eixo__conteudo">
+                <div class="eixo__grade">
+                  <div>
+                    <p>Saúde, proteção e bem-estar de crianças, adolescentes e famílias: a vacina do SUS, o Bolsa Família, a merenda escolar, a proteção contra a violência. O cuidado é um trabalho que sustenta a sociedade inteira.</p>
+                    <p class="eixo__jogo"><span>Em jogo</span> o cuidado como direito essencial e como trabalho reconhecido.</p>
+                  </div>
+                  <img class="eixo__imagem" src="assets/fotos/eixo-vida.jpg" alt="" width="960" height="360" loading="lazy">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="eixo">
+            <button class="eixo__topo" aria-expanded="false" aria-controls="eixo-educacao">
+              <span class="eixo__titulo">Educação e futuro</span>
+              <img class="eixo__thumb" src="assets/fotos/eixo-educacao-thumb.jpg" alt="" width="240" height="240" loading="lazy">
+              <span class="eixo__seta" aria-hidden="true">+</span>
+            </button>
+            <div class="eixo__mais" id="eixo-educacao">
+              <div class="eixo__conteudo">
+                <div class="eixo__grade">
+                  <div>
+                    <p>Nenhuma criança e nenhum jovem é descartável. Ensino básico, técnico e superior como caminhos reais para o trabalho decente. Professores e pesquisadores valorizados, lazer e cultura como pilares da democracia.</p>
+                    <p class="eixo__jogo"><span>Em jogo</span> aprendizado, oportunidade concreta e o futuro do trabalho.</p>
+                  </div>
+                  <img class="eixo__imagem" src="assets/fotos/eixo-educacao.jpg" alt="" width="960" height="360" loading="lazy">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="eixo">
+            <button class="eixo__topo" aria-expanded="false" aria-controls="eixo-soberania">
+              <span class="eixo__titulo">Soberania e segurança</span>
+              <img class="eixo__thumb" src="assets/fotos/eixo-soberania-thumb.jpg" alt="" width="240" height="240" loading="lazy">
+              <span class="eixo__seta" aria-hidden="true">+</span>
+            </button>
+            <div class="eixo__mais" id="eixo-soberania">
+              <div class="eixo__conteudo">
+                <div class="eixo__grade">
+                  <div>
+                    <p>O Brasil é dono do próprio destino. Quem decide sobre a nossa economia, a nossa segurança e a nossa vida. Enfrentar o crime organizado e a tutela estrangeira, sem punir quem o crime já vitimou.</p>
+                    <p class="eixo__jogo"><span>Em jogo</span> o direito de viver sem medo e sem tutela de fora.</p>
+                  </div>
+                  <img class="eixo__imagem" src="assets/fotos/eixo-soberania.jpg" alt="" width="960" height="360" loading="lazy">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="eixo">
+            <button class="eixo__topo" aria-expanded="false" aria-controls="eixo-trabalho">
+              <span class="eixo__titulo">Trabalho e prosperidade</span>
+              <img class="eixo__thumb" src="assets/fotos/eixo-trabalho-thumb.jpg" alt="" width="240" height="240" loading="lazy">
+              <span class="eixo__seta" aria-hidden="true">+</span>
+            </button>
+            <div class="eixo__mais" id="eixo-trabalho">
+              <div class="eixo__conteudo">
+                <div class="eixo__grade">
+                  <div>
+                    <p>O trabalho deve ser vetor de uma vida melhor, não só de sobrevivência: o fim da escala 6x1, os direitos de quem é plataformizado, as bets como questão de saúde pública, e uma divisão justa de tempo e renda.</p>
+                    <p class="eixo__jogo"><span>Em jogo</span> tempo de viver melhor e corrigir a desigualdade.</p>
+                  </div>
+                  <img class="eixo__imagem" src="assets/fotos/eixo-trabalho.jpg" alt="" width="960" height="360" loading="lazy">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="eixo">
+            <button class="eixo__topo" aria-expanded="false" aria-controls="eixo-natureza">
+              <span class="eixo__titulo">Território e natureza</span>
+              <img class="eixo__thumb" src="assets/fotos/eixo-natureza-thumb.jpg" alt="" width="240" height="240" loading="lazy">
+              <span class="eixo__seta" aria-hidden="true">+</span>
+            </button>
+            <div class="eixo__mais" id="eixo-natureza">
+              <div class="eixo__conteudo">
+                <div class="eixo__grade">
+                  <div>
+                    <p>O impacto da mudança climática nas nossas vidas, mobilidade e infraestrutura, comida saudável, água limpa, energia, a defesa dos nossos biomas e dos povos originários, sem entregar a natureza para exploração das transnacionais.</p>
+                    <p class="eixo__jogo"><span>Em jogo</span> a terra, a água e os biomas que sustentam a vida de verdade.</p>
+                  </div>
+                  <img class="eixo__imagem" src="assets/fotos/eixo-natureza.jpg" alt="" width="960" height="360" loading="lazy">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -206,6 +277,7 @@
             <span class="porta__miolo">
               <span class="porta__titulo">Quero entrar na comunidade</span>
               <span class="porta__desc">Para acompanhar as conversas e participar das ações.</span>
+              <span class="porta__assunto"><span><b>assunto:</b> Quero entrar na comunidade</span></span>
             </span>
             <span class="porta__disco" aria-hidden="true">&rarr;</span>
           </a>
@@ -213,6 +285,7 @@
             <span class="porta__miolo">
               <span class="porta__titulo">Sou influenciador e quero participar</span>
               <span class="porta__desc">Para quem cria conteúdo e quer integrar a rede.</span>
+              <span class="porta__assunto"><span><b>assunto:</b> Sou influenciador e quero participar</span></span>
             </span>
             <span class="porta__disco" aria-hidden="true">&rarr;</span>
           </a>
@@ -220,6 +293,7 @@
             <span class="porta__miolo">
               <span class="porta__titulo">Quero promover um evento</span>
               <span class="porta__desc">Para quem quer organizar um encontro onde vive.</span>
+              <span class="porta__assunto"><span><b>assunto:</b> Quero promover um evento</span></span>
             </span>
             <span class="porta__disco" aria-hidden="true">&rarr;</span>
           </a>
@@ -309,6 +383,6 @@
     </div>
   </footer>
 
-  <script src="js/main.js?v=6"></script>
+  <script src="js/main.js?v=7"></script>
 </body>
 </html>

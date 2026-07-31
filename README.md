@@ -73,6 +73,6 @@ Quando o e-mail de contato existir, os três cards de "Portas de entrada" podem 
 
 ## Imagens genéricas
 
-As fotos em `assets/fotos/` são imagens de banco com licença CC0 (StockSnap, sem atribuição obrigatória), tratadas em duotone com as cores da marca via script: `videocast-estudio.jpg` (stocksnap.io/photo/NJCWWNF3FM), `eventos-maos.jpg` (stocksnap.io/photo/IUJP9OI22I) e `plateia.jpg` (stocksnap.io/photo/HDS6BBHIRZ). São temporárias: quando houver fotos reais do projeto (gravações, eventos), substituir mantendo o mesmo tratamento.
+As fotos em `assets/fotos/` são imagens de banco com licença CC0 (StockSnap, sem atribuição obrigatória), tratadas em duotone com as cores da marca via script: `videocast-estudio.jpg` (stocksnap.io/photo/NJCWWNF3FM), `eventos-maos.jpg` (stocksnap.io/photo/IUJP9OI22I) e `plateia.jpg` (stocksnap.io/photo/HDS6BBHIRZ); eixos de O que defendemos: JS1XAXLBPF (vida), 1KOT8HDPAX (educação), 1FA263F8AF (soberania), BZ4FJO6KZE (trabalho) e ADB384A0E3 (natureza), cada um em miniatura e imagem larga. São temporárias: quando houver fotos reais do projeto (gravações, eventos), substituir mantendo o mesmo tratamento.
 
 O kit oficial da marca está completo em `assets/marca/` (S e wordmark nas versões escura, branca, degradê, contorno e badge; sombra longa em `assets/logo-smt.png`). Favicon, apple-touch-icon e og.png são gerados a partir dele.
