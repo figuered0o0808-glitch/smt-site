@@ -1,0 +1,904 @@
+/* ==========================================================================
+   Silent Majority Talks
+   Sistema: linhas pretas 3px como organizador; molduras sticker (borda preta,
+   sombra dura para baixo-esquerda, como a sombra do logo); degradê da marca
+   só em dizeres, chips e fios; base branca, tinta #100023, escuro no fecho.
+   ========================================================================== */
+
+/* ---- Fontes self-hosted (zero requisição externa) ---- */
+
+@font-face {
+  font-family: "Baloo 2";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../assets/fonts/baloo2-600.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Baloo 2";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../assets/fonts/baloo2-700.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Baloo 2";
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("../assets/fonts/baloo2-800.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../assets/fonts/inter-400.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../assets/fonts/inter-500.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../assets/fonts/inter-700.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Bebas Neue";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../assets/fonts/bebasneue-400.woff2") format("woff2");
+}
+
+/* ---- Tema ---- */
+
+:root {
+  --tinta: #100023;
+  --preto: #000000;
+  --branco: #ffffff;
+  --rosa: #ff00fa;
+  --azul: #11cae2;
+  --grad: linear-gradient(135deg, var(--rosa), var(--azul));
+
+  --fonte-titulo: "Baloo 2", "Avenir Next", system-ui, sans-serif;
+  --fonte-dizeres: "Bebas Neue", "Baloo 2", system-ui, sans-serif;
+  --fonte-texto: "Inter", system-ui, -apple-system, sans-serif;
+
+  --fio: 3px solid var(--preto);
+  --sombra-repouso: -6px 6px 0 var(--preto);
+  --sombra-alta: -9px 9px 0 var(--preto);
+  --sombra-baixa: -3px 3px 0 var(--preto);
+  --listras: repeating-linear-gradient(45deg, rgba(16, 0, 35, 0.05) 0 14px, transparent 14px 28px);
+}
+
+/* ---- Base ---- */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+body {
+  margin: 0;
+  font-family: var(--fonte-texto);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--tinta);
+  background: var(--branco);
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; height: auto; }
+
+h1, h2, h3 { margin: 0; }
+p { margin: 0; }
+
+.container {
+  width: min(100% - 2.5rem, 68rem);
+  margin-inline: auto;
+}
+
+.visualmente-oculto {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.pular {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 100;
+  background: var(--tinta);
+  color: var(--branco);
+  padding: 0.6rem 1.2rem;
+  border-radius: 0 0 12px 12px;
+  text-decoration: none;
+  transition: top 0.2s ease;
+}
+.pular:focus { top: 0; }
+
+::selection { background: var(--rosa); color: var(--branco); }
+
+:focus-visible {
+  outline: 3px solid var(--preto);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+.secao-escura :focus-visible,
+.rodape :focus-visible,
+.faixa :focus-visible { outline-color: var(--branco); }
+
+/* ---- Interação única dos elementos sticker clicáveis ---- */
+
+.apertavel {
+  box-shadow: var(--sombra-repouso);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+.apertavel:hover {
+  transform: translate(3px, -3px);
+  box-shadow: var(--sombra-alta);
+}
+.apertavel:active {
+  transform: translate(-3px, 3px);
+  box-shadow: var(--sombra-baixa);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .apertavel { transition: none; }
+}
+
+/* ---- Botões ---- */
+
+.botao {
+  display: inline-block;
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+  font-size: 1.02rem;
+  color: var(--tinta);
+  text-decoration: none;
+  padding: 0.72rem 1.5rem;
+  border: var(--fio);
+  border-radius: 999px;
+}
+.botao--grad { background-image: var(--grad); }
+.botao--linha { background: var(--branco); }
+
+/* ---- Chip de placeholder (herda a cor do contexto) ---- */
+
+.ph-chip {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border: 2px dashed currentColor;
+  border-radius: 999px;
+  padding: 0.3rem 0.8rem;
+  opacity: 0.65;
+}
+
+/* ==========================================================================
+   Topo
+   ========================================================================== */
+
+.topo {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--branco);
+  border-bottom: var(--fio);
+}
+
+.topo__nav {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 0.7rem;
+}
+
+.topo__marca {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--tinta);
+}
+
+.topo__s { width: 1.7rem; height: auto; flex-shrink: 0; }
+
+.topo__nome {
+  font-family: var(--fonte-dizeres);
+  font-size: 1.2rem;
+  letter-spacing: 0.06em;
+}
+
+.topo__menu-botao {
+  display: grid;
+  gap: 5px;
+  padding: 0.65rem;
+  background: transparent;
+  border: 2px solid var(--preto);
+  border-radius: 10px;
+  cursor: pointer;
+}
+.topo__menu-linha {
+  display: block;
+  width: 20px;
+  height: 2.5px;
+  border-radius: 2px;
+  background: var(--tinta);
+}
+
+.topo__links {
+  list-style: none;
+  margin: 0;
+  padding: 1rem 1.25rem 1.5rem;
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  flex-direction: column;
+  gap: 0.3rem;
+  background: var(--tinta);
+  border-bottom: var(--fio);
+}
+.topo__links.aberto { display: flex; }
+
+.topo__links a {
+  position: relative;
+  display: inline-block;
+  font-family: var(--fonte-dizeres);
+  font-size: 1.35rem;
+  letter-spacing: 0.08em;
+  color: var(--branco);
+  text-decoration: none;
+  padding: 0.4rem 0.1rem;
+}
+
+.topo__links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  background-image: var(--grad);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.15s ease;
+}
+.topo__links a:hover::after,
+.topo__links a:focus-visible::after { transform: scaleX(1); }
+
+@media (min-width: 760px) {
+  .topo__menu-botao { display: none; }
+  .topo__links {
+    display: flex;
+    position: static;
+    flex-direction: row;
+    gap: 1.6rem;
+    padding: 0;
+    background: transparent;
+    border-bottom: none;
+  }
+  .topo__links a {
+    font-size: 1.05rem;
+    color: var(--tinta);
+  }
+}
+
+/* ==========================================================================
+   Hero: a arte da sombra longa vive dentro de um quadro, cortada pela
+   borda esquerda interna (nunca solta, nunca sangrando a viewport)
+   ========================================================================== */
+
+.hero { padding-block: 2rem 3.5rem; }
+
+.hero__quadro {
+  background: var(--branco);
+  border: var(--fio);
+  border-radius: 26px;
+  overflow: hidden;
+  box-shadow: -8px 8px 0 var(--preto);
+  display: grid;
+}
+
+.hero__arte {
+  display: flex;
+  align-items: center;
+  border-bottom: var(--fio);
+  padding-block: 1.2rem;
+}
+.hero__arte img { display: block; width: 100%; }
+
+.hero__texto { padding: clamp(1.5rem, 4vw, 2.6rem); }
+
+.hero__traducao {
+  font-style: italic;
+  font-size: 0.85rem;
+  color: rgba(16, 0, 35, 0.6);
+  margin-bottom: 1rem;
+}
+
+.hero__titulo {
+  font-family: var(--fonte-titulo);
+  font-weight: 800;
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+  margin-bottom: 1.7rem;
+}
+
+.hero__botoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+@media (min-width: 900px) {
+  .hero__quadro { grid-template-columns: 42% 1fr; }
+  .hero__arte {
+    border-bottom: none;
+    border-right: var(--fio);
+    padding-block: 0;
+  }
+  .hero__texto { align-self: center; }
+}
+
+/* ==========================================================================
+   Faixa-índice
+   ========================================================================== */
+
+.faixa {
+  background: var(--tinta);
+  border-bottom: var(--fio);
+}
+
+.faixa__trilho {
+  display: flex;
+  gap: 2.4rem;
+  padding-block: 0.85rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.faixa__trilho::-webkit-scrollbar { display: none; }
+
+.faixa__trilho a {
+  font-family: var(--fonte-dizeres);
+  font-size: 1.05rem;
+  letter-spacing: 0.12em;
+  color: var(--branco);
+  text-decoration: none;
+  white-space: nowrap;
+  border-bottom: 3px solid transparent;
+}
+.faixa__trilho a:hover { border-bottom-color: var(--rosa); }
+
+@media (max-width: 600px) {
+  .faixa__trilho {
+    -webkit-mask-image: linear-gradient(90deg, #000 0%, #000 88%, transparent);
+    mask-image: linear-gradient(90deg, #000 0%, #000 88%, transparent);
+    padding-right: 2.5rem;
+  }
+}
+
+/* ==========================================================================
+   Cabeçalho de seção: dizer em degradê + fio até a borda
+   ========================================================================== */
+
+.cabeca {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+.cabeca::after {
+  content: "";
+  flex: 1;
+  height: 3px;
+  background: var(--preto);
+}
+.cabeca--escura::after {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.45);
+}
+
+.dizer {
+  font-family: var(--fonte-dizeres);
+  font-weight: 400;
+  font-size: 1.4rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--rosa);
+}
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .dizer {
+    background-image: var(--grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}
+
+.apoio {
+  font-size: 1.05rem;
+  color: rgba(16, 0, 35, 0.8);
+  margin-top: 0.9rem;
+}
+.apoio--escuro { color: rgba(255, 255, 255, 0.85); }
+
+/* ==========================================================================
+   Seções e blocos de "O que fazemos"
+   ========================================================================== */
+
+.secao {
+  padding-block: 3.2rem 4rem;
+  scroll-margin-top: 4.5rem;
+}
+
+.secao--fio { border-top: var(--fio); }
+
+.secao-escura {
+  background: var(--tinta);
+  color: var(--branco);
+}
+
+.bloco {
+  border-top: var(--fio);
+  margin-top: 2.4rem;
+  scroll-margin-top: 4.5rem;
+}
+.bloco:first-of-type { margin-top: 2rem; }
+
+.bloco__grade {
+  display: grid;
+  gap: 1.6rem;
+  padding-block: 2.2rem 2.6rem;
+}
+
+@media (min-width: 900px) {
+  .bloco__grade {
+    grid-template-columns: 5fr 7fr;
+    gap: 3.5rem;
+    align-items: center;
+  }
+}
+
+.bloco__numero {
+  font-family: var(--fonte-dizeres);
+  font-size: 3.2rem;
+  line-height: 1;
+  color: var(--tinta);
+  margin-bottom: 0.5rem;
+}
+@supports (-webkit-text-stroke: 2px #000) {
+  .bloco__numero {
+    color: transparent;
+    -webkit-text-stroke: 2px var(--tinta);
+  }
+}
+
+.bloco__titulo {
+  font-family: var(--fonte-titulo);
+  font-weight: 800;
+  font-size: 1.6rem;
+  margin-bottom: 0.4rem;
+}
+
+.bloco__info > p:last-child { color: rgba(16, 0, 35, 0.8); }
+
+/* ---- Molduras de mídia no formato do conteúdo real ---- */
+
+.midia {
+  position: relative;
+  border: var(--fio);
+  border-radius: 18px;
+  background-color: var(--branco);
+  background-image: var(--listras);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.midia--tela { aspect-ratio: 16 / 9; }
+
+.midia--agenda {
+  min-height: 5.5rem;
+  padding: 1.2rem;
+}
+
+.midia--feed {
+  grid-template-columns: repeat(3, 1fr);
+  place-items: stretch;
+  gap: 10px;
+  padding: 12px;
+}
+
+.midia__tile {
+  aspect-ratio: 4 / 5;
+  border: 2px dashed rgba(16, 0, 35, 0.3);
+  border-radius: 10px;
+  background-image: var(--listras);
+}
+
+.midia--conversa {
+  grid-template-columns: 1fr;
+  place-items: stretch;
+  gap: 10px;
+  padding: 1.1rem 1.2rem;
+}
+
+.midia__balao {
+  height: 2.5rem;
+  width: 68%;
+  border: 2px dashed rgba(16, 0, 35, 0.3);
+  border-radius: 999px;
+  border-bottom-left-radius: 8px;
+  background-image: var(--listras);
+}
+
+.midia__balao--dir {
+  justify-self: end;
+  width: 55%;
+  border-bottom-left-radius: 999px;
+  border-bottom-right-radius: 8px;
+}
+
+.midia--conversa .midia__chip {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.midia__chip {
+  font-family: var(--fonte-dizeres);
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  background: var(--branco);
+  border: 2px dashed rgba(16, 0, 35, 0.5);
+  border-radius: 999px;
+  padding: 0.5rem 1rem;
+  color: rgba(16, 0, 35, 0.78);
+  text-align: center;
+  max-width: 88%;
+  z-index: 1;
+}
+
+.midia--feed .midia__chip {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@media (max-width: 359px) {
+  .midia--feed { grid-template-columns: 1fr; }
+  .midia__tile { aspect-ratio: 16 / 7; }
+}
+
+.bloco__acao { margin-top: 1.3rem; }
+
+/* ==========================================================================
+   O que defendemos: cinco agendas
+   ========================================================================== */
+
+.agendas {
+  list-style: none;
+  margin: 1.8rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+}
+
+.agenda {
+  background: var(--branco);
+  border: var(--fio);
+  border-radius: 18px;
+  padding: 1.2rem 1.1rem;
+}
+
+.agenda::before {
+  content: "";
+  display: block;
+  width: 14px;
+  height: 14px;
+  border-radius: 5px;
+  border: 2px solid var(--preto);
+  background-image: var(--grad);
+  margin-bottom: 0.7rem;
+}
+
+.agenda__titulo {
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 0.25rem;
+}
+
+.agenda p {
+  font-size: 0.9rem;
+  color: rgba(16, 0, 35, 0.75);
+}
+
+/* ==========================================================================
+   Participe: portas-cartaz
+   ========================================================================== */
+
+.portas {
+  margin-top: 1.8rem;
+  display: grid;
+  gap: 1.3rem;
+}
+
+.porta {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 1.3rem;
+  background: var(--branco);
+  border: var(--fio);
+  border-radius: 22px;
+  padding: 1.4rem 1.5rem;
+  text-decoration: none;
+  color: var(--tinta);
+}
+
+.porta__titulo {
+  display: block;
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+  font-size: clamp(1.25rem, 2.6vw, 1.55rem);
+  line-height: 1.2;
+}
+
+.porta__desc {
+  display: block;
+  font-size: 0.95rem;
+  color: rgba(16, 0, 35, 0.75);
+  margin-top: 0.25rem;
+}
+
+.porta__disco {
+  width: 3.2rem;
+  height: 3.2rem;
+  border: 3px solid var(--preto);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-family: var(--fonte-titulo);
+  font-weight: 800;
+  font-size: 1.35rem;
+  transition: background-color 0.15s ease;
+}
+.porta:hover .porta__disco,
+.porta:focus-visible .porta__disco { background-image: var(--grad); }
+
+/* ==========================================================================
+   Quem faz: governança emoldurada
+   ========================================================================== */
+
+.governanca {
+  margin-top: 1.8rem;
+  background: var(--branco);
+  border: var(--fio);
+  border-radius: 22px;
+  box-shadow: var(--sombra-repouso);
+  overflow: hidden;
+  display: grid;
+}
+
+.governanca__celula {
+  padding: 1.5rem;
+  border-top: 1px solid rgba(16, 0, 35, 0.2);
+}
+.governanca__celula:first-child { border-top: none; }
+
+@media (min-width: 900px) {
+  .governanca { grid-template-columns: repeat(3, 1fr); }
+  .governanca__celula {
+    border-top: none;
+    border-left: 1px solid rgba(16, 0, 35, 0.2);
+  }
+  .governanca__celula:first-child { border-left: none; }
+}
+
+.cargo {
+  display: inline-block;
+  background: var(--tinta);
+  color: var(--branco);
+  font-family: var(--fonte-dizeres);
+  font-size: 0.95rem;
+  letter-spacing: 0.1em;
+  padding: 0.3rem 0.9rem;
+  border-radius: 999px;
+  margin-bottom: 0.9rem;
+}
+
+.nome {
+  font-weight: 600;
+  font-size: 1.05rem;
+  margin-bottom: 0.35rem;
+}
+
+.governanca .ph-chip { margin-top: 0.2rem; }
+
+/* ==========================================================================
+   Contato: fecho escuro
+   ========================================================================== */
+
+.chips {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  padding: 0;
+  margin: 1.5rem 0 0;
+}
+
+.chips li {
+  font-family: var(--fonte-dizeres);
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+  border: 2px solid var(--branco);
+  border-radius: 999px;
+  padding: 0.35rem 1rem;
+}
+
+.contato__email {
+  display: inline-block;
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+  font-size: clamp(1.1rem, 3vw, 1.55rem);
+  border: 2px dashed rgba(255, 255, 255, 0.85);
+  border-radius: 16px;
+  padding: 1.1rem 1.5rem;
+  margin: 1.6rem 0 1.4rem;
+}
+
+.contato__nota {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 34rem;
+}
+
+/* ==========================================================================
+   Rodapé
+   ========================================================================== */
+
+.rodape {
+  background: var(--tinta);
+  color: var(--branco);
+  padding-bottom: 2.5rem;
+}
+
+.rodape__fio {
+  height: 3px;
+  background-image: var(--grad);
+}
+
+.rodape .container { padding-top: 2.8rem; }
+
+.rodape__marca {
+  display: block;
+  width: min(220px, 60%);
+  height: auto;
+  margin-bottom: 2.2rem;
+}
+
+.rodape__colunas {
+  display: grid;
+  gap: 2.2rem;
+  margin-bottom: 2.4rem;
+}
+@media (min-width: 760px) {
+  .rodape__colunas { grid-template-columns: 2fr 1fr; }
+}
+
+.rodape__titulo {
+  font-family: var(--fonte-dizeres);
+  font-weight: 400;
+  font-size: 1.05rem;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 0.9rem;
+}
+
+.rodape__logos {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(8.5rem, 1fr));
+  gap: 0.8rem;
+}
+
+.rodape__logos li {
+  border: 2px solid rgba(255, 255, 255, 0.85);
+  border-radius: 14px;
+  padding: 0.9rem 0.6rem;
+  text-align: center;
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+.rodape__logos .ph-chip { margin-top: 0.4rem; font-weight: 400; }
+
+.rodape__redes {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.6rem;
+}
+
+.rodape__privacidade {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.rodape__assinatura {
+  font-family: var(--fonte-titulo);
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-top: 1rem;
+}
+
+/* ==========================================================================
+   Página 404
+   ========================================================================== */
+
+.pagina-404 {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.5rem;
+  padding-block: 4rem;
+}
+
+.pagina-404__numero {
+  font-family: var(--fonte-titulo);
+  font-weight: 800;
+  font-size: clamp(5rem, 25vw, 9rem);
+  line-height: 1;
+  color: var(--rosa);
+}
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .pagina-404__numero {
+    background-image: var(--grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}
+
+.pagina-404 h1 {
+  font-family: var(--fonte-titulo);
+  font-weight: 800;
+  font-size: clamp(1.6rem, 5vw, 2.2rem);
+}
+
+.pagina-404 p { max-width: 34rem; }
+
+.pagina-404 .botao { margin-top: 1.2rem; }
