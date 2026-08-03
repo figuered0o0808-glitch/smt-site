@@ -65,6 +65,17 @@ if (fioLeitura) {
   atualizar();
 }
 
+// Publicações do Instagram: só carrega conteúdo da Meta quando a pessoa pede
+const carregarIg = document.querySelector(".midia__carregar");
+if (carregarIg) {
+  carregarIg.addEventListener("click", () => {
+    const moldura = carregarIg.closest(".midia");
+    moldura.classList.remove("midia--feed");
+    moldura.classList.add("midia--ig");
+    moldura.innerHTML = '<iframe class="midia__iframe" src="https://www.instagram.com/semetatambem/embed/" title="Publicações do Instagram do SMT" loading="lazy"></iframe>';
+  });
+}
+
 // Para quem espia o código
 console.log(
   "%cSe Meta Também",

@@ -20,7 +20,7 @@
   <link rel="icon" type="image/png" sizes="64x64" href="assets/favicon-64.png">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 
-  <link rel="stylesheet" href="css/style.css?v=23">
+  <link rel="stylesheet" href="css/style.css?v=25">
 
   <!-- Analytics sem cookies: preparado, desativado. Descomente e ajuste o domínio quando ativar.
   <script defer data-domain="[PLACEHOLDER: domínio]" src="https://plausible.io/js/script.js"></script>
@@ -46,7 +46,6 @@
         <li><a href="#o-que-fazemos">O que fazemos</a></li>
         <li><a href="#defendemos">O que defendemos</a></li>
         <li><a href="#participe">Participe</a></li>
-        <li><a href="#quem-faz">Quem faz</a></li>
         <li><a href="#contato">Contato</a></li>
       </ul>
     </nav>
@@ -106,7 +105,10 @@
             <span class="midia__tile" aria-hidden="true"></span>
             <span class="midia__tile" aria-hidden="true"></span>
             <span class="midia__tile" aria-hidden="true"></span>
-            <span class="midia__chip">[PLACEHOLDER: últimas postagens]</span>
+            <span class="midia__cta">
+              <button class="botao botao--linha apertavel midia__carregar" type="button">Ver as publicações</button>
+              <span class="midia__nota">Carrega conteúdo do Instagram (Meta) só quando você pedir.</span>
+            </span>
           </div>
         </div>
       </article>
@@ -285,40 +287,6 @@
       </div>
     </section>
 
-    <!-- ============ QUEM FAZ ============ -->
-    <section class="secao secao--fio" id="quem-faz" aria-labelledby="titulo-quem-faz">
-      <div class="container">
-        <div class="cabeca">
-          <h2 id="titulo-quem-faz" class="dizer">Quem faz</h2>
-        </div>
-        <div class="equipe">
-          <div class="equipe__linha">
-            <p class="cargo cargo--direcao">Direção executiva</p>
-            <div class="equipe__pessoas">
-              <div class="pessoa"><img class="pessoa__foto" src="assets/equipe/francisco-figueiredo.jpg" alt="" width="400" height="400"><p class="nome">Francisco Figueiredo</p></div>
-              <div class="pessoa"><img class="pessoa__foto" src="assets/equipe/luma-albuquerque.jpg" alt="" width="400" height="400"><p class="nome">Luma Albuquerque</p></div>
-            </div>
-          </div>
-          <div class="equipe__linha">
-            <p class="cargo">Coordenação de comunicação</p>
-            <div class="equipe__pessoas">
-              <div class="pessoa"><img class="pessoa__foto" src="assets/equipe/lauany-schultz.jpg" alt="" width="400" height="400"><p class="nome">Lauany Schultz</p></div>
-              <div class="pessoa"><img class="pessoa__foto" src="assets/equipe/matheus-oliveira.jpg" alt="" width="400" height="400"><p class="nome">Matheus Oliveira</p></div>
-              <div class="pessoa"><img class="pessoa__foto" src="assets/equipe/julia-mansur.jpg" alt="" width="400" height="400"><p class="nome">Júlia Mansur</p></div>
-              <div class="pessoa"><img class="pessoa__foto" src="assets/equipe/mateus-bunde.jpg" alt="" width="400" height="400"><p class="nome">Mateus Bunde</p></div>
-            </div>
-          </div>
-          <div class="equipe__linha">
-            <p class="cargo">Coordenação de mobilização</p>
-            <div class="equipe__pessoas">
-              <div class="pessoa"><span class="pessoa__foto pessoa__foto--vazia" aria-hidden="true"></span><p class="nome">Lauanny Brandão</p></div>
-              <p class="ph-chip">[PLACEHOLDER: nomes da equipe de mobilização]</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- ============ CONTATO ============ -->
     <section class="secao secao-escura" id="contato" aria-labelledby="titulo-contato">
       <div class="container">
@@ -343,30 +311,19 @@
     <div class="container">
       <img class="rodape__marca" src="assets/marca/smt-branco.png" alt="Silent Majority Talks" width="825" height="247" loading="lazy">
       <p class="rodape__iniciativa">Uma iniciativa da agência <img src="assets/marca/indica-branco.png" alt="INDICA" width="3228" height="968" loading="lazy"></p>
-      <div class="rodape__colunas">
-        <div>
-          <h3 class="rodape__titulo">Núcleo de gestão</h3>
-          <ul class="rodape__logos">
-            <li>GSCC<br><span class="ph-chip">[PLACEHOLDER: logo]</span></li>
-            <li>ClimaInfo<br><span class="ph-chip">[PLACEHOLDER: logo]</span></li>
-            <li class="rodape__logo-real"><img src="assets/marca/indica-branco.png" alt="INDICA" width="3228" height="968" loading="lazy"></li>
-            <li><span class="ph-chip">[PLACEHOLDER: logo de parceiro]</span></li>
-          </ul>
-        </div>
-        <div>
-          <h3 class="rodape__titulo">Redes</h3>
-          <ul class="rodape__redes">
-            <li><a class="rodape__link" href="https://www.instagram.com/semetatambem" target="_blank" rel="noopener">Instagram: @semetatambem</a></li>
-            <li><span class="ph-chip">[PLACEHOLDER: link do TikTok]</span></li>
-            <li><span class="ph-chip">[PLACEHOLDER: link do YouTube]</span></li>
-          </ul>
-        </div>
+      <div class="rodape__bloco">
+        <h3 class="rodape__titulo">Redes</h3>
+        <ul class="rodape__redes">
+          <li><a class="rodape__link" href="https://www.instagram.com/semetatambem" target="_blank" rel="noopener">Instagram: @semetatambem</a></li>
+          <li><span class="ph-chip">[PLACEHOLDER: link do TikTok]</span></li>
+          <li><span class="ph-chip">[PLACEHOLDER: link do YouTube]</span></li>
+        </ul>
       </div>
       <p class="rodape__privacidade">Este site não usa cookies de rastreamento nem pixels de publicidade.</p>
       <p class="rodape__assinatura">Silent Majority Talks, 2026. Se meta também.</p>
     </div>
   </footer>
 
-  <script src="js/main.js?v=7"></script>
+  <script src="js/main.js?v=8"></script>
 </body>
 </html>
