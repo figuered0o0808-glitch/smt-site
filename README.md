@@ -58,7 +58,7 @@ Após o deploy, preencha o `og:url` no `<head>` com o domínio final.
 ## Placeholders pendentes
 
 1. **E-mail de contato**: seção Contato (`#contato`), console do navegador (`js/main.js`) e nota de privacidade. Dica: ao preencher, usar `mailto:` com assunto pronto, por exemplo `?subject=Quero%20entrar%20na%20comunidade`.
-2. **Links de redes sociais**: rodapé (TikTok e YouTube; o Instagram já está no ar: instagram.com/semetatambem, com embed sob demanda no bloco Redes sociais).
+2. **Canal do videocast no YouTube**: chip no rodapé e moldura do bloco Videocast (rede social do hub é só o Instagram, já no ar com embed direto no bloco Redes sociais).
 3. **Videocast**: moldura 16:9 do bloco Videocast na seção O que fazemos (`#o-que-fazemos`).
 4. **Agenda de eventos**: slot na seção O que fazemos (`#o-que-fazemos`).
 5. **Link do grupo no Telegram e QR code**: moldura de conversa do bloco Comunidade digital (`#comunidade`); ao preencher, apontar também o botão "Entrar na comunidade" para o link do grupo.

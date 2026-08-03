@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- sem scripts escondidos, sem pixels, sem rastreio. a transparência vale para o código também. -->
+<!-- sem scripts escondidos, sem pixels de publicidade. o único conteúdo de terceiros é o embed do instagram. -->
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
@@ -20,7 +20,7 @@
   <link rel="icon" type="image/png" sizes="64x64" href="assets/favicon-64.png">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 
-  <link rel="stylesheet" href="css/style.css?v=25">
+  <link rel="stylesheet" href="css/style.css?v=26">
 
   <!-- Analytics sem cookies: preparado, desativado. Descomente e ajuste o domínio quando ativar.
   <script defer data-domain="[PLACEHOLDER: domínio]" src="https://plausible.io/js/script.js"></script>
@@ -101,14 +101,8 @@
             <p class="bloco__link"><a href="https://www.instagram.com/semetatambem" target="_blank" rel="noopener">@semetatambem no Instagram</a></p>
             <p class="bloco__acao"><a class="botao botao--grad apertavel" href="#contato">Sou influenciador e quero participar</a></p>
           </div>
-          <div class="midia midia--feed">
-            <span class="midia__tile" aria-hidden="true"></span>
-            <span class="midia__tile" aria-hidden="true"></span>
-            <span class="midia__tile" aria-hidden="true"></span>
-            <span class="midia__cta">
-              <button class="botao botao--linha apertavel midia__carregar" type="button">Ver as publicações</button>
-              <span class="midia__nota">Carrega conteúdo do Instagram (Meta) só quando você pedir.</span>
-            </span>
+          <div class="midia midia--ig">
+            <iframe class="midia__iframe" src="https://www.instagram.com/semetatambem/embed/" title="Publicações do Instagram do SMT" loading="lazy"></iframe>
           </div>
         </div>
       </article>
@@ -138,7 +132,7 @@
             <p>Conversas em vídeo, publicadas em episódios.</p>
           </div>
           <div class="midia midia--tela">
-            <span class="midia__chip">[PLACEHOLDER: capa e link do episódio mais recente e do canal]</span>
+            <span class="midia__chip">[PLACEHOLDER: canal no YouTube e episódio mais recente]</span>
           </div>
         </div>
       </article>
@@ -315,15 +309,14 @@
         <h3 class="rodape__titulo">Redes</h3>
         <ul class="rodape__redes">
           <li><a class="rodape__link" href="https://www.instagram.com/semetatambem" target="_blank" rel="noopener">Instagram: @semetatambem</a></li>
-          <li><span class="ph-chip">[PLACEHOLDER: link do TikTok]</span></li>
-          <li><span class="ph-chip">[PLACEHOLDER: link do YouTube]</span></li>
+          <li><span class="ph-chip">[PLACEHOLDER: canal do videocast no YouTube]</span></li>
         </ul>
       </div>
-      <p class="rodape__privacidade">Este site não usa cookies de rastreamento nem pixels de publicidade.</p>
+      <p class="rodape__privacidade">Este site não usa cookies de rastreamento próprios nem pixels de publicidade. As publicações incorporadas são carregadas do Instagram (Meta).</p>
       <p class="rodape__assinatura">Se Mexa Também, 2026.</p>
     </div>
   </footer>
 
-  <script src="js/main.js?v=9"></script>
+  <script src="js/main.js?v=10"></script>
 </body>
 </html>
