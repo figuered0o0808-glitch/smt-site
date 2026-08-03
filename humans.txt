@@ -4,4 +4,4 @@ Os nomes chegam junto com os perfis da rede.
 
 /* VOCÊ */
 Sim, você abriu um arquivo chamado humans.txt num site de internet.
-Se meta também.
+Se mexa também.

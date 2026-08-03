@@ -1,6 +1,6 @@
-# Silent Majority Talks: site institucional
+# Se Mexa Também (SMT): site institucional
 
-Site estático de página única do projeto Silent Majority Talks (carinhosamente traduzido, "Se Meta Também"). Sem backend, sem banco de dados, sem cookies de rastreamento.
+Site estático de página única do projeto Se Mexa Também, SMT (nome original em inglês: Silent Majority Talks). Sem backend, sem banco de dados, sem cookies de rastreamento.
 
 ## Estrutura
 
@@ -57,7 +57,7 @@ Após o deploy, preencha o `og:url` no `<head>` com o domínio final.
 
 ## Placeholders pendentes
 
-1. **E-mail de contato**: seção Contato (`#contato`), console do navegador (`js/main.js`) e nota de privacidade. Dica: ao preencher, usar `mailto:` com assunto pronto, por exemplo `?subject=Quero%20me%20meter%20nesse%20papo`.
+1. **E-mail de contato**: seção Contato (`#contato`), console do navegador (`js/main.js`) e nota de privacidade. Dica: ao preencher, usar `mailto:` com assunto pronto, por exemplo `?subject=Quero%20entrar%20na%20comunidade`.
 2. **Links de redes sociais**: rodapé (TikTok e YouTube; o Instagram já está no ar: instagram.com/semetatambem, com embed sob demanda no bloco Redes sociais).
 3. **Videocast**: moldura 16:9 do bloco Videocast na seção O que fazemos (`#o-que-fazemos`).
 4. **Agenda de eventos**: slot na seção O que fazemos (`#o-que-fazemos`).
