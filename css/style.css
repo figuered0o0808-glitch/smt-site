@@ -561,24 +561,6 @@ p { margin: 0; }
   background-image: var(--listras);
 }
 
-/* Moldura com foto genérica tratada na marca (o chip continua por cima) */
-.midia--foto .midia__fundo {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* Faixa de imagem full-bleed entre seções */
-.banda { border-block: var(--fio); }
-.banda img {
-  display: block;
-  width: 100%;
-  height: clamp(200px, 30vw, 360px);
-  object-fit: cover;
-}
-
 .midia--conversa {
   grid-template-columns: 1fr;
   place-items: stretch;
@@ -637,6 +619,18 @@ p { margin: 0; }
 
 .bloco__acao { margin-top: 1.3rem; }
 
+.bloco__link { margin-top: 0.5rem; }
+.bloco__link a,
+.rodape__link {
+  font-weight: 600;
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+.bloco__link a:hover,
+.rodape__link:hover { text-decoration-color: var(--rosa); }
+
 /* ==========================================================================
    O que defendemos: fileiras que crescem no hover, toque ou foco
    ========================================================================== */
@@ -648,7 +642,7 @@ p { margin: 0; }
 
 .eixo__topo {
   display: grid;
-  grid-template-columns: auto 1fr auto auto;
+  grid-template-columns: auto 1fr auto;
   align-items: center;
   gap: 1.1rem;
   width: 100%;
@@ -675,15 +669,6 @@ p { margin: 0; }
   font-weight: 700;
   font-size: clamp(1.2rem, 2.4vw, 1.5rem);
   line-height: 1.2;
-}
-
-.eixo__thumb {
-  width: 3.4rem;
-  height: 3.4rem;
-  object-fit: cover;
-  border: 2px solid var(--preto);
-  border-radius: 10px;
-  transition: opacity 0.25s ease;
 }
 
 .eixo__seta {
@@ -722,22 +707,9 @@ p { margin: 0; }
   background-image: var(--grad);
 }
 
-.eixo:hover .eixo__thumb,
-.eixo:focus-within .eixo__thumb,
-.eixo[data-aberto="true"] .eixo__thumb { opacity: 0; }
-
 .eixo__grade {
-  display: grid;
-  gap: 1.3rem;
+  max-width: 46rem;
   padding: 0.3rem 0.2rem 1.6rem;
-}
-
-@media (min-width: 900px) {
-  .eixo__grade {
-    grid-template-columns: 1fr 1fr;
-    gap: 2.5rem;
-    align-items: center;
-  }
 }
 
 .eixo__grade p { color: rgba(16, 0, 35, 0.85); }
@@ -761,16 +733,8 @@ p { margin: 0; }
   }
 }
 
-.eixo__imagem {
-  display: block;
-  width: 100%;
-  height: auto;
-  border: 2px solid var(--preto);
-  border-radius: 14px;
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .eixo__mais, .eixo__seta, .eixo__thumb { transition: none; }
+  .eixo__mais, .eixo__seta { transition: none; }
 }
 
 /* ==========================================================================

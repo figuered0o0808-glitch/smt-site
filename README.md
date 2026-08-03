@@ -59,10 +59,10 @@ Após o deploy, preencha o `og:url` no `<head>` com o domínio final.
 
 1. **E-mail de contato**: seção Contato (`#contato`), console do navegador (`js/main.js`) e nota de privacidade. Dica: ao preencher, usar `mailto:` com assunto pronto, por exemplo `?subject=Quero%20me%20meter%20nesse%20papo`.
 2. **Logos do núcleo de gestão**: rodapé (GSCC, ClimaInfo, INDICA).
-3. **Links de redes sociais**: rodapé (Instagram, TikTok, YouTube).
+3. **Links de redes sociais**: rodapé (TikTok e YouTube; o Instagram já está no ar: instagram.com/semetatambem).
 4. **Vaga na direção de mobilização**: um nome em aberto na seção Quem faz (`#quem-faz`).
 5. **Videocast**: moldura 16:9 do bloco Videocast na seção O que fazemos (`#o-que-fazemos`).
-6. **Perfis oficiais das redes**: slot na seção O que fazemos (`#o-que-fazemos`).
+6. **Últimas postagens**: slot do bloco Redes sociais na seção O que fazemos (`#o-que-fazemos`).
 7. **Agenda de eventos**: slot na seção O que fazemos (`#o-que-fazemos`).
 8. **Link do grupo no Telegram e QR code**: moldura de conversa do bloco 04 (`#comunidade`); ao preencher, apontar também o botão "Entrar na comunidade" para o link do grupo.
 9. **`og:url`**: domínio final do site no `<head>`.
@@ -70,9 +70,5 @@ Após o deploy, preencha o `og:url` no `<head>` com o domínio final.
 11. **Analytics sem cookies**: snippet do Plausible preparado e comentado no `<head>`, ativar se quiserem métricas.
 
 Quando o e-mail de contato existir, os três cards de "Portas de entrada" podem virar links `mailto:` com assunto pré-preenchido (um por porta), em vez de apontarem para `#contato`.
-
-## Imagens genéricas
-
-As fotos em `assets/fotos/` são imagens de banco com licença CC0 (StockSnap, sem atribuição obrigatória), tratadas em duotone com as cores da marca via script: `videocast-estudio.jpg` (stocksnap.io/photo/NJCWWNF3FM), `eventos-maos.jpg` (stocksnap.io/photo/IUJP9OI22I) e `plateia.jpg` (stocksnap.io/photo/HDS6BBHIRZ); eixos de O que defendemos: JS1XAXLBPF (vida), 1KOT8HDPAX (educação), 1FA263F8AF (soberania), BZ4FJO6KZE (trabalho) e ADB384A0E3 (natureza), cada um em miniatura e imagem larga. São temporárias: quando houver fotos reais do projeto (gravações, eventos), substituir mantendo o mesmo tratamento.
 
 O kit oficial da marca está completo em `assets/marca/` (S e wordmark nas versões escura, branca, degradê, contorno e badge; sombra longa em `assets/logo-smt.png`). Favicon, apple-touch-icon e og.png são gerados a partir dele.
