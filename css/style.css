@@ -557,35 +557,9 @@ p { margin: 0; }
   padding: 1.2rem;
 }
 
-.midia--conversa {
-  grid-template-columns: 1fr;
-  place-items: stretch;
-  gap: 10px;
-  padding: 1.1rem 1.2rem;
-}
-
-.midia__balao {
-  height: 2.5rem;
-  width: 68%;
-  border: 2px dashed rgba(16, 0, 35, 0.3);
-  border-radius: 999px;
-  border-bottom-left-radius: 8px;
-  background-image: var(--listras);
-}
-
-.midia__balao--dir {
-  justify-self: end;
-  width: 55%;
-  border-bottom-left-radius: 999px;
-  border-bottom-right-radius: 8px;
-}
-
-.midia--conversa .midia__chip,
-.midia__qr {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+.midia--qrzona {
+  min-height: 17rem;
+  padding: 1.5rem;
 }
 
 .midia__qr {
@@ -604,8 +578,8 @@ p { margin: 0; }
 }
 
 .midia__qr img {
-  width: 7.5rem;
-  height: 7.5rem;
+  width: 9.5rem;
+  height: 9.5rem;
   display: block;
 }
 
@@ -855,6 +829,81 @@ p { margin: 0; }
 }
 .porta:hover .porta__disco,
 .porta:focus-visible .porta__disco { background-image: var(--grad); }
+
+/* ==========================================================================
+   Formulário de influenciadores
+   ========================================================================== */
+
+.formulario {
+  margin-top: 2rem;
+  background: var(--branco);
+  border: var(--fio);
+  border-radius: 22px;
+  box-shadow: var(--sombra-repouso);
+  padding: clamp(1.4rem, 3.5vw, 2.2rem);
+  max-width: 52rem;
+}
+
+.formulario__grade {
+  display: grid;
+  gap: 1.1rem;
+}
+
+@media (min-width: 720px) {
+  .formulario__grade { grid-template-columns: 1fr 1fr; }
+}
+
+.campo { display: block; }
+
+.campo__rotulo {
+  display: block;
+  font-weight: 600;
+  font-size: 0.92rem;
+  margin-bottom: 0.35rem;
+}
+
+.campo__rotulo em {
+  font-style: normal;
+  font-weight: 400;
+  color: rgba(16, 0, 35, 0.55);
+}
+
+.campo input,
+.campo select {
+  width: 100%;
+  font: inherit;
+  color: var(--tinta);
+  background: var(--branco);
+  border: 2px solid var(--preto);
+  border-radius: 12px;
+  padding: 0.65rem 0.85rem;
+}
+
+.campo input::placeholder { color: rgba(16, 0, 35, 0.4); }
+
+.formulario__enviar {
+  margin-top: 1.4rem;
+  cursor: pointer;
+  font-size: 1.05rem;
+}
+
+.formulario__nota {
+  margin-top: 1rem;
+  font-size: 0.8rem;
+  color: rgba(16, 0, 35, 0.6);
+  max-width: 38rem;
+}
+
+.formulario__sucesso {
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+  font-size: 1.15rem;
+  border: 2px solid var(--preto);
+  border-radius: 14px;
+  background-image: var(--grad);
+  padding: 0.9rem 1.2rem;
+  margin-bottom: 1.4rem;
+}
 
 /* ==========================================================================
    Contato: fecho escuro

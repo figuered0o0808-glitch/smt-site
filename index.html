@@ -20,7 +20,7 @@
   <link rel="icon" type="image/png" sizes="64x64" href="assets/favicon-64.png">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 
-  <link rel="stylesheet" href="css/style.css?v=29">
+  <link rel="stylesheet" href="css/style.css?v=31">
 
   <!-- Analytics sem cookies: preparado, desativado. Descomente e ajuste o domínio quando ativar.
   <script defer data-domain="[PLACEHOLDER: domínio]" src="https://plausible.io/js/script.js"></script>
@@ -78,7 +78,7 @@
       <div class="container faixa__trilho">
         <a href="#redes">Redes sociais</a>
         <a href="#comunidade">Comunidade digital</a>
-        <a href="#videocast">Videocast</a>
+        <a href="#videocast">Videocast e lives</a>
         <a href="#eventos">Eventos presenciais</a>
       </div>
     </nav>
@@ -98,11 +98,11 @@
             <p class="bloco__numero" aria-hidden="true">01</p>
             <h3 class="bloco__titulo">Redes sociais</h3>
             <p>Conteúdo todos os dias nos perfis do hub.</p>
-            <p class="bloco__link"><a href="https://www.instagram.com/semetatambem" target="_blank" rel="noopener">@semetatambem no Instagram</a></p>
-            <p class="bloco__acao"><a class="botao botao--grad apertavel" href="mailto:silentmajoritytalks2026@gmail.com?subject=Sou%20influenciador%20e%20quero%20participar">Sou influenciador e quero participar</a></p>
+            <p class="bloco__link"><a href="https://www.instagram.com/semexatambem" target="_blank" rel="noopener">@semexatambem no Instagram</a></p>
+            <p class="bloco__acao"><a class="botao botao--grad apertavel" href="#influenciador">Sou influenciador e quero participar</a></p>
           </div>
           <div class="midia midia--ig">
-            <iframe class="midia__iframe" src="https://www.instagram.com/semetatambem/embed/" title="Publicações do Instagram do SMT" loading="lazy"></iframe>
+            <iframe class="midia__iframe" src="https://www.instagram.com/semexatambem/embed/" title="Publicações do Instagram do SMT" loading="lazy"></iframe>
           </div>
         </div>
       </article>
@@ -116,10 +116,7 @@
             <p class="bloco__link"><a href="https://t.me/Voabr_bot" target="_blank" rel="noopener">t.me/Voabr_bot</a></p>
             <p class="bloco__acao"><a class="botao botao--grad apertavel" href="https://t.me/Voabr_bot" target="_blank" rel="noopener">Entrar na comunidade</a></p>
           </div>
-          <div class="midia midia--conversa">
-            <span class="midia__balao" aria-hidden="true"></span>
-            <span class="midia__balao midia__balao--dir" aria-hidden="true"></span>
-            <span class="midia__balao" aria-hidden="true"></span>
+          <div class="midia midia--qrzona">
             <a class="midia__qr" href="https://t.me/Voabr_bot" target="_blank" rel="noopener" aria-label="Entrar no grupo do Telegram pelo QR code">
               <img src="assets/qr-telegram.png" alt="" width="400" height="400" loading="lazy">
               <span>aponte a câmera</span>
@@ -132,8 +129,8 @@
         <div class="container bloco__grade">
           <div class="bloco__info">
             <p class="bloco__numero" aria-hidden="true">03</p>
-            <h3 class="bloco__titulo">Videocast</h3>
-            <p>Conversas em vídeo, publicadas em episódios.</p>
+            <h3 class="bloco__titulo">Videocast e lives semanais</h3>
+            <p>Conversas em vídeo, publicadas em episódios, e transmissões ao vivo toda semana.</p>
           </div>
           <div class="midia midia--tela">
             <span class="midia__chip">[PLACEHOLDER: canal no YouTube e episódio mais recente]</span>
@@ -268,11 +265,11 @@
             </span>
             <span class="porta__disco" aria-hidden="true">&rarr;</span>
           </a>
-          <a class="porta apertavel" href="mailto:silentmajoritytalks2026@gmail.com?subject=Sou%20influenciador%20e%20quero%20participar">
+          <a class="porta apertavel" href="#influenciador">
             <span class="porta__miolo">
               <span class="porta__titulo">Sou influenciador e quero participar</span>
               <span class="porta__desc">Para quem cria conteúdo e quer integrar a rede.</span>
-              <span class="porta__assunto"><span><b>assunto:</b> Sou influenciador e quero participar</span></span>
+              <span class="porta__assunto"><span><b>destino:</b> formulário rápido, seis campos</span></span>
             </span>
             <span class="porta__disco" aria-hidden="true">&rarr;</span>
           </a>
@@ -288,6 +285,63 @@
       </div>
     </section>
 
+    <!-- ============ INFLUENCIADORES ============ -->
+    <section class="secao secao--fio" id="influenciador" aria-labelledby="titulo-influenciador">
+      <div class="container">
+        <div class="cabeca">
+          <h2 id="titulo-influenciador" class="dizer">Influenciadores</h2>
+        </div>
+        <p class="apoio">Cria conteúdo e quer integrar a rede do hub? Preenche aqui que a gente te procura.</p>
+
+        <form class="formulario" action="https://formsubmit.co/silentmajoritytalks2026@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="Sou influenciador e quero participar">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_next" value="https://figuered0o0808-glitch.github.io/smt-site/?enviado=1#influenciador">
+          <input type="text" name="_honey" class="visualmente-oculto" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+          <p class="formulario__sucesso" hidden>Recebido! A gente entra em contato. Obrigado por se mexer.</p>
+
+          <div class="formulario__grade">
+            <label class="campo">
+              <span class="campo__rotulo">Perfil no Instagram</span>
+              <input type="text" name="Instagram" placeholder="@seuperfil" required>
+            </label>
+            <label class="campo">
+              <span class="campo__rotulo">Perfil no TikTok <em>(opcional)</em></span>
+              <input type="text" name="TikTok" placeholder="@seuperfil">
+            </label>
+            <label class="campo">
+              <span class="campo__rotulo">Nicho</span>
+              <input type="text" name="Nicho" placeholder="ex.: humor, beleza, educação, games" required>
+            </label>
+            <label class="campo">
+              <span class="campo__rotulo">Número de seguidores</span>
+              <select name="Seguidores" required>
+                <option value="" selected disabled>Selecione a faixa</option>
+                <option>até 10 mil</option>
+                <option>10 mil a 50 mil</option>
+                <option>50 mil a 200 mil</option>
+                <option>200 mil a 1 milhão</option>
+                <option>mais de 1 milhão</option>
+              </select>
+            </label>
+            <label class="campo">
+              <span class="campo__rotulo">Telefone <em>(opcional)</em></span>
+              <input type="tel" name="Telefone" placeholder="(DDD) 90000-0000" autocomplete="tel">
+            </label>
+            <label class="campo">
+              <span class="campo__rotulo">E-mail de contato</span>
+              <input type="email" name="Email" placeholder="voce@email.com" autocomplete="email" required>
+            </label>
+          </div>
+
+          <button class="botao botao--grad apertavel formulario__enviar" type="submit">Quero participar</button>
+          <p class="formulario__nota">Usamos esses dados apenas para avaliar sua participação na rede, conforme a LGPD (Lei 13.709/2018). O envio é processado pelo serviço FormSubmit.</p>
+        </form>
+      </div>
+    </section>
+
     <!-- ============ CONTATO ============ -->
     <section class="secao secao-escura" id="contato" aria-labelledby="titulo-contato">
       <div class="container">
@@ -296,7 +350,6 @@
         </div>
         <ul class="chips" aria-label="Assuntos">
           <li><a href="mailto:silentmajoritytalks2026@gmail.com?subject=Parcerias">Parcerias</a></li>
-          <li><a href="mailto:silentmajoritytalks2026@gmail.com?subject=Financiamento">Financiamento</a></li>
           <li><a href="mailto:silentmajoritytalks2026@gmail.com?subject=Imprensa">Imprensa</a></li>
         </ul>
         <a class="contato__email" href="mailto:silentmajoritytalks2026@gmail.com">silentmajoritytalks2026@gmail.com</a>
@@ -315,7 +368,7 @@
       <div class="rodape__bloco">
         <h3 class="rodape__titulo">Redes</h3>
         <ul class="rodape__redes">
-          <li><a class="rodape__link" href="https://www.instagram.com/semetatambem" target="_blank" rel="noopener">Instagram: @semetatambem</a></li>
+          <li><a class="rodape__link" href="https://www.instagram.com/semexatambem" target="_blank" rel="noopener">Instagram: @semexatambem</a></li>
           <li><span class="ph-chip">[PLACEHOLDER: canal do videocast no YouTube]</span></li>
         </ul>
       </div>
@@ -324,6 +377,6 @@
     </div>
   </footer>
 
-  <script src="js/main.js?v=11"></script>
+  <script src="js/main.js?v=12"></script>
 </body>
 </html>

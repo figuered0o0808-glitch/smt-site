@@ -65,6 +65,15 @@ if (fioLeitura) {
   atualizar();
 }
 
+// Confirmação do formulário (volta do FormSubmit com ?enviado=1)
+if (new URLSearchParams(window.location.search).has("enviado")) {
+  const sucesso = document.querySelector(".formulario__sucesso");
+  if (sucesso) {
+    sucesso.hidden = false;
+    document.getElementById("influenciador").scrollIntoView();
+  }
+}
+
 // Para quem espia o código
 console.log(
   "%cSe Mexa Também",
