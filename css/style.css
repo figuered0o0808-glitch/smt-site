@@ -461,7 +461,17 @@ p { margin: 0; }
 .apoio {
   font-size: 1.05rem;
   color: rgba(16, 0, 35, 0.8);
+  max-width: 46rem;
   margin-top: 0.9rem;
+}
+
+.chamada {
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+  font-size: 1.2rem;
+  line-height: 1.4;
+  max-width: 42rem;
+  margin-top: 2rem;
 }
 .apoio--escuro { color: rgba(255, 255, 255, 0.85); }
 
