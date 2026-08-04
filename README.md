@@ -57,9 +57,8 @@ Após o deploy, preencha o `og:url` no `<head>` com o domínio final.
 
 ## Placeholders pendentes
 
-Já no ar com conteúdo real: Instagram (@semetatambem, embed direto) e comunidade no Telegram (t.me/Voabr_bot, com QR).
+Já no ar com conteúdo real: Instagram (@semetatambem, embed direto), comunidade no Telegram (t.me/Voabr_bot, com QR) e e-mail de contato (silentmajoritytalks2026@gmail.com, mailto com assunto pré-preenchido nas portas, botões e chips).
 
-1. **E-mail de contato**: seção Contato (`#contato`), console do navegador (`js/main.js`) e nota de privacidade. Dica: ao preencher, usar `mailto:` com assunto pronto, por exemplo `?subject=Quero%20entrar%20na%20comunidade`.
 2. **Canal do videocast no YouTube**: chip no rodapé e moldura do bloco Videocast (rede social do hub é só o Instagram, já no ar com embed direto no bloco Redes sociais).
 3. **Videocast**: moldura 16:9 do bloco Videocast na seção O que fazemos (`#o-que-fazemos`).
 4. **Agenda de eventos**: slot na seção O que fazemos (`#o-que-fazemos`).
@@ -68,7 +67,5 @@ Já no ar com conteúdo real: Instagram (@semetatambem, embed direto) e comunida
 8. **Analytics sem cookies**: snippet do Plausible preparado e comentado no `<head>`, ativar se quiserem métricas.
 
 Guardados para depois (removidos do site a pedido, fáceis de restaurar pelo histórico do git): a seção Quem faz com a equipe e fotos, e o bloco Núcleo de gestão do rodapé.
-
-Quando o e-mail de contato existir, os três cards de "Portas de entrada" podem virar links `mailto:` com assunto pré-preenchido (um por porta), em vez de apontarem para `#contato`.
 
 O kit oficial da marca está completo em `assets/marca/` (S e wordmark nas versões escura, branca, degradê, contorno e badge; sombra longa em `assets/logo-smt.png`). Favicon, apple-touch-icon e og.png são gerados a partir dele.

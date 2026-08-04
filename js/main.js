@@ -70,4 +70,4 @@ console.log(
   "%cSe Mexa Também",
   'font: 800 20px "Baloo 2", sans-serif; background: linear-gradient(90deg, #ff00fa, #11cae2); color: #100023; padding: 8px 16px; border: 3px solid #000; border-radius: 12px;'
 );
-console.log("A transparência vale para o código também. Dúvidas: [PLACEHOLDER: e-mail de contato]");
+console.log("A transparência vale para o código também. Dúvidas: silentmajoritytalks2026@gmail.com");
