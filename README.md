@@ -57,7 +57,9 @@ Após o deploy, preencha o `og:url` no `<head>` com o domínio final.
 
 ## Placeholders pendentes
 
-Já no ar com conteúdo real: Instagram (@semetatambem, embed direto), comunidade no Telegram (t.me/Voabr_bot, com QR) e e-mail de contato (silentmajoritytalks2026@gmail.com, mailto com assunto pré-preenchido nas portas, botões e chips).
+Já no ar com conteúdo real: Instagram (@semexatambem, embed direto), comunidade no Telegram (t.me/Voabr_bot, com QR), e-mail de contato (silentmajoritytalks2026@gmail.com, mailto com assunto pré-preenchido) e formulário de influenciadores (seção `#influenciador`).
+
+1. **Formulário de influenciadores**: envia via FormSubmit (https://formsubmit.co) para o e-mail de contato, sem backend. O primeiro envio dispara um e-mail de ativação para a caixa do Gmail; é preciso clicar em "Activate Form" uma única vez para os envios passarem a chegar. Se o domínio do site mudar, atualizar o campo oculto `_next` no `index.html` (URL de retorno pós-envio).
 
 2. **Canal do videocast no YouTube**: chip no rodapé e moldura do bloco Videocast (rede social do hub é só o Instagram, já no ar com embed direto no bloco Redes sociais).
 3. **Videocast**: moldura 16:9 do bloco Videocast na seção O que fazemos (`#o-que-fazemos`).
