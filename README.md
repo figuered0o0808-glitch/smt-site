@@ -55,6 +55,16 @@ O GitHub Pages republica sozinho em um ou dois minutos.
 
 Após o deploy, preencha o `og:url` no `<head>` com o domínio final.
 
+## Segurança
+
+O site é estático (sem servidor próprio, banco ou login), o que já elimina as classes mais comuns de ataque. Por cima disso:
+
+- **Content-Security-Policy** via `<meta>` no `index.html` e no `404.html`: só recursos do próprio site, iframe apenas do Instagram e envio de formulário apenas para o FormSubmit. Regra de manutenção: **nada de script ou CSS inline** (tudo em `js/main.js` e `css/style.css`); qualquer inline novo será bloqueado pela CSP.
+- **Anti-clickjacking**: script curtinho no topo do `<head>` que impede o site de ser embutido em iframe de terceiros. Se editar esse script (até um espaço), recalcule o hash e atualize na CSP: `printf '%s' "CONTEUDO" | openssl dgst -sha256 -binary | base64`.
+- **Formulário com captcha do FormSubmit ligado** (padrão do serviço) + campo honeypot, contra spam automatizado.
+- **GitHub**: branch `main` protegida contra force-push e deleção (ruleset "protege-main"), HTTPS forçado no Pages, secret scanning com push protection, Dependabot e canal privado de report de vulnerabilidade ativos. Commits futuros usam o e-mail noreply do GitHub.
+- A conta do GitHub e a caixa do Gmail de contato devem ter **verificação em duas etapas** (isso não se configura pelo repositório).
+
 ## Placeholders pendentes
 
 Já no ar com conteúdo real: Instagram (@semexatambem, embed direto), comunidade no WhatsApp (botão "Clique aqui e entre no grupo" na moldura do bloco 02; se o link de convite mudar, trocar o href nos três pontos: link, botão e porta 1), e-mail de contato (silentmajoritytalks2026@gmail.com, mailto com assunto pré-preenchido) e formulário de influenciadores (seção `#influenciador`).
