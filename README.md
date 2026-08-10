@@ -53,7 +53,7 @@ O GitHub Pages republica sozinho em um ou dois minutos.
 - **Vercel**: `vercel` na raiz do projeto (ou importe o repositório no painel).
 - **GitHub Pages**: suba o repositório e ative Pages na branch principal (Settings, Pages, Deploy from branch).
 
-Após o deploy, preencha o `og:url` no `<head>` com o domínio final.
+O domínio próprio é https://semexatambem.com (DNS na Hostinger, 4 registros A + CNAME www; canonical, sitemap.xml e og:url já apontam para ele).
 
 ## Segurança
 
@@ -65,18 +65,15 @@ O site é estático (sem servidor próprio, banco ou login), o que já elimina a
 - **GitHub**: branch `main` protegida contra force-push e deleção (ruleset "protege-main"), HTTPS forçado no Pages, secret scanning com push protection, Dependabot e canal privado de report de vulnerabilidade ativos. Commits futuros usam o e-mail noreply do GitHub.
 - A conta do GitHub e a caixa do Gmail de contato devem ter **verificação em duas etapas** (isso não se configura pelo repositório).
 
-## Placeholders pendentes
+## Conteúdos que ainda entram (sem placeholder no ar)
 
-Já no ar com conteúdo real: Instagram (@semexatambem, embed direto), comunidade no WhatsApp (botão "Clique aqui e entre no grupo" na moldura do bloco 02; se o link de convite mudar, trocar o href nos três pontos: link, botão e porta 1), e-mail de contato (silentmajoritytalks2026@gmail.com, mailto com assunto pré-preenchido) e formulário de influenciadores (seção `#influenciador`).
+Os slots visuais existem, mas desde o lançamento do domínio o site não mostra mais "[PLACEHOLDER]" nenhum; quando o conteúdo chegar, é só preencher:
 
-1. **Formulário de influenciadores**: envia via FormSubmit (https://formsubmit.co) para o e-mail de contato, sem backend. O primeiro envio dispara um e-mail de ativação para a caixa do Gmail; é preciso clicar em "Activate Form" uma única vez para os envios passarem a chegar. Se o domínio do site mudar, atualizar o campo oculto `_next` no `index.html` (URL de retorno pós-envio).
-
-2. **Canal do videocast no YouTube**: chip no rodapé e moldura do bloco Videocast (rede social do hub é só o Instagram, já no ar com embed direto no bloco Redes sociais).
-3. **Videocast**: moldura 16:9 do bloco Videocast na seção O que fazemos (`#o-que-fazemos`).
-4. **Agenda de eventos**: slot na seção O que fazemos (`#o-que-fazemos`).
-6. **`og:url`**: domínio final do site no `<head>`.
-7. **Fonte de títulos "Fat"**: sem arquivo licenciável por enquanto; Baloo 2 é o stand-in (ver seção de identidade visual acima).
-8. **Analytics sem cookies**: snippet do Plausible preparado e comentado no `<head>`, ativar se quiserem métricas.
+1. **Canal do videocast no YouTube**: entra na moldura 16:9 do bloco Videocast e volta como item na lista Redes do rodapé.
+2. **Agenda de eventos**: entra na faixa do bloco Eventos presenciais.
+3. **Alias do FormSubmit**: quando chegar o e-mail de ativação, trocar o e-mail no action do formulário pelo alias aleatório.
+4. **Fonte de títulos "Fat"**: sem arquivo licenciável; Baloo 2 é o stand-in (ver identidade visual acima).
+5. **Analytics sem cookies**: snippet do Plausible comentado no `<head>`; se ativar, incluir https://plausible.io na CSP (script-src e connect-src).
 
 Guardados para depois (removidos do site a pedido, fáceis de restaurar pelo histórico do git): a seção Quem faz com a equipe e fotos, e o bloco Núcleo de gestão do rodapé.
 

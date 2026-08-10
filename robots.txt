@@ -1,3 +1,4 @@
 # robôs podem entrar, mas o papo aqui é com gente.
 User-agent: *
 Allow: /
+Sitemap: https://semexatambem.com/sitemap.xml

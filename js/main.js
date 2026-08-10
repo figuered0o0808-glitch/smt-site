@@ -55,12 +55,24 @@ if (fioLeitura) {
   atualizar();
 }
 
+// Âncoras internas: rolam até a seção sem deixar #fragmento no endereço
+document.querySelectorAll('a[href^="#"]').forEach((ancora) => {
+  ancora.addEventListener("click", (evento) => {
+    const alvo = document.getElementById(ancora.getAttribute("href").slice(1));
+    if (!alvo) return;
+    evento.preventDefault();
+    alvo.scrollIntoView({ behavior: reduzMovimento ? "instant" : "smooth" });
+    history.replaceState(null, "", window.location.pathname);
+  });
+});
+
 // Confirmação do formulário (volta do FormSubmit com ?enviado=1)
 if (new URLSearchParams(window.location.search).has("enviado")) {
   const sucesso = document.querySelector(".formulario__sucesso");
   if (sucesso) {
     sucesso.hidden = false;
     document.getElementById("influenciador").scrollIntoView();
+    history.replaceState(null, "", window.location.pathname);
   }
 }
 
