@@ -486,6 +486,11 @@ p { margin: 0; }
   padding-block: 2.2rem 2.6rem;
 }
 
+.bloco__grade > .bloco__info:only-child {
+  grid-column: 1 / -1;
+  max-width: 46rem;
+}
+
 @media (min-width: 900px) {
   .bloco__grade {
     grid-template-columns: 5fr 7fr;
@@ -530,13 +535,6 @@ p { margin: 0; }
   display: grid;
   place-items: center;
   overflow: hidden;
-}
-
-.midia--tela { aspect-ratio: 16 / 9; }
-
-.midia--agenda {
-  min-height: 5.5rem;
-  padding: 1.2rem;
 }
 
 .midia--convite {
