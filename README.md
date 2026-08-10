@@ -36,7 +36,7 @@ E abra `http://localhost:8080`.
 
 ## Site no ar
 
-Publicado via GitHub Pages: https://figuered0o0808-glitch.github.io/smt-site/
+Publicado via GitHub Pages: https://semexatambem.com/
 Repositório: https://github.com/figuered0o0808-glitch/smt-site
 
 Para atualizar o site publicado, depois de editar os arquivos:
