@@ -14,16 +14,6 @@ menu.addEventListener("click", (evento) => {
   }
 });
 
-// Eixos de "O que defendemos": toque/clique fixa a fileira aberta
-document.querySelectorAll(".eixo__topo").forEach((topo) => {
-  topo.addEventListener("click", () => {
-    const eixo = topo.closest(".eixo");
-    const aberto = eixo.getAttribute("data-aberto") === "true";
-    eixo.setAttribute("data-aberto", String(!aberto));
-    topo.setAttribute("aria-expanded", String(!aberto));
-  });
-});
-
 // Faixa-índice viva + números que se entintam quando o bloco é lido
 const trilho = document.querySelector(".faixa__trilho");
 const linksFaixa = trilho ? [...trilho.querySelectorAll("a")] : [];

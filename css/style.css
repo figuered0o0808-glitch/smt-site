@@ -465,14 +465,6 @@ p { margin: 0; }
   margin-top: 0.9rem;
 }
 
-.chamada {
-  font-family: var(--fonte-titulo);
-  font-weight: 700;
-  font-size: 1.2rem;
-  line-height: 1.4;
-  max-width: 42rem;
-  margin-top: 2rem;
-}
 .apoio--escuro { color: rgba(255, 255, 255, 0.85); }
 
 /* ==========================================================================
@@ -632,100 +624,23 @@ p { margin: 0; }
 .rodape__link:hover { text-decoration-color: var(--rosa); }
 
 /* ==========================================================================
-   O que defendemos: fileiras que crescem no hover, toque ou foco
+   O que defendemos: uma convicção
    ========================================================================== */
 
-.eixos { margin-top: 1.8rem; }
-
-.eixo { border-top: var(--fio); }
-.eixo:last-child { border-bottom: var(--fio); }
-
-.eixo__topo {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
-  gap: 1.1rem;
-  width: 100%;
-  padding: 0.9rem 0.2rem;
-  background: none;
-  border: none;
-  font: inherit;
-  color: inherit;
-  text-align: left;
-  cursor: pointer;
-}
-
-.eixo__topo::before {
-  content: "";
-  width: 14px;
-  height: 14px;
-  border-radius: 5px;
-  border: 2px solid var(--preto);
-  background-image: var(--grad);
-}
-
-.eixo__titulo {
-  font-family: var(--fonte-titulo);
-  font-weight: 700;
-  font-size: clamp(1.2rem, 2.4vw, 1.5rem);
-  line-height: 1.2;
-}
-
-.eixo__seta {
-  width: 2.2rem;
-  height: 2.2rem;
-  border: 3px solid var(--preto);
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  font-family: var(--fonte-titulo);
-  font-weight: 800;
-  font-size: 1.25rem;
-  line-height: 1;
-  transition: transform 0.25s ease, background-color 0.15s ease;
-}
-
-.eixo__mais {
-  display: grid;
-  grid-template-rows: 0fr;
-  transition: grid-template-rows 0.35s ease;
-}
-
-.eixo__conteudo {
-  overflow: hidden;
-  min-height: 0;
-}
-
-.eixo:hover .eixo__mais,
-.eixo:focus-within .eixo__mais,
-.eixo[data-aberto="true"] .eixo__mais { grid-template-rows: 1fr; }
-
-.eixo:hover .eixo__seta,
-.eixo:focus-within .eixo__seta,
-.eixo[data-aberto="true"] .eixo__seta {
-  transform: rotate(45deg);
-  background-image: var(--grad);
-}
-
-.eixo__grade {
-  max-width: 46rem;
-  padding: 0.3rem 0.2rem 1.6rem;
-}
-
-.eixo__grade p { color: rgba(16, 0, 35, 0.85); }
-
-.eixo__jogo { margin-top: 0.8rem; font-weight: 600; }
-
-.eixo__jogo span {
+.convicao {
   font-family: var(--fonte-dizeres);
-  font-size: 0.95rem;
-  letter-spacing: 0.1em;
+  font-size: clamp(2.6rem, 7vw, 4.6rem);
+  line-height: 0.98;
+  letter-spacing: 0.015em;
   text-transform: uppercase;
-  margin-right: 0.5rem;
-  color: var(--rosa);
+  margin-top: 2.2rem;
+  max-width: 18ch;
 }
+
+.convicao span { color: var(--rosa); }
+
 @supports ((-webkit-background-clip: text) or (background-clip: text)) {
-  .eixo__jogo span {
+  .convicao span {
     background-image: var(--grad);
     -webkit-background-clip: text;
     background-clip: text;
@@ -733,8 +648,23 @@ p { margin: 0; }
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .eixo__mais, .eixo__seta { transition: none; }
+.apoio--marcado {
+  margin-top: 1.6rem;
+  max-width: 52ch;
+  position: relative;
+  padding-left: 1.7rem;
+}
+
+.apoio--marcado::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.32em;
+  width: 14px;
+  height: 14px;
+  border-radius: 5px;
+  border: 2px solid var(--preto);
+  background-image: var(--grad);
 }
 
 /* ==========================================================================
