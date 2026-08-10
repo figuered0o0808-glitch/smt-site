@@ -26,7 +26,7 @@
   <link rel="icon" type="image/png" sizes="64x64" href="assets/favicon-64.png">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 
-  <link rel="stylesheet" href="css/style.css?v=34">
+  <link rel="stylesheet" href="css/style.css?v=35">
 
   <!-- Analytics sem cookies: preparado, desativado. Descomente e ajuste o domínio quando ativar.
   <script defer data-domain="[PLACEHOLDER: domínio]" src="https://plausible.io/js/script.js"></script>
@@ -60,6 +60,9 @@
   </header>
 
   <main id="inicio">
+    <div class="container" id="aviso-recebido" hidden>
+      <p class="aviso-recebido__texto">Recebido! A gente entra em contato. Obrigado por se mexer.</p>
+    </div>
 
     <!-- ============ HERO ============ -->
     <section class="hero" aria-labelledby="titulo-hero">
@@ -215,8 +218,6 @@
           <input type="hidden" name="_next" value="https://semexatambem.com/?enviado=1">
           <input type="text" name="_honey" class="visualmente-oculto" tabindex="-1" autocomplete="off" aria-hidden="true">
 
-          <p class="formulario__sucesso" hidden>Recebido! A gente entra em contato. Obrigado por se mexer.</p>
-
           <div class="formulario__grade">
             <label class="campo">
               <span class="campo__rotulo">Perfil no Instagram</span>
@@ -291,6 +292,6 @@
     </div>
   </footer>
 
-  <script src="js/main.js?v=14"></script>
+  <script src="js/main.js?v=15"></script>
 </body>
 </html>

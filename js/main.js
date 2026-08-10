@@ -66,14 +66,17 @@ document.querySelectorAll('a[href^="#"]').forEach((ancora) => {
   });
 });
 
-// Confirmação do formulário (volta do FormSubmit com ?enviado=1)
+// O site sempre abre no topo: link antigo com #fragmento não pode jogar a página lá embaixo
+if (window.location.hash) {
+  history.replaceState(null, "", window.location.pathname + window.location.search);
+  window.scrollTo(0, 0);
+}
+
+// Confirmação do formulário (volta do FormSubmit com ?enviado=1): aviso no alto, sem rolar a página
 if (new URLSearchParams(window.location.search).has("enviado")) {
-  const sucesso = document.querySelector(".formulario__sucesso");
-  if (sucesso) {
-    sucesso.hidden = false;
-    document.getElementById("influenciador").scrollIntoView();
-    history.replaceState(null, "", window.location.pathname);
-  }
+  const aviso = document.getElementById("aviso-recebido");
+  if (aviso) aviso.hidden = false;
+  history.replaceState(null, "", window.location.pathname);
 }
 
 // Para quem espia o código

@@ -779,15 +779,16 @@ p { margin: 0; }
   max-width: 38rem;
 }
 
-.formulario__sucesso {
+.aviso-recebido__texto {
   font-family: var(--fonte-titulo);
   font-weight: 700;
-  font-size: 1.15rem;
-  border: 2px solid var(--preto);
+  font-size: 1.1rem;
+  border: 3px solid var(--preto);
   border-radius: 14px;
   background-image: var(--grad);
+  box-shadow: var(--sombra-repouso);
   padding: 0.9rem 1.2rem;
-  margin-bottom: 1.4rem;
+  margin-top: 1.4rem;
 }
 
 /* ==========================================================================
