@@ -66,6 +66,20 @@ document.querySelectorAll('a[href^="#"]').forEach((ancora) => {
   });
 });
 
+// O post incorporado informa a própria altura: evita corte e sobra de branco.
+// Se a mensagem não vier, vale a altura do CSS.
+window.addEventListener("message", (evento) => {
+  if (evento.origin !== "https://www.instagram.com") return;
+  const quadro = document.querySelector(".midia--post iframe");
+  if (!quadro || evento.source !== quadro.contentWindow) return;
+  let dados = evento.data;
+  if (typeof dados === "string") {
+    try { dados = JSON.parse(dados); } catch (erro) { return; }
+  }
+  const altura = dados && dados.details && dados.details.height;
+  if (altura > 200) quadro.style.height = altura + "px";
+});
+
 // O site sempre abre no topo: link antigo com #fragmento não pode jogar a página lá embaixo
 if (window.location.hash) {
   history.replaceState(null, "", window.location.pathname + window.location.search);

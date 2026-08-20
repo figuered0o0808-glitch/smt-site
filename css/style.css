@@ -554,6 +554,18 @@ p { margin: 0; }
   height: clamp(24rem, 60vw, 30rem);
 }
 
+.midia--post {
+  display: grid;
+  place-items: center;
+  padding: 1.2rem;
+}
+
+.midia--post .midia__iframe {
+  width: min(100%, 25rem);
+  height: clamp(30rem, calc(88vw + 10rem), 37rem);
+  border-radius: 10px;
+}
+
 .midia__iframe {
   display: block;
   width: 100%;
