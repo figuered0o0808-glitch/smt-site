@@ -75,7 +75,6 @@
   --sombra-repouso: -6px 6px 0 var(--preto);
   --sombra-alta: -9px 9px 0 var(--preto);
   --sombra-baixa: -3px 3px 0 var(--preto);
-  --listras: repeating-linear-gradient(45deg, rgba(16, 0, 35, 0.05) 0 14px, transparent 14px 28px);
 }
 
 /* ---- Base ---- */
@@ -535,8 +534,7 @@ p { margin: 0; }
   position: relative;
   border: var(--fio);
   border-radius: 18px;
-  background-color: var(--branco);
-  background-image: var(--listras);
+  background-color: var(--tinta);
   display: grid;
   place-items: center;
   overflow: hidden;
@@ -1102,7 +1100,7 @@ p { margin: 0; }
 }
 
 .edital-leitura {
-  background-image: var(--listras);
+  background-color: var(--tinta);
 }
 
 .edital__corpo { max-width: 50rem; }
@@ -1226,7 +1224,7 @@ p { margin: 0; }
 @media print {
   .topo, .rodape, .edital__acoes, .edital__ferramentas, .fio-leitura { display: none !important; }
   .edital__folha { border: 0; box-shadow: none; padding: 0; max-width: none; }
-  .edital-leitura { background-image: none; }
+  .edital-leitura { background-color: #fff; }
   body { background: #fff; color: #000; }
   .secao { padding-block: 0.5rem; }
   .secao--fio { border: 0; }
