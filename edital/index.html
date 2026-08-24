@@ -20,7 +20,7 @@
   <meta property="og:image" content="https://semexatambem.com/assets/og.png">
   <link rel="icon" type="image/png" sizes="64x64" href="/assets/favicon-64.png">
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
-  <link rel="stylesheet" href="/css/style.css?v=40">
+  <link rel="stylesheet" href="/css/style.css?v=41">
 </head>
 <body class="pagina-edital">
   <header class="topo">
@@ -51,13 +51,19 @@
         </ul>
         <div class="edital__acoes">
           <a class="botao botao--grad apertavel" href="https://forms.gle/KwAqcyw8BDx9Nuio6" target="_blank" rel="noopener">Enviar proposta</a>
-          <button class="botao botao--linha apertavel" id="botao-imprimir" type="button">Baixar em PDF</button>
+          <a class="botao botao--linha apertavel" href="#texto">Ler o edital</a>
         </div>
       </div>
     </section>
 
-    <section class="secao secao--fio" aria-label="Texto do edital">
-      <div class="container edital__corpo">
+    <section class="secao secao--fio edital-leitura" id="texto" aria-label="Texto do edital">
+      <div class="container">
+        <div class="edital__folha">
+        <div class="edital__ferramentas">
+          <p class="edital__doc">Documento oficial do edital</p>
+          <button class="botao botao--linha apertavel" id="botao-imprimir" type="button">Baixar em PDF</button>
+        </div>
+        <div class="edital__corpo">
 
         <article>
           <h2><span aria-hidden="true">01</span> Informações básicas</h2>
@@ -231,11 +237,13 @@
           </dl>
         </article>
 
+        </div>
+
         <div class="edital__acoes edital__acoes--fecho">
           <a class="botao botao--grad apertavel" href="https://forms.gle/KwAqcyw8BDx9Nuio6" target="_blank" rel="noopener">Enviar proposta</a>
           <p class="edital__prazo">Inscrições abertas até 02/09/2026.</p>
         </div>
-
+        </div>
       </div>
     </section>
   </main>

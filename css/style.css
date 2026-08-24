@@ -181,6 +181,11 @@ p { margin: 0; }
 .botao--grad { background-image: var(--grad); }
 .botao--linha { background: var(--branco); }
 
+.botao--tinta {
+  background: var(--tinta);
+  color: var(--branco);
+}
+
 /* ---- Chip de placeholder (herda a cor do contexto) ---- */
 
 /* ==========================================================================
@@ -979,6 +984,41 @@ p { margin: 0; }
 .pagina-edital .topo__links a { color: var(--tinta); font-size: 1.05rem; }
 
 /* ==========================================================================
+   Chamada do edital na home
+   ========================================================================== */
+
+.faixa-edital {
+  background-image: var(--grad);
+  border-block: var(--fio);
+  padding-block: 1.1rem;
+}
+
+.faixa-edital__linha {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.9rem 1.4rem;
+}
+
+.faixa-edital__dizer {
+  font-family: var(--fonte-dizeres);
+  font-size: 1.35rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: var(--tinta);
+  color: var(--branco);
+  border: 2px solid var(--preto);
+  border-radius: 10px;
+  padding: 0.3rem 0.7rem;
+}
+
+.faixa-edital__texto {
+  font-weight: 600;
+  max-width: 34rem;
+  flex: 1 1 16rem;
+}
+
+/* ==========================================================================
    Página do edital
    ========================================================================== */
 
@@ -1032,6 +1072,39 @@ p { margin: 0; }
 
 .edital__acoes .botao { cursor: pointer; }
 
+.edital__folha {
+  background: var(--branco);
+  border: var(--fio);
+  border-radius: 22px;
+  box-shadow: var(--sombra-repouso);
+  padding: clamp(1.4rem, 4vw, 3rem);
+  max-width: 56rem;
+}
+
+.edital__ferramentas {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  padding-bottom: 1.2rem;
+  border-bottom: var(--fio);
+}
+
+.edital__ferramentas .botao { cursor: pointer; font-size: 0.95rem; padding: 0.55rem 1.1rem; }
+
+.edital__doc {
+  font-family: var(--fonte-dizeres);
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(16, 0, 35, 0.65);
+}
+
+.edital-leitura {
+  background-image: var(--listras);
+}
+
 .edital__corpo { max-width: 50rem; }
 
 .edital__corpo article { padding-block: 1.8rem; }
@@ -1069,11 +1142,25 @@ p { margin: 0; }
 
 .edital__corpo p, .edital__corpo ul { margin-top: 0.9rem; color: rgba(16, 0, 35, 0.85); }
 
-.edital__corpo ul { padding-left: 1.3rem; }
+.edital__corpo ul { list-style: none; padding-left: 0.2rem; }
 
-.edital__corpo li { margin-top: 0.35rem; }
+.edital__corpo li {
+  margin-top: 0.5rem;
+  position: relative;
+  padding-left: 1.5rem;
+}
 
-.edital__corpo li::marker { color: var(--rosa); }
+.edital__corpo li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.42em;
+  width: 11px;
+  height: 11px;
+  border-radius: 4px;
+  border: 2px solid var(--preto);
+  background-image: var(--grad);
+}
 
 .edital__corpo a { color: inherit; text-decoration: underline; text-decoration-thickness: 2px; }
 .edital__corpo a:hover { text-decoration-color: var(--rosa); }
@@ -1093,6 +1180,16 @@ p { margin: 0; }
 
 .edital__cronograma th { font-weight: 600; width: 60%; }
 
+.edital__cronograma td {
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+  .edital__cronograma td { white-space: normal; }
+}
+
 .edital__cronograma tr + tr th,
 .edital__cronograma tr + tr td { border-top: 2px solid rgba(16, 0, 35, 0.12); }
 
@@ -1101,8 +1198,24 @@ p { margin: 0; }
 .edital__temas dt {
   font-family: var(--fonte-titulo);
   font-weight: 700;
-  margin-top: 1.3rem;
+  margin-top: 1.5rem;
+  position: relative;
+  padding-left: 1.6rem;
 }
+
+.edital__temas dt::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.32em;
+  width: 13px;
+  height: 13px;
+  border-radius: 5px;
+  border: 2px solid var(--preto);
+  background-image: var(--grad);
+}
+
+.edital__temas dd { padding-left: 1.6rem; }
 
 .edital__temas dd { margin: 0.3rem 0 0; color: rgba(16, 0, 35, 0.8); }
 
@@ -1111,7 +1224,9 @@ p { margin: 0; }
 .edital__prazo { font-family: var(--fonte-dizeres); letter-spacing: 0.05em; text-transform: uppercase; }
 
 @media print {
-  .topo, .rodape, .edital__acoes, .fio-leitura { display: none !important; }
+  .topo, .rodape, .edital__acoes, .edital__ferramentas, .fio-leitura { display: none !important; }
+  .edital__folha { border: 0; box-shadow: none; padding: 0; max-width: none; }
+  .edital-leitura { background-image: none; }
   body { background: #fff; color: #000; }
   .secao { padding-block: 0.5rem; }
   .secao--fio { border: 0; }
