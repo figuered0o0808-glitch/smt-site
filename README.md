@@ -55,6 +55,10 @@ O GitHub Pages republica sozinho em um ou dois minutos.
 
 O domínio próprio é https://semexatambem.com (DNS na Hostinger, 4 registros A + CNAME www; canonical, sitemap.xml e og:url já apontam para ele).
 
+## Página do edital
+
+`/edital/` publica o edital de eventos (fonte: doc "EDITAL - eventos SMT" no Drive). Texto na íntegra com três correções de digitação. O botão "Baixar em PDF" abre o diálogo de impressão (a folha de estilos tem versão de impressão limpa). Quando as inscrições encerrarem (02/09/2026), atualizar ou despublicar a página e os dois botões da home que apontam para ela.
+
 ## Segurança
 
 O site é estático (sem servidor próprio, banco ou login), o que já elimina as classes mais comuns de ataque. Por cima disso:
