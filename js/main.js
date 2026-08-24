@@ -1,18 +1,26 @@
-// Menu mobile
+// Menu mobile (a página do edital não tem menu; as guardas evitam quebrar lá)
 const botaoMenu = document.querySelector(".topo__menu-botao");
 const menu = document.getElementById("menu");
 
-botaoMenu.addEventListener("click", () => {
-  const aberto = menu.classList.toggle("aberto");
-  botaoMenu.setAttribute("aria-expanded", String(aberto));
-});
+if (botaoMenu && menu) {
+  botaoMenu.addEventListener("click", () => {
+    const aberto = menu.classList.toggle("aberto");
+    botaoMenu.setAttribute("aria-expanded", String(aberto));
+  });
 
-menu.addEventListener("click", (evento) => {
-  if (evento.target.tagName === "A") {
-    menu.classList.remove("aberto");
-    botaoMenu.setAttribute("aria-expanded", "false");
-  }
-});
+  menu.addEventListener("click", (evento) => {
+    if (evento.target.tagName === "A") {
+      menu.classList.remove("aberto");
+      botaoMenu.setAttribute("aria-expanded", "false");
+    }
+  });
+}
+
+// "Baixar em PDF" do edital: diálogo de impressão do navegador (salvar como PDF)
+const botaoImprimir = document.getElementById("botao-imprimir");
+if (botaoImprimir) {
+  botaoImprimir.addEventListener("click", () => window.print());
+}
 
 // Faixa-índice viva + números que se entintam quando o bloco é lido
 const trilho = document.querySelector(".faixa__trilho");

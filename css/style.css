@@ -966,3 +966,155 @@ p { margin: 0; }
 .pagina-404 p { max-width: 34rem; }
 
 .pagina-404 .botao { margin-top: 1.2rem; }
+
+.pagina-edital .topo__links {
+  display: flex;
+  position: static;
+  flex-direction: row;
+  padding: 0;
+  background: transparent;
+  border-bottom: none;
+}
+
+.pagina-edital .topo__links a { color: var(--tinta); font-size: 1.05rem; }
+
+/* ==========================================================================
+   Página do edital
+   ========================================================================== */
+
+.edital__titulo {
+  font-family: var(--fonte-titulo);
+  font-weight: 800;
+  font-size: clamp(1.9rem, 4.5vw, 3rem);
+  line-height: 1.1;
+  max-width: 24ch;
+  margin-top: 0.4rem;
+}
+
+.edital__essencial {
+  list-style: none;
+  padding: 0;
+  margin: 1.6rem 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.edital__essencial li {
+  font-family: var(--fonte-dizeres);
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border: 2px solid var(--preto);
+  border-radius: 999px;
+  padding: 0.45rem 0.9rem;
+  background: var(--branco);
+}
+
+.edital__essencial b { font-weight: inherit; }
+
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .edital__essencial b {
+    background-image: var(--grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}
+
+.edital__acoes {
+  margin-top: 1.8rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.edital__acoes .botao { cursor: pointer; }
+
+.edital__corpo { max-width: 50rem; }
+
+.edital__corpo article { padding-block: 1.8rem; }
+
+.edital__corpo article + article { border-top: 2px solid rgba(16, 0, 35, 0.12); }
+
+.edital__corpo h2 {
+  font-family: var(--fonte-titulo);
+  font-weight: 800;
+  font-size: clamp(1.3rem, 2.6vw, 1.7rem);
+  display: flex;
+  align-items: baseline;
+  gap: 0.7rem;
+}
+
+.edital__corpo h2 span {
+  font-size: 1.9em;
+  line-height: 1;
+  color: var(--tinta);
+}
+
+@supports (-webkit-text-stroke: 2px #000) {
+  .edital__corpo h2 span {
+    color: transparent;
+    -webkit-text-stroke: 2px var(--tinta);
+  }
+}
+
+.edital__corpo h3 {
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+  font-size: 1.08rem;
+  margin-top: 1.4rem;
+}
+
+.edital__corpo p, .edital__corpo ul { margin-top: 0.9rem; color: rgba(16, 0, 35, 0.85); }
+
+.edital__corpo ul { padding-left: 1.3rem; }
+
+.edital__corpo li { margin-top: 0.35rem; }
+
+.edital__corpo li::marker { color: var(--rosa); }
+
+.edital__corpo a { color: inherit; text-decoration: underline; text-decoration-thickness: 2px; }
+.edital__corpo a:hover { text-decoration-color: var(--rosa); }
+
+.edital__cronograma {
+  width: 100%;
+  margin-top: 1.2rem;
+  border: var(--fio);
+  border-radius: 14px;
+  border-spacing: 0;
+  overflow: hidden;
+  background: var(--branco);
+}
+
+.edital__cronograma th,
+.edital__cronograma td { padding: 0.75rem 1rem; text-align: left; vertical-align: top; }
+
+.edital__cronograma th { font-weight: 600; width: 60%; }
+
+.edital__cronograma tr + tr th,
+.edital__cronograma tr + tr td { border-top: 2px solid rgba(16, 0, 35, 0.12); }
+
+.edital__temas { margin-top: 0.4rem; }
+
+.edital__temas dt {
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+  margin-top: 1.3rem;
+}
+
+.edital__temas dd { margin: 0.3rem 0 0; color: rgba(16, 0, 35, 0.8); }
+
+.edital__acoes--fecho { padding-block: 2rem 0.5rem; }
+
+.edital__prazo { font-family: var(--fonte-dizeres); letter-spacing: 0.05em; text-transform: uppercase; }
+
+@media print {
+  .topo, .rodape, .edital__acoes, .fio-leitura { display: none !important; }
+  body { background: #fff; color: #000; }
+  .secao { padding-block: 0.5rem; }
+  .secao--fio { border: 0; }
+  .edital__corpo { max-width: none; }
+  .edital__corpo h2 span { -webkit-text-stroke: 0; color: #000; }
+}
