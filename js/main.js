@@ -16,12 +16,6 @@ if (botaoMenu && menu) {
   });
 }
 
-// "Baixar em PDF" do edital: diálogo de impressão do navegador (salvar como PDF)
-const botaoImprimir = document.getElementById("botao-imprimir");
-if (botaoImprimir) {
-  botaoImprimir.addEventListener("click", () => window.print());
-}
-
 // Faixa-índice viva + números que se entintam quando o bloco é lido
 const trilho = document.querySelector(".faixa__trilho");
 const linksFaixa = trilho ? [...trilho.querySelectorAll("a")] : [];
