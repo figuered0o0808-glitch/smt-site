@@ -63,7 +63,7 @@ O domínio próprio é https://semexatambem.com (DNS na Hostinger, 4 registros A
 "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless --no-pdf-header-footer --print-to-pdf="edital/edital-eventos-smt.pdf" "http://localhost:8080/edital/"
 ```
 
-Quando as inscrições encerrarem (02/09/2026), atualizar ou despublicar a página e os dois botões da home que apontam para ela.
+Quando as inscrições encerrarem (04/09/2026), atualizar ou despublicar a página e os dois botões da home que apontam para ela.
 
 ## Segurança
 
