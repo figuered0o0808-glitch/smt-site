@@ -1221,13 +1221,62 @@ p { margin: 0; }
 
 .edital__prazo { font-family: var(--fonte-dizeres); letter-spacing: 0.05em; text-transform: uppercase; }
 
+.edital__print-cabecalho,
+.edital__print-grad { display: none; }
+
 @media print {
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  @page { margin: 16mm; }
+
   .topo, .rodape, .edital__acoes, .edital__ferramentas, .fio-leitura { display: none !important; }
-  .edital__folha { border: 0; box-shadow: none; padding: 0; max-width: none; }
-  .edital-leitura { background-color: #fff; }
-  body { background: #fff; color: #000; }
-  .secao { padding-block: 0.5rem; }
+
+  body { background: #fff; }
+  .secao { padding-block: 0.4rem; }
   .secao--fio { border: 0; }
+  .edital-leitura { background-color: #fff; }
+  .edital__folha { border: 0; box-shadow: none; padding: 0; max-width: none; }
   .edital__corpo { max-width: none; }
-  .edital__corpo h2 span { -webkit-text-stroke: 0; color: #000; }
+
+  /* capa: marca + endereço + fio em degradê */
+  .edital__print-cabecalho {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-bottom: 0.7rem;
+  }
+
+  .edital__print-cabecalho img { width: 118px; height: auto; }
+
+  .edital__print-cabecalho span {
+    font-family: var(--fonte-dizeres);
+    font-size: 0.8rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: rgba(16, 0, 35, 0.65);
+  }
+
+  .edital__print-grad {
+    display: block;
+    height: 5px;
+    background-image: var(--grad);
+    margin-bottom: 1.1rem;
+  }
+
+  /* selos do essencial seguem no PDF como parte da capa */
+  .edital__essencial li { border-width: 1.5px; font-size: 0.8rem; }
+
+  /* seções: numerais na tinta, quadradinhos e fios coloridos preservados */
+  .edital__corpo article { padding-block: 1.1rem; break-inside: auto; }
+  .edital__corpo h2 { break-after: avoid; }
+  .edital__corpo h2 span { -webkit-text-stroke: 0; color: var(--rosa); }
+  .edital__corpo p, .edital__corpo ul { color: var(--tinta); }
+  .edital__cronograma tr { break-inside: avoid; }
+  .edital__temas dt { break-after: avoid; }
+  .edital__temas dd { break-before: avoid; }
 }
+
