@@ -57,7 +57,11 @@ O domínio próprio é https://semexatambem.com (DNS na Hostinger, 4 registros A
 
 ## Página do edital
 
-`/edital/` publica o edital de eventos (fonte: doc "EDITAL - eventos SMT" no Drive). Texto na íntegra com três correções de digitação. O botão "Baixar em PDF" abre o diálogo de impressão (a folha de estilos tem versão de impressão limpa). Quando as inscrições encerrarem (02/09/2026), atualizar ou despublicar a página e os dois botões da home que apontam para ela.
+`/edital/` publica o edital de eventos (fonte: doc "EDITAL - eventos SMT" no Drive). Texto na íntegra com três correções de digitação. O botão "Baixar em PDF" baixa o arquivo `/edital/edital-eventos-smt.pdf`, gerado a partir da versão de impressão da própria página. **Sempre que editar o conteúdo do edital, regenere o PDF** com o site rodando localmente:
+
+```
+"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless --no-pdf-header-footer --print-to-pdf="edital/edital-eventos-smt.pdf" "http://localhost:8080/edital/"
+``` Quando as inscrições encerrarem (02/09/2026), atualizar ou despublicar a página e os dois botões da home que apontam para ela.
 
 ## Segurança
 
