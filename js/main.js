@@ -1,3 +1,5 @@
+document.documentElement.classList.add("tem-js");
+
 // Menu mobile (a página do edital não tem menu; as guardas evitam quebrar lá)
 const botaoMenu = document.querySelector(".topo__menu-botao");
 const menu = document.getElementById("menu");
@@ -29,6 +31,7 @@ const trilho = document.querySelector(".faixa__trilho");
 const linksFaixa = trilho ? [...trilho.querySelectorAll("a")] : [];
 const reduzMovimento = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+if ("IntersectionObserver" in window) {
 const observadorBlocos = new IntersectionObserver(
   (entradas) => {
     entradas.forEach((entrada) => {
@@ -49,6 +52,7 @@ const observadorBlocos = new IntersectionObserver(
   { rootMargin: "-30% 0px -55%" }
 );
 document.querySelectorAll(".bloco").forEach((b) => observadorBlocos.observe(b));
+}
 
 // Fio de leitura: completa quando a página termina, rimando com o fio do rodapé
 const fioLeitura = document.querySelector(".fio-leitura");
@@ -63,6 +67,82 @@ if (fioLeitura) {
     if (!agendado) { agendado = true; requestAnimationFrame(atualizar); }
   }, { passive: true });
   atualizar();
+}
+
+// Assentamento: cada sticker abaixo da dobra chega na pose do hover e,
+// ao cruzar a linha de leitura, cola na folha uma única vez.
+if ("IntersectionObserver" in window && !reduzMovimento) {
+  const adesivos = [...document.querySelectorAll(".apertavel, .formulario")].filter((el) => {
+    const folha = el.closest(".formulario");
+    if (folha && folha !== el) return false;
+    return el.getBoundingClientRect().top > window.innerHeight * 0.9;
+  });
+
+  const assentar = (el) => {
+    el.classList.add("js-assenta");
+    requestAnimationFrame(() => el.classList.remove("js-erguido"));
+    let garantia;
+    const concluir = () => {
+      clearTimeout(garantia);
+      el.classList.remove("js-assenta");
+      el.removeEventListener("transitionend", aoFim);
+      el.removeEventListener("transitioncancel", aoFim);
+    };
+    const aoFim = (evento) => {
+      if (evento.target === el && evento.propertyName === "transform") concluir();
+    };
+    garantia = setTimeout(concluir, 800);
+    el.addEventListener("transitionend", aoFim);
+    el.addEventListener("transitioncancel", aoFim);
+  };
+
+  const observadorAssento = new IntersectionObserver((entradas) => {
+    entradas
+      .filter((entrada) => entrada.isIntersecting)
+      .forEach((entrada, i) => {
+        observadorAssento.unobserve(entrada.target);
+        setTimeout(() => assentar(entrada.target), i * 70);
+      });
+  }, { rootMargin: "0px 0px -12% 0px" });
+
+  adesivos.forEach((el) => {
+    el.classList.add("js-erguido");
+    observadorAssento.observe(el);
+  });
+}
+
+// Rubrica do edital: o fio de cada cláusula se pauta ao entrar na leitura;
+// o numeral se entinta quando a cláusula seguinte começa (cláusula conferida).
+const artigos = [...document.querySelectorAll(".edital__corpo article")];
+if ("IntersectionObserver" in window && artigos.length) {
+  const observadorPauta = new IntersectionObserver((entradas) => {
+    entradas.forEach((entrada) => {
+      if (!entrada.isIntersecting) return;
+      entrada.target.classList.add("artigo--visto");
+      observadorPauta.unobserve(entrada.target);
+    });
+  }, { rootMargin: "0px 0px -15% 0px" });
+  artigos.forEach((artigo) => observadorPauta.observe(artigo));
+
+  const rubricarAte = (i) => artigos.slice(0, i).forEach((artigo) => artigo.classList.add("artigo--lido"));
+
+  const observadorRubrica = new IntersectionObserver((entradas) => {
+    entradas.forEach((entrada) => {
+      if (!entrada.isIntersecting) return;
+      rubricarAte(artigos.indexOf(entrada.target));
+    });
+  }, { rootMargin: "-30% 0px -55%" });
+  artigos.forEach((artigo) => observadorRubrica.observe(artigo));
+
+  const fecho = document.querySelector(".edital__acoes--fecho");
+  if (fecho) {
+    const observadorFecho = new IntersectionObserver((entradas) => {
+      if (!entradas.some((entrada) => entrada.isIntersecting)) return;
+      rubricarAte(artigos.length);
+      observadorFecho.disconnect();
+    }, { rootMargin: "0px 0px -20% 0px" });
+    observadorFecho.observe(fecho);
+  }
 }
 
 // Âncoras internas: rolam até a seção sem deixar #fragmento no endereço

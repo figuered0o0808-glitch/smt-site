@@ -72,18 +72,6 @@ html {
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-
-  .apertavel,
-  .pular,
-  .topo__links a::after,
-  .topo__nome::after,
-  .porta__disco,
-  .porta__assunto,
-  .bloco__numero,
-  .faixa__trilho a,
-  .bloco__link a,
-  .rodape__link,
-  .edital__corpo a { transition: none; }
 }
 
 body {
@@ -1162,9 +1150,17 @@ p { margin: 0; }
 
 .edital__corpo { max-width: 50rem; }
 
-.edital__corpo article { padding-block: 1.8rem; }
+.edital__corpo article { padding-block: 1.8rem; position: relative; }
 
-.edital__corpo article + article { border-top: 2px solid rgba(16, 0, 35, 0.12); }
+.edital__corpo article + article::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: rgba(16, 0, 35, 0.12);
+}
 
 .edital__corpo h2 {
   font-family: var(--fonte-titulo);
@@ -1179,6 +1175,7 @@ p { margin: 0; }
   font-size: 1.9em;
   line-height: 1;
   color: var(--tinta);
+  transition: color 0.35s ease;
 }
 
 @supports (-webkit-text-stroke: 2px #000) {
@@ -1186,6 +1183,7 @@ p { margin: 0; }
     color: transparent;
     -webkit-text-stroke: 2px var(--tinta);
   }
+  .artigo--lido h2 span { color: var(--tinta); }
 }
 
 .edital__corpo h3 {
@@ -1294,6 +1292,60 @@ p { margin: 0; }
 .edital__print-cabecalho,
 .edital__print-grad { display: none; }
 
+/* ==========================================================================
+   Assinatura de rolagem
+   1) Assentamento: o sticker chega na pose do hover e cola na folha (1x)
+   2) Rubrica do edital: fios que se pautam + numerais rubricados na leitura
+   No fim do arquivo de propósito: .js-erguido precisa vencer .apertavel e
+   .formulario por ordem; o bloco reduced-motion vem depois de tudo que ele
+   desliga; @media print permanece o último bloco.
+   ========================================================================== */
+
+.js-erguido {
+  transform: translate(3px, -3px);
+  box-shadow: var(--sombra-alta);
+}
+
+.js-assenta {
+  transition:
+    transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1),
+    box-shadow 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+/* fios do edital: sem JS (sem .tem-js) já nascem desenhados */
+html.tem-js .edital__corpo article + article::before {
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.6s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+html.tem-js .edital__corpo article + article.artigo--visto::before {
+  transform: scaleX(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .apertavel,
+  .pular,
+  .topo__links a::after,
+  .topo__nome::after,
+  .porta__disco,
+  .porta__assunto,
+  .bloco__numero,
+  .faixa__trilho a,
+  .bloco__link a,
+  .rodape__link,
+  .edital__corpo a,
+  .edital__corpo h2 span { transition: none; }
+
+  .js-erguido { transform: none; box-shadow: var(--sombra-repouso); }
+  .js-assenta { transition: none; }
+
+  html.tem-js .edital__corpo article + article::before {
+    transform: scaleX(1);
+    transition: none;
+  }
+}
+
 @media print {
   * {
     -webkit-print-color-adjust: exact !important;
@@ -1344,6 +1396,8 @@ p { margin: 0; }
   .edital__corpo article { padding-block: 1.1rem; break-inside: auto; }
   .edital__corpo h2 { break-after: avoid; }
   .edital__corpo h2 span { -webkit-text-stroke: 0; color: var(--rosa); }
+  .js-erguido { transform: none; box-shadow: var(--sombra-repouso); }
+  html.tem-js .edital__corpo article + article::before { transform: none; transition: none; }
   .edital__corpo p, .edital__corpo ul { color: var(--tinta); }
   .edital__cronograma tr { break-inside: avoid; }
   .edital__temas dt { break-after: avoid; }
