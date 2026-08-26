@@ -82,6 +82,13 @@ window.addEventListener("message", (evento) => {
   if (altura > 200) quadro.style.height = altura + "px";
 });
 
+// Post de evento com prazo de validade: some sozinho depois da data,
+// para o site estático nunca exibir evento que já passou
+document.querySelectorAll("[data-evento-ate]").forEach((moldura) => {
+  const limite = new Date(moldura.getAttribute("data-evento-ate") + "T23:59:59");
+  if (!isNaN(limite) && new Date() > limite) moldura.remove();
+});
+
 // O site sempre abre no topo: link antigo com #fragmento não pode jogar a página lá embaixo
 if (window.location.hash) {
   history.replaceState(null, "", window.location.pathname + window.location.search);
