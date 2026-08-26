@@ -5,3 +5,8 @@ Os nomes chegam junto com os perfis da rede.
 /* VOCÊ */
 Sim, você abriu um arquivo chamado humans.txt num site de internet.
 Se mexa também.
+
+/* SITE */
+Última atualização: 2026-08
+Stack: HTML, CSS e JS, sem frameworks
+Fontes: Baloo 2, Inter e Bebas Neue, self-hosted

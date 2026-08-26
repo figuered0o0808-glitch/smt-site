@@ -8,6 +8,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Edital de eventos: Se Mexa Também</title>
   <meta name="theme-color" content="#ffffff">
+  <link rel="preload" href="/assets/fonts/bebasneue-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/baloo2-600.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
   <meta name="description" content="Edital do Se Mexa Também para eventos de fomento à participação política: apoio de até R$ 5.000 por evento. Inscrições de 24/08 a 04/09/2026.">
   <link rel="canonical" href="https://semexatambem.com/edital/">
   <meta property="og:site_name" content="Se Mexa Também">
@@ -18,15 +21,20 @@
   <meta property="og:description" content="Apoio de até R$ 5.000 por evento cultural com roda de conversa. Inscrições de 24/08 a 04/09/2026.">
   <meta property="og:url" content="https://semexatambem.com/edital/">
   <meta property="og:image" content="https://semexatambem.com/assets/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Edital de eventos do Se Mexa Também">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
   <link rel="icon" type="image/png" sizes="64x64" href="/assets/favicon-64.png">
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
-  <link rel="stylesheet" href="/css/style.css?v=43">
+  <link rel="stylesheet" href="/css/style.css?v=44">
 </head>
 <body class="pagina-edital">
+  <a class="pular" href="#texto">Pular para o conteúdo</a>
   <header class="topo">
     <nav class="container topo__nav" aria-label="Navegação principal">
       <a class="topo__marca" href="/" aria-label="Se Mexa Também, voltar ao site">
-        <img class="topo__s" src="/assets/marca/s-escuro.png" alt="" width="752" height="701">
+        <img class="topo__s" src="/assets/marca/s-escuro-topo.png" alt="" width="108" height="100">
         <span class="topo__nome">Se Mexa Também</span>
       </a>
       <ul class="topo__links">
@@ -55,7 +63,7 @@
           <li>Em qualquer local do território brasileiro</li>
         </ul>
         <div class="edital__acoes">
-          <a class="botao botao--grad apertavel" href="https://forms.gle/KwAqcyw8BDx9Nuio6" target="_blank" rel="noopener">Enviar proposta</a>
+          <a class="botao botao--grad apertavel" href="https://forms.gle/KwAqcyw8BDx9Nuio6" target="_blank" rel="noopener">Enviar proposta<span class="visualmente-oculto"> (abre em nova aba)</span></a>
           <a class="botao botao--linha apertavel" href="#texto">Ler o edital</a>
         </div>
       </div>
@@ -84,7 +92,7 @@
 
         <article>
           <h2><span aria-hidden="true">02</span> Inscrições</h2>
-          <p>As inscrições das propostas deverão ser realizadas por meio de formulário eletrônico: <a href="https://forms.gle/KwAqcyw8BDx9Nuio6" target="_blank" rel="noopener">Formulário de Submissão de Proposta - SMT</a>, disponibilizado pela organização Se Mexa Também. No formulário, os(as) interessados(as) deverão apresentar as informações básicas da proposta, incluindo o tipo de evento, tema principal do evento (se houver) ou da roda de conversa, descrição da atividade cultural planejada (ex.: apresentação musical, teatro, dança, feira de empreendedoras, entre outras), justificativa, público-alvo, organizadores responsáveis, cronograma e recursos necessários, além de anexar, obrigatoriamente, um documento complementar com o detalhamento da atividade.</p>
+          <p>As inscrições das propostas deverão ser realizadas por meio de formulário eletrônico: <a href="https://forms.gle/KwAqcyw8BDx9Nuio6" target="_blank" rel="noopener">Formulário de Submissão de Proposta - SMT<span class="visualmente-oculto"> (abre em nova aba)</span></a>, disponibilizado pela organização Se Mexa Também. No formulário, os(as) interessados(as) deverão apresentar as informações básicas da proposta, incluindo o tipo de evento, tema principal do evento (se houver) ou da roda de conversa, descrição da atividade cultural planejada (ex.: apresentação musical, teatro, dança, feira de empreendedoras, entre outras), justificativa, público-alvo, organizadores responsáveis, cronograma e recursos necessários, além de anexar, obrigatoriamente, um documento complementar com o detalhamento da atividade.</p>
         </article>
 
         <article>
@@ -246,7 +254,7 @@
         </div>
 
         <div class="edital__acoes edital__acoes--fecho">
-          <a class="botao botao--grad apertavel" href="https://forms.gle/KwAqcyw8BDx9Nuio6" target="_blank" rel="noopener">Enviar proposta</a>
+          <a class="botao botao--grad apertavel" href="https://forms.gle/KwAqcyw8BDx9Nuio6" target="_blank" rel="noopener">Enviar proposta<span class="visualmente-oculto"> (abre em nova aba)</span></a>
           <p class="edital__prazo">Inscrições abertas até 04/09/2026.</p>
         </div>
         </div>
@@ -257,10 +265,18 @@
   <footer class="rodape">
     <div class="rodape__fio" aria-hidden="true"></div>
     <div class="container">
+      <img class="rodape__marca" src="/assets/marca/smt-branco.png" alt="SMT" width="825" height="247" loading="lazy">
+      <p class="rodape__iniciativa">Uma iniciativa da agência <img src="/assets/marca/indica-branco-rodape.png" alt="INDICA" width="320" height="96" loading="lazy"></p>
+      <div class="rodape__bloco">
+        <h3 class="rodape__titulo">Redes</h3>
+        <ul class="rodape__redes">
+          <li><a class="rodape__link" href="https://www.instagram.com/semexatambem" target="_blank" rel="noopener">Instagram: @semexatambem<span class="visualmente-oculto"> (abre em nova aba)</span></a></li>
+        </ul>
+      </div>
       <p class="rodape__assinatura">Se Mexa Também, 2026.</p>
     </div>
   </footer>
 
-  <script src="/js/main.js?v=19"></script>
+  <script src="/js/main.js?v=20"></script>
 </body>
 </html>

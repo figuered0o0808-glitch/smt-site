@@ -15,20 +15,6 @@
   src: url("../assets/fonts/baloo2-600.woff2") format("woff2");
 }
 @font-face {
-  font-family: "Baloo 2";
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url("../assets/fonts/baloo2-700.woff2") format("woff2");
-}
-@font-face {
-  font-family: "Baloo 2";
-  font-style: normal;
-  font-weight: 800;
-  font-display: swap;
-  src: url("../assets/fonts/baloo2-800.woff2") format("woff2");
-}
-@font-face {
   font-family: "Inter";
   font-style: normal;
   font-weight: 400;
@@ -36,25 +22,19 @@
   src: url("../assets/fonts/inter-400.woff2") format("woff2");
 }
 @font-face {
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url("../assets/fonts/inter-500.woff2") format("woff2");
-}
-@font-face {
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url("../assets/fonts/inter-700.woff2") format("woff2");
-}
-@font-face {
   font-family: "Bebas Neue";
   font-style: normal;
   font-weight: 400;
   font-display: swap;
   src: url("../assets/fonts/bebasneue-400.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Inter";
+  font-style: italic;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("../assets/fonts/inter-italic.woff2") format("woff2");
 }
 
 /* ---- Tema ---- */
@@ -65,6 +45,10 @@
   --branco: #ffffff;
   --rosa: #ff00fa;
   --azul: #11cae2;
+  --rosa-texto: #c400c0;
+  --azul-texto: #0b7f92;
+  --grad-texto: linear-gradient(135deg, var(--rosa-texto), var(--azul-texto));
+  --sombra-quadro: -8px 8px 0 var(--preto);
   --grad: linear-gradient(135deg, var(--rosa), var(--azul));
 
   --fonte-titulo: "Baloo 2", "Avenir Next", system-ui, sans-serif;
@@ -88,6 +72,18 @@ html {
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
+
+  .apertavel,
+  .pular,
+  .topo__links a::after,
+  .topo__nome::after,
+  .porta__disco,
+  .porta__assunto,
+  .bloco__numero,
+  .faixa__trilho a,
+  .bloco__link a,
+  .rodape__link,
+  .edital__corpo a { transition: none; }
 }
 
 body {
@@ -134,34 +130,37 @@ p { margin: 0; }
 }
 .pular:focus { top: 0; }
 
-::selection { background: var(--rosa); color: var(--branco); }
+::selection { background: var(--rosa); color: var(--preto); }
 
 :focus-visible {
   outline: 3px solid var(--preto);
   outline-offset: 3px;
-  border-radius: 4px;
 }
 .secao-escura :focus-visible,
 .rodape :focus-visible,
 .faixa :focus-visible { outline-color: var(--branco); }
+
+@media (max-width: 759.98px) {
+  .topo__links :focus-visible { outline-color: var(--branco); }
+}
 
 /* ---- Interação única dos elementos sticker clicáveis ---- */
 
 .apertavel {
   box-shadow: var(--sombra-repouso);
   transition: transform 0.12s ease, box-shadow 0.12s ease;
+  -webkit-tap-highlight-color: transparent;
 }
-.apertavel:hover {
-  transform: translate(3px, -3px);
-  box-shadow: var(--sombra-alta);
+
+@media (hover: hover) {
+  .apertavel:hover {
+    transform: translate(3px, -3px);
+    box-shadow: var(--sombra-alta);
+  }
 }
 .apertavel:active {
   transform: translate(-3px, 3px);
   box-shadow: var(--sombra-baixa);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .apertavel { transition: none; }
 }
 
 /* ---- Botões ---- */
@@ -283,6 +282,27 @@ p { margin: 0; }
 .topo__links a:hover::after,
 .topo__links a:focus-visible::after { transform: scaleX(1); }
 
+.topo__nome { position: relative; }
+
+.topo__nome::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -3px;
+  height: 3px;
+  background-image: var(--grad);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.15s ease;
+}
+
+.topo__marca:hover .topo__nome::after,
+.topo__marca:focus-visible .topo__nome::after { transform: scaleX(1); }
+
+.topo__menu-botao[aria-expanded="true"] { background: var(--tinta); }
+.topo__menu-botao[aria-expanded="true"] .topo__menu-linha { background: var(--branco); }
+
 @media (min-width: 760px) {
   .topo__menu-botao { display: none; }
   .topo__links {
@@ -324,7 +344,7 @@ p { margin: 0; }
   border: var(--fio);
   border-radius: 26px;
   overflow: hidden;
-  box-shadow: -8px 8px 0 var(--preto);
+  box-shadow: var(--sombra-quadro);
   display: grid;
 }
 
@@ -360,12 +380,13 @@ p { margin: 0; }
   gap: 1rem;
 }
 
-@media (min-width: 900px) {
+@media (min-width: 760px) {
   .hero__quadro { grid-template-columns: 42% 1fr; }
   .hero__arte {
     border-bottom: none;
     border-right: var(--fio);
     padding-block: 0;
+    align-items: flex-end;
   }
   .hero__texto { align-self: center; }
 }
@@ -397,6 +418,8 @@ p { margin: 0; }
   white-space: nowrap;
   border-bottom: 3px solid transparent;
 }
+.faixa__trilho a { transition: border-bottom-color 0.15s ease; }
+
 .faixa__trilho a:hover { border-bottom-color: var(--rosa); }
 
 .faixa__trilho a[aria-current] {
@@ -441,10 +464,21 @@ p { margin: 0; }
   font-size: 1.4rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--rosa);
+  color: var(--rosa-texto);
 }
 @supports ((-webkit-background-clip: text) or (background-clip: text)) {
   .dizer {
+    background-image: var(--grad-texto);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}
+
+.secao-escura .dizer { color: var(--rosa); }
+
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .secao-escura .dizer {
     background-image: var(--grad);
     -webkit-background-clip: text;
     background-clip: text;
@@ -459,7 +493,6 @@ p { margin: 0; }
   margin-top: 0.9rem;
 }
 
-.apoio--escuro { color: rgba(255, 255, 255, 0.85); }
 
 /* ==========================================================================
    Seções e blocos de "O que fazemos"
@@ -467,7 +500,6 @@ p { margin: 0; }
 
 .secao {
   padding-block: 3.2rem 4rem;
-  scroll-margin-top: 4.5rem;
 }
 
 .secao--fio { border-top: var(--fio); }
@@ -480,7 +512,6 @@ p { margin: 0; }
 .bloco {
   border-top: var(--fio);
   margin-top: 2.4rem;
-  scroll-margin-top: 4.5rem;
 }
 .bloco:first-of-type { margin-top: 2rem; }
 
@@ -533,7 +564,7 @@ p { margin: 0; }
 .midia {
   position: relative;
   border: var(--fio);
-  border-radius: 18px;
+  border-radius: 22px;
   background-color: var(--tinta);
   display: grid;
   place-items: center;
@@ -588,6 +619,9 @@ p { margin: 0; }
   text-decoration-thickness: 2px;
   text-underline-offset: 3px;
 }
+.bloco__link a,
+.rodape__link { transition: text-decoration-color 0.15s ease; }
+
 .bloco__link a:hover,
 .rodape__link:hover { text-decoration-color: var(--rosa); }
 
@@ -605,11 +639,11 @@ p { margin: 0; }
   max-width: 18ch;
 }
 
-.convicao span { color: var(--rosa); }
+.convicao span { color: var(--rosa-texto); }
 
 @supports ((-webkit-background-clip: text) or (background-clip: text)) {
   .convicao span {
-    background-image: var(--grad);
+    background-image: var(--grad-texto);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -691,26 +725,29 @@ p { margin: 0; }
 }
 .porta__assunto b {
   font-weight: 400;
-  color: var(--rosa);
+  color: var(--rosa-texto);
 }
 @supports ((-webkit-background-clip: text) or (background-clip: text)) {
   .porta__assunto b {
-    background-image: var(--grad);
+    background-image: var(--grad-texto);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
   }
 }
-.porta:hover .porta__assunto,
 .porta:focus-visible .porta__assunto {
   grid-template-rows: 1fr;
   opacity: 1;
 }
+
+@media (hover: hover) {
+  .porta:hover .porta__assunto {
+    grid-template-rows: 1fr;
+    opacity: 1;
+  }
+}
 @media (hover: none) {
   .porta__assunto { grid-template-rows: 1fr; opacity: 1; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .porta__assunto, .bloco__numero { transition: none; }
 }
 
 .porta__disco {
@@ -723,10 +760,28 @@ p { margin: 0; }
   font-family: var(--fonte-titulo);
   font-weight: 800;
   font-size: 1.35rem;
-  transition: background-color 0.15s ease;
+  background-image: var(--grad);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 0% 0%;
+  transition: background-size 0.15s ease;
 }
-.porta:hover .porta__disco,
-.porta:focus-visible .porta__disco { background-image: var(--grad); }
+.porta:focus-visible .porta__disco { background-size: 100% 100%; }
+
+@media (hover: hover) {
+  .porta:hover .porta__disco { background-size: 100% 100%; }
+}
+
+@media (max-width: 480px) {
+  .porta { gap: 1rem; padding: 1.25rem 1.15rem; }
+
+  .porta__disco {
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1.1rem;
+    border-width: 2px;
+  }
+}
 
 /* ==========================================================================
    Formulário de influenciadores
@@ -777,7 +832,9 @@ p { margin: 0; }
   padding: 0.65rem 0.85rem;
 }
 
-.campo input::placeholder { color: rgba(16, 0, 35, 0.4); }
+.campo input::placeholder { color: rgba(16, 0, 35, 0.55); }
+
+.campo select { cursor: pointer; }
 
 .formulario__enviar {
   margin-top: 1.4rem;
@@ -842,7 +899,7 @@ p { margin: 0; }
   color: var(--branco);
   text-decoration: none;
   border: 2px solid var(--branco);
-  border-radius: 16px;
+  border-radius: 14px;
   padding: 1.1rem 1.5rem;
   margin: 1.6rem 0 1.4rem;
   transition: background-color 0.15s ease, color 0.15s ease;
@@ -1053,7 +1110,7 @@ p { margin: 0; }
 
 @supports ((-webkit-background-clip: text) or (background-clip: text)) {
   .edital__essencial b {
-    background-image: var(--grad);
+    background-image: var(--grad-texto);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -1161,6 +1218,8 @@ p { margin: 0; }
 }
 
 .edital__corpo a { color: inherit; text-decoration: underline; text-decoration-thickness: 2px; }
+.edital__corpo a { transition: text-decoration-color 0.15s ease; }
+
 .edital__corpo a:hover { text-decoration-color: var(--rosa); }
 
 .edital__cronograma {
@@ -1185,7 +1244,18 @@ p { margin: 0; }
 }
 
 @media (max-width: 600px) {
-  .edital__cronograma td { white-space: normal; }
+  .edital__cronograma tr { display: block; }
+
+  .edital__cronograma th,
+  .edital__cronograma td {
+    display: block;
+    width: auto;
+    white-space: normal;
+  }
+
+  .edital__cronograma th { padding-bottom: 0.1rem; }
+  .edital__cronograma td { padding-top: 0; }
+  .edital__cronograma tr + tr td { border-top: 0; }
 }
 
 .edital__cronograma tr + tr th,

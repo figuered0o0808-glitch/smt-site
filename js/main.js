@@ -14,6 +14,14 @@ if (botaoMenu && menu) {
       botaoMenu.setAttribute("aria-expanded", "false");
     }
   });
+
+  document.addEventListener("keydown", (evento) => {
+    if (evento.key === "Escape" && menu.classList.contains("aberto")) {
+      menu.classList.remove("aberto");
+      botaoMenu.setAttribute("aria-expanded", "false");
+      botaoMenu.focus();
+    }
+  });
 }
 
 // Faixa-índice viva + números que se entintam quando o bloco é lido
@@ -64,6 +72,8 @@ document.querySelectorAll('a[href^="#"]').forEach((ancora) => {
     if (!alvo) return;
     evento.preventDefault();
     alvo.scrollIntoView({ behavior: reduzMovimento ? "instant" : "smooth" });
+    if (!alvo.hasAttribute("tabindex")) alvo.setAttribute("tabindex", "-1");
+    alvo.focus({ preventScroll: true });
     history.replaceState(null, "", window.location.pathname);
   });
 });
