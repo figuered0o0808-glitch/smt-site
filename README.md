@@ -63,7 +63,7 @@ O domínio próprio é https://semexatambem.com (DNS na Hostinger, 4 registros A
 "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless --no-pdf-header-footer --print-to-pdf="edital/edital-eventos-smt.pdf" "http://localhost:8080/edital/"
 ```
 
-Quando as inscrições encerrarem (04/09/2026), atualizar ou despublicar a página e os dois botões da home que apontam para ela.
+O edital ENCERROU em 04/09/2026: a página segue no ar como documento de consulta (selo de encerrado, sem botões de envio) e a home voltou a apontar os CTAs de evento para o e-mail de contato. Se houver nova edição, restaurar a faixa da home e os botões pelo histórico do git.
 
 ## Segurança
 

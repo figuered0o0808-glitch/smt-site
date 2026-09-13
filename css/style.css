@@ -1105,6 +1105,20 @@ p { margin: 0; }
   }
 }
 
+.edital__encerrado {
+  display: inline-block;
+  margin-top: 1.4rem;
+  font-family: var(--fonte-dizeres);
+  font-size: 1rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: var(--tinta);
+  color: var(--branco);
+  border: 2px solid var(--preto);
+  border-radius: 10px;
+  padding: 0.45rem 0.8rem;
+}
+
 .edital__acoes {
   margin-top: 1.8rem;
   display: flex;
@@ -1354,7 +1368,7 @@ html.tem-js .edital__corpo article + article.artigo--visto::before {
 
   @page { margin: 16mm; }
 
-  .topo, .rodape, .edital__acoes, .edital__ferramentas, .fio-leitura { display: none !important; }
+  .topo, .rodape, .edital__acoes, .edital__ferramentas, .edital__encerrado, .fio-leitura { display: none !important; }
 
   body { background: #fff; }
   .secao { padding-block: 0.4rem; }
