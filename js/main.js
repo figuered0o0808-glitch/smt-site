@@ -69,6 +69,89 @@ if (fioLeitura) {
   atualizar();
 }
 
+// Prazos: [data-ate] sai do ar depois do horário; [data-desde] só aparece a partir dele.
+// Roda antes do assentamento para nunca observar o que já saiu.
+const agora = new Date();
+document.querySelectorAll("[data-ate]").forEach((el) => {
+  const limite = new Date(el.getAttribute("data-ate"));
+  if (!isNaN(limite) && agora >= limite) el.remove();
+});
+document.querySelectorAll("[data-desde]").forEach((el) => {
+  const inicio = new Date(el.getAttribute("data-desde"));
+  if (!isNaN(inicio) && agora >= inicio) el.hidden = false;
+});
+
+const proximoPrazo = [...document.querySelectorAll("[data-ate], [data-desde]")]
+  .map((el) => new Date(el.getAttribute("data-ate") || el.getAttribute("data-desde")) - agora)
+  .filter((ms) => ms > 0 && ms < 864e5);
+if (proximoPrazo.length) setTimeout(() => window.location.reload(), Math.min(...proximoPrazo) + 1000);
+
+// Contagem discreta no selo do prazo
+const diaBrasilia = (data) => Math.floor((data.getTime() - 3 * 36e5) / 864e5);
+document.querySelectorAll(".contagem").forEach((el) => {
+  const limite = new Date(el.getAttribute("data-ate"));
+  const restante = limite - agora;
+  if (!(restante > 0)) return;
+  const horas = Math.floor(restante / 36e5);
+  const dias = diaBrasilia(limite) - diaBrasilia(agora);
+  if (horas < 1) el.textContent = " · última hora";
+  else if (dias === 0) el.textContent = horas === 1 ? " · falta 1 h" : " · faltam " + horas + " h";
+  else el.textContent = dias === 1 ? " · falta 1 dia" : " · faltam " + dias + " dias";
+  el.hidden = false;
+});
+
+// Linha do tempo: marca o que já passou e onde estamos agora
+const etapas = [...document.querySelectorAll(".etapa[data-inicio]")];
+if (etapas.length) {
+  const atual = etapas.reduce((achada, etapa, i) => {
+    const inicio = new Date(etapa.dataset.inicio);
+    const fim = new Date(etapa.dataset.fim);
+    return agora >= inicio && agora <= fim ? i : achada;
+  }, -1);
+  etapas.forEach((etapa, i) => {
+    const fim = new Date(etapa.dataset.fim);
+    if ((atual >= 0 && i < atual) || (atual < 0 && agora > fim)) etapa.classList.add("etapa--feita");
+    if (i === atual) {
+      etapa.classList.add("etapa--atual");
+      etapa.setAttribute("aria-current", "step");
+    }
+  });
+}
+
+// Hashtags: um toque copia (só vira botão onde a área de transferência existe)
+const avisoCopia = document.getElementById("aviso-copia");
+if (navigator.clipboard && window.isSecureContext) {
+  document.querySelectorAll(".hashtag[data-copiar]").forEach((rotulo) => {
+    const texto = rotulo.getAttribute("data-copiar");
+    const botao = document.createElement("button");
+    botao.type = "button";
+    botao.className = rotulo.className;
+    botao.textContent = rotulo.textContent;
+    botao.setAttribute("aria-label", "Copiar " + texto);
+    let volta;
+    botao.addEventListener("click", () => {
+      navigator.clipboard.writeText(texto).then(() => {
+        clearTimeout(volta);
+        botao.setAttribute("data-copiado", "");
+        if (avisoCopia) {
+          avisoCopia.textContent = "";
+          setTimeout(() => { avisoCopia.textContent = texto + " copiada"; }, 60);
+        }
+        volta = setTimeout(() => botao.removeAttribute("data-copiado"), 1600);
+      }).catch(() => {
+        if (avisoCopia) avisoCopia.textContent = "Não deu para copiar. Digite " + texto;
+      });
+    });
+    rotulo.replaceWith(botao);
+  });
+  document.querySelectorAll(".hashtags__dica").forEach((dica) => { dica.hidden = false; });
+}
+
+// Na impressão, as perguntas frequentes saem abertas
+window.addEventListener("beforeprint", () => {
+  document.querySelectorAll("details").forEach((d) => { d.open = true; });
+});
+
 // Assentamento: cada sticker abaixo da dobra chega na pose do hover e,
 // ao cruzar a linha de leitura, cola na folha uma única vez.
 if ("IntersectionObserver" in window && !reduzMovimento) {
@@ -134,7 +217,7 @@ if ("IntersectionObserver" in window && artigos.length) {
   }, { rootMargin: "-30% 0px -55%" });
   artigos.forEach((artigo) => observadorRubrica.observe(artigo));
 
-  const fecho = document.querySelector(".edital__acoes--fecho");
+  const fecho = document.querySelector(".edital__acoes--fecho") || artigos[artigos.length - 1].lastElementChild;
   if (fecho) {
     const observadorFecho = new IntersectionObserver((entradas) => {
       if (!entradas.some((entrada) => entrada.isIntersecting)) return;

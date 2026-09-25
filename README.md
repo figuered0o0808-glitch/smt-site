@@ -65,6 +65,10 @@ O domínio próprio é https://semexatambem.com (DNS na Hostinger, 4 registros A
 
 O edital ENCERROU em 04/09/2026: a página segue no ar como documento de consulta (selo de encerrado, sem botões de envio) e a home voltou a apontar os CTAs de evento para o e-mail de contato. Se houver nova edição, restaurar a faixa da home e os botões pelo histórico do git.
 
+## Página do concurso
+
+`/concurso/` publica o Concurso de Conteúdo SMT (fonte: Google Doc "Edital SMT — Concurso de Conteúdo sobre Participacao politica", só o texto ACEITO; sugestões pendentes no Doc não entram). Logos dos parceiros em `assets/parceiros/` (Decisivas em SVG com viewBox recortado ao desenho; Brief em PNG claro e escuro). O prazo é automático: elementos com `data-ate` somem e os com `data-desde` aparecem no horário (01/10/2026, 21h de Brasília), sem precisar mexer no site; quem estiver com a página aberta recarrega sozinho no prazo. A faixa "Concurso aberto" da home segue a mesma regra. Imagem de compartilhamento: `assets/og-concurso.png`. **Se o texto do regulamento mudar, regenere o PDF** (`concurso/regulamento-concurso-smt.pdf`) com o mesmo comando do edital, trocando a URL para `/concurso/`.
+
 ## Segurança
 
 O site é estático (sem servidor próprio, banco ou login), o que já elimina as classes mais comuns de ataque. Por cima disso:
