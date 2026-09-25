@@ -1366,8 +1366,8 @@ p { margin: 0; }
   margin-top: 2.2rem;
 }
 
-@media (min-width: 900px) {
-  .premios { grid-template-columns: repeat(3, 1fr); }
+@media (min-width: 760px) {
+  .premios { grid-template-columns: repeat(2, 1fr); }
 }
 
 .premio {
@@ -1412,9 +1412,13 @@ p { margin: 0; }
 }
 
 .premio__parceria img { height: 0.85rem; width: auto; }
+.premio__parceria .premio__ju { height: 2rem; }
+.premio__desc a { color: inherit; text-decoration-thickness: 2px; }
 
 .podio {
   list-style: none;
+  width: 100%;
+  max-width: 24rem;
   margin: auto 0 0;
   padding: 1.8rem 0 0;
   display: grid;
@@ -1970,6 +1974,7 @@ button.hashtag[data-copiado]::after { content: " · copiada"; }
 
 .parceiros__decisivas { height: 1.2rem; width: auto; }
 .parceiros__brief { height: 2.1rem; width: auto; }
+.parceiros__ju { height: 2.6rem; width: auto; }
 
 /* ==========================================================================
    Assinatura de rolagem
