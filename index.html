@@ -5,16 +5,16 @@
   <meta charset="UTF-8">
   <!-- trava anti-clickjacking; qualquer edição neste script exige recalcular o hash sha256 da CSP abaixo -->
   <script>if(self!==top){try{top.location.replace(self.location.href)}catch(e){document.documentElement.hidden=true}}</script>
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-ZDh8eKhxdZ0gR7tjtRIsDl2L5FKJYBv1Ele5NmzBao4='; style-src 'self'; img-src 'self'; font-src 'self'; frame-src https://www.instagram.com https://instagram.com; form-action 'self' https://formsubmit.co; base-uri 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-ZDh8eKhxdZ0gR7tjtRIsDl2L5FKJYBv1Ele5NmzBao4='; style-src 'self'; img-src 'self'; font-src 'self'; frame-src https://www.instagram.com https://instagram.com https://www.youtube-nocookie.com; form-action 'self' https://formsubmit.co; base-uri 'none'">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Se Mexa Também</title>
   <meta name="description" content="Se Mexa Também (SMT): hub de mobilização cívica para ampliar a participação das pessoas na política.">
-  <meta name="theme-color" content="#ffffff">
-  <link rel="preload" href="assets/fonts/bebasneue-400.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="assets/fonts/baloo2-600.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="assets/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
+  <meta name="theme-color" content="#F4F3F1">
+  <link rel="preload" href="assets/fonts/anton-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/figtree.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preconnect" href="https://www.instagram.com">
+  <link rel="preconnect" href="https://www.youtube-nocookie.com">
 
   <!-- Open Graph -->
   <link rel="canonical" href="https://semexatambem.com/">
@@ -34,7 +34,7 @@
   <link rel="icon" type="image/png" sizes="64x64" href="assets/favicon-64.png">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 
-  <link rel="stylesheet" href="css/style.css?v=49">
+  <link rel="stylesheet" href="css/style.css?v=50">
 
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Se Mexa Também","alternateName":["SMT","Silent Majority Talks"],"url":"https://semexatambem.com/","logo":"https://semexatambem.com/assets/og.png","email":"silentmajoritytalks2026@gmail.com","sameAs":["https://www.instagram.com/semexatambem"]}</script>
 </head>
@@ -91,7 +91,7 @@
     <!-- ============ CHAMADA DO CONCURSO (sai sozinha no fim do prazo) ============ -->
     <aside class="faixa-edital" aria-label="Concurso de conteúdo aberto" data-ate="2026-10-01T21:00:00-03:00">
       <div class="container faixa-edital__linha">
-        <p class="faixa-edital__dizer">Concurso aberto</p>
+        <p class="selo">Concurso aberto</p>
         <p class="faixa-edital__texto">Prêmios de até R$ 5.000 para quem cria conteúdo, com qualquer tamanho de audiência. Inscrições até 01/10/2026, às 21h.</p>
         <a class="botao botao--tinta apertavel" href="/concurso/">Quero participar</a>
       </div>
@@ -151,6 +151,10 @@
             <p class="bloco__numero" aria-hidden="true">03</p>
             <h3 class="bloco__titulo">Videocast e conteúdos semanais</h3>
             <p>Conversas em vídeo, publicadas em episódios, e conteúdos novos toda semana.</p>
+            <p class="bloco__link"><a href="https://www.youtube.com/@semexatambem" target="_blank" rel="noopener">Canal no YouTube<span class="visualmente-oculto"> (abre em nova aba)</span></a></p>
+          </div>
+          <div class="midia midia--video">
+            <iframe class="midia__iframe" src="https://www.youtube-nocookie.com/embed/mn8Dna3BpaA?rel=0" title="Episódio 2 do videocast Se Mexa Também: O Bolsa Família vai quebrar o Brasil?" loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
           </div>
         </div>
       </article>
@@ -296,13 +300,14 @@
         <h3 class="rodape__titulo">Redes</h3>
         <ul class="rodape__redes">
           <li><a class="rodape__link" href="https://www.instagram.com/semexatambem" target="_blank" rel="noopener">Instagram: @semexatambem<span class="visualmente-oculto"> (abre em nova aba)</span></a></li>
+          <li><a class="rodape__link" href="https://www.youtube.com/@semexatambem" target="_blank" rel="noopener">YouTube: @semexatambem<span class="visualmente-oculto"> (abre em nova aba)</span></a></li>
         </ul>
       </div>
-      <p class="rodape__privacidade">Este site não usa cookies de rastreamento próprios nem pixels de publicidade. As publicações incorporadas são carregadas do Instagram (Meta).</p>
+      <p class="rodape__privacidade">Este site não usa cookies de rastreamento próprios nem pixels de publicidade. As publicações incorporadas são carregadas do Instagram (Meta) e os vídeos, do YouTube (Google), no modo sem cookies.</p>
       <p class="rodape__assinatura">Se Mexa Também, 2026.</p>
     </div>
   </footer>
 
-  <script src="js/main.js?v=23"></script>
+  <script src="js/main.js?v=24"></script>
 </body>
 </html>

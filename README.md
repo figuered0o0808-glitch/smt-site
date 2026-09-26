@@ -20,9 +20,9 @@ Todo o texto está em `index.html`, organizado por seção com comentários (`<!
 
 ## Como ajustar a identidade visual
 
-Todas as cores, fontes e efeitos da marca estão nas variáveis CSS no bloco `:root` de `css/style.css`. Trocar um valor lá atualiza o site inteiro. Cores oficiais: magenta `#ff00fa` e ciano `#11cae2`, com contornos pretos.
+Todas as cores, fontes e efeitos da marca estão nas variáveis CSS no bloco `:root` de `css/style.css`. Trocar um valor lá atualiza o site inteiro. Cores oficiais (manual de set/2026): magenta `#E936F1`, ciano `#0CC0DF`, amarelo `#FFBC3B` (acento sólido, nunca no degradê nem como texto sobre claro), grafite `#212121` e creme `#F4F3F1` (chão da página), com contornos pretos.
 
-Fontes self-hosted em `assets/fonts/` via `@font-face`, sem chamadas ao Google Fonts (a promessa de zero rastreio vale para a tipografia também): Bebas Neue nos dizeres e destaques curtos (oficial da marca), Inter no corpo de texto (legibilidade em parágrafos longos, já que a Bebas é só caixa alta) e Baloo 2 nos títulos como aproximação da fonte oficial "Fat" (fonte da Canva, sem arquivo licenciável). Se conseguirem o arquivo da Fat (woff2/otf), basta colocá-lo em `assets/fonts/`, declarar o `@font-face` e trocar `--fonte-titulo`.
+Fontes self-hosted em `assets/fonts/` via `@font-face`, sem chamadas ao Google Fonts. O manual pede Impact (destaques em caixa alta) e Garet (títulos e corpo), que não têm arquivo web licenciado: os stand-ins são **Anton** (papel do Impact) e **Figtree** variável (papel do Garet, com itálica). Se conseguirem os arquivos licenciados, basta colocá-los em `assets/fonts/`, declarar o `@font-face` e trocar `--fonte-dizeres` / `--fonte-titulo` / `--fonte-texto`.
 
 ## Como rodar localmente
 
@@ -60,7 +60,7 @@ O domínio próprio é https://semexatambem.com (DNS na Hostinger, 4 registros A
 `/edital/` publica o edital de eventos (fonte: doc "EDITAL - eventos SMT" no Drive). Texto na íntegra com três correções de digitação. O botão "Baixar em PDF" baixa o arquivo `/edital/edital-eventos-smt.pdf`, gerado a partir da versão de impressão da própria página. **Sempre que editar o conteúdo do edital, regenere o PDF** com o site rodando localmente:
 
 ```
-"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless --no-pdf-header-footer --print-to-pdf="edital/edital-eventos-smt.pdf" "http://localhost:8080/edital/"
+"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless --no-pdf-header-footer --print-to-pdf="edital/edital-eventos-smt.pdf" "http://localhost:4545/edital/"
 ```
 
 O edital ENCERROU em 04/09/2026: a página segue no ar como documento de consulta (selo de encerrado, sem botões de envio) e a home voltou a apontar os CTAs de evento para o e-mail de contato. Se houver nova edição, restaurar a faixa da home e os botões pelo histórico do git.
@@ -86,7 +86,7 @@ Os slots visuais existem, mas desde o lançamento do domínio o site não mostra
 1. **Canal do videocast no YouTube**: entra na moldura 16:9 do bloco Videocast e volta como item na lista Redes do rodapé.
 2. **Agenda de eventos**: entra na faixa do bloco Eventos presenciais.
 3. **Alias do FormSubmit**: quando chegar o e-mail de ativação, trocar o e-mail no action do formulário pelo alias aleatório.
-4. **Fonte de títulos "Fat"**: sem arquivo licenciável; Baloo 2 é o stand-in (ver identidade visual acima).
+4. **Fontes Impact e Garet**: sem arquivo licenciado; Anton e Figtree são os stand-ins (ver identidade visual acima).
 5. **Analytics sem cookies**: snippet do Plausible comentado no `<head>`; se ativar, incluir https://plausible.io na CSP (script-src e connect-src).
 
 Guardados para depois (removidos do site a pedido, fáceis de restaurar pelo histórico do git): a seção Quem faz com a equipe e fotos, e o bloco Núcleo de gestão do rodapé.

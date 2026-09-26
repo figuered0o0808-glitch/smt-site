@@ -2,58 +2,54 @@
    Silent Majority Talks
    Sistema: linhas pretas 3px como organizador; molduras sticker (borda preta,
    sombra dura para baixo-esquerda, como a sombra do logo); degradê da marca
-   só em dizeres, chips e fios; base branca, tinta #100023, escuro no fecho.
+   só em dizeres, chips e fios; chão creme #F4F3F1, adesivos brancos, painéis grafite #212121.
    ========================================================================== */
 
 /* ---- Fontes self-hosted (zero requisição externa) ---- */
 
 @font-face {
-  font-family: "Baloo 2";
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url("../assets/fonts/baloo2-600.woff2") format("woff2");
-}
-@font-face {
-  font-family: "Inter";
+  font-family: "Anton";
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url("../assets/fonts/inter-400.woff2") format("woff2");
-}
-@font-face {
-  font-family: "Bebas Neue";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url("../assets/fonts/bebasneue-400.woff2") format("woff2");
+  src: url("../assets/fonts/anton-400.woff2") format("woff2");
 }
 
 @font-face {
-  font-family: "Inter";
-  font-style: italic;
-  font-weight: 100 900;
+  font-family: "Figtree";
+  font-style: normal;
+  font-weight: 300 900;
   font-display: swap;
-  src: url("../assets/fonts/inter-italic.woff2") format("woff2");
+  src: url("../assets/fonts/figtree.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Figtree";
+  font-style: italic;
+  font-weight: 300 900;
+  font-display: swap;
+  src: url("../assets/fonts/figtree-italic.woff2") format("woff2");
 }
 
 /* ---- Tema ---- */
 
 :root {
-  --tinta: #100023;
+  --tinta: #212121;
   --preto: #000000;
   --branco: #ffffff;
-  --rosa: #ff00fa;
-  --azul: #11cae2;
-  --rosa-texto: #c400c0;
-  --azul-texto: #0b7f92;
+  --papel: #F4F3F1;
+  --rosa: #E936F1;
+  --azul: #0CC0DF;
+  --amarelo: #FFBC3B;
+  --rosa-texto: #C10EC9;
+  --azul-texto: #087A8E;
   --grad-texto: linear-gradient(135deg, var(--rosa-texto), var(--azul-texto));
   --sombra-quadro: -8px 8px 0 var(--preto);
   --grad: linear-gradient(135deg, var(--rosa), var(--azul));
 
-  --fonte-titulo: "Baloo 2", "Avenir Next", system-ui, sans-serif;
-  --fonte-dizeres: "Bebas Neue", "Baloo 2", system-ui, sans-serif;
-  --fonte-texto: "Inter", system-ui, -apple-system, sans-serif;
+  --fonte-titulo: "Figtree", "Avenir Next", system-ui, sans-serif;
+  --fonte-dizeres: "Anton", "Figtree", system-ui, sans-serif;
+  --fonte-texto: "Figtree", system-ui, -apple-system, sans-serif;
 
   --fio: 3px solid var(--preto);
   --sombra-repouso: -6px 6px 0 var(--preto);
@@ -80,7 +76,7 @@ body {
   font-size: 1rem;
   line-height: 1.6;
   color: var(--tinta);
-  background: var(--branco);
+  background: var(--papel);
   -webkit-font-smoothing: antialiased;
 }
 
@@ -120,7 +116,10 @@ p { margin: 0; }
 }
 .pular:focus { top: 0; }
 
-::selection { background: var(--rosa); color: var(--preto); }
+::selection { background: var(--amarelo); color: var(--preto); }
+.faixa-edital ::selection,
+.aviso-recebido__texto::selection,
+button.hashtag[data-copiado]::selection { background: var(--tinta); color: var(--branco); }
 
 :focus-visible {
   outline: 3px solid var(--preto);
@@ -171,7 +170,7 @@ p { margin: 0; }
   font-family: var(--fonte-titulo);
   font-weight: 700;
   font-size: 1.02rem;
-  color: var(--tinta);
+  color: var(--preto);
   text-decoration: none;
   padding: 0.72rem 1.5rem;
   border: var(--fio);
@@ -195,7 +194,7 @@ p { margin: 0; }
   position: sticky;
   top: 0;
   z-index: 50;
-  background: var(--branco);
+  background: var(--papel);
   border-bottom: var(--fio);
 }
 
@@ -219,8 +218,10 @@ p { margin: 0; }
 .topo__s { width: 1.7rem; height: auto; flex-shrink: 0; }
 
 .topo__nome {
-  font-family: var(--fonte-dizeres);
-  font-size: 1.2rem;
+  font-family: var(--fonte-texto);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.95rem;
   letter-spacing: 0.06em;
 }
 
@@ -260,9 +261,11 @@ p { margin: 0; }
 .topo__links a {
   position: relative;
   display: inline-block;
-  font-family: var(--fonte-dizeres);
-  font-size: 1.35rem;
-  letter-spacing: 0.08em;
+  font-family: var(--fonte-texto);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 1.05rem;
+  letter-spacing: 0.06em;
   color: var(--branco);
   text-decoration: none;
   padding: 0.4rem 0.1rem;
@@ -316,7 +319,7 @@ p { margin: 0; }
     border-bottom: none;
   }
   .topo__links a {
-    font-size: 1.05rem;
+    font-size: 0.85rem;
     color: var(--tinta);
   }
 }
@@ -362,16 +365,16 @@ p { margin: 0; }
 .hero__traducao {
   font-style: italic;
   font-size: 0.85rem;
-  color: rgba(16, 0, 35, 0.6);
+  color: rgba(33, 33, 33, 0.66);
   margin-bottom: 1rem;
 }
 
 .hero__titulo {
   font-family: var(--fonte-titulo);
   font-weight: 800;
-  font-size: clamp(1.8rem, 5vw, 3rem);
-  line-height: 1.12;
-  letter-spacing: -0.01em;
+  font-size: clamp(1.7rem, 5vw, 3rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
   margin-bottom: 1.7rem;
 }
 
@@ -411,9 +414,11 @@ p { margin: 0; }
 .faixa__trilho::-webkit-scrollbar { display: none; }
 
 .faixa__trilho a {
-  font-family: var(--fonte-dizeres);
-  font-size: 1.05rem;
-  letter-spacing: 0.12em;
+  font-family: var(--fonte-texto);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
   color: var(--branco);
   text-decoration: none;
   white-space: nowrap;
@@ -424,11 +429,8 @@ p { margin: 0; }
 .faixa__trilho a:hover { border-bottom-color: var(--rosa); }
 
 .faixa__trilho a[aria-current] {
-  border-bottom-color: transparent;
-  background-image: var(--grad);
-  background-repeat: no-repeat;
-  background-size: 100% 3px;
-  background-position: bottom;
+  border-bottom-color: var(--amarelo);
+  background-image: none;
 }
 
 @media (max-width: 600px) {
@@ -462,8 +464,8 @@ p { margin: 0; }
 .dizer {
   font-family: var(--fonte-dizeres);
   font-weight: 400;
-  font-size: 1.4rem;
-  letter-spacing: 0.12em;
+  font-size: 1.25rem;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--rosa-texto);
 }
@@ -489,7 +491,7 @@ p { margin: 0; }
 
 .apoio {
   font-size: 1.05rem;
-  color: rgba(16, 0, 35, 0.8);
+  color: rgba(33, 33, 33, 0.8);
   max-width: 46rem;
   margin-top: 0.9rem;
 }
@@ -537,7 +539,7 @@ p { margin: 0; }
 
 .bloco__numero {
   font-family: var(--fonte-dizeres);
-  font-size: 3.2rem;
+  font-size: 2.8rem;
   line-height: 1;
   color: var(--tinta);
   margin-bottom: 0.5rem;
@@ -553,12 +555,12 @@ p { margin: 0; }
 
 .bloco__titulo {
   font-family: var(--fonte-titulo);
-  font-weight: 800;
+  font-weight: 700;
   font-size: 1.6rem;
   margin-bottom: 0.4rem;
 }
 
-.bloco__info > p:last-child { color: rgba(16, 0, 35, 0.8); }
+.bloco__info > p:last-child { color: rgba(33, 33, 33, 0.8); }
 
 /* ---- Molduras de mídia no formato do conteúdo real ---- */
 
@@ -570,6 +572,11 @@ p { margin: 0; }
   display: grid;
   place-items: center;
   overflow: hidden;
+}
+
+.midia--video {
+  aspect-ratio: 16 / 9;
+  padding: 0;
 }
 
 .midia--convite {
@@ -632,9 +639,9 @@ p { margin: 0; }
 
 .convicao {
   font-family: var(--fonte-dizeres);
-  font-size: clamp(2.6rem, 7vw, 4.6rem);
-  line-height: 0.98;
-  letter-spacing: 0.015em;
+  font-size: clamp(2.3rem, 6vw, 3.9rem);
+  line-height: 1;
+  letter-spacing: 0;
   text-transform: uppercase;
   margin-top: 2.2rem;
   max-width: 18ch;
@@ -704,7 +711,7 @@ p { margin: 0; }
 .porta__desc {
   display: block;
   font-size: 0.95rem;
-  color: rgba(16, 0, 35, 0.75);
+  color: rgba(33, 33, 33, 0.75);
   margin-top: 0.25rem;
 }
 
@@ -718,14 +725,16 @@ p { margin: 0; }
   display: block;
   overflow: hidden;
   min-height: 0;
-  font-family: var(--fonte-dizeres);
-  font-size: 0.95rem;
-  letter-spacing: 0.08em;
+  font-family: var(--fonte-texto);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
   padding-top: 0.45rem;
-  color: rgba(16, 0, 35, 0.8);
+  color: rgba(33, 33, 33, 0.8);
 }
 .porta__assunto b {
-  font-weight: 400;
+  font-weight: inherit;
   color: var(--rosa-texto);
 }
 @supports ((-webkit-background-clip: text) or (background-clip: text)) {
@@ -819,7 +828,7 @@ p { margin: 0; }
 .campo__rotulo em {
   font-style: normal;
   font-weight: 400;
-  color: rgba(16, 0, 35, 0.55);
+  color: rgba(33, 33, 33, 0.66);
 }
 
 .campo input,
@@ -833,7 +842,7 @@ p { margin: 0; }
   padding: 0.65rem 0.85rem;
 }
 
-.campo input::placeholder { color: rgba(16, 0, 35, 0.55); }
+.campo input::placeholder { color: rgba(33, 33, 33, 0.66); }
 
 .campo select { cursor: pointer; }
 
@@ -846,7 +855,7 @@ p { margin: 0; }
 .formulario__nota {
   margin-top: 1rem;
   font-size: 0.8rem;
-  color: rgba(16, 0, 35, 0.6);
+  color: rgba(33, 33, 33, 0.66);
   max-width: 38rem;
 }
 
@@ -856,7 +865,8 @@ p { margin: 0; }
   font-size: 1.1rem;
   border: 3px solid var(--preto);
   border-radius: 14px;
-  background-image: var(--grad);
+  background: var(--amarelo);
+  color: var(--preto);
   box-shadow: var(--sombra-repouso);
   padding: 0.9rem 1.2rem;
   margin-top: 1.4rem;
@@ -877,14 +887,16 @@ p { margin: 0; }
 
 .chips a {
   display: inline-block;
-  font-family: var(--fonte-dizeres);
-  font-size: 1rem;
-  letter-spacing: 0.1em;
+  font-family: var(--fonte-texto);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
   color: var(--branco);
   text-decoration: none;
   border: 2px solid var(--branco);
   border-radius: 999px;
-  padding: 0.35rem 1rem;
+  padding: 0.4rem 1rem;
   transition: background-color 0.15s ease, color 0.15s ease;
 }
 .chips a:hover {
@@ -945,9 +957,11 @@ p { margin: 0; }
   display: flex;
   align-items: center;
   gap: 0.7rem;
-  font-family: var(--fonte-dizeres);
-  font-size: 1.05rem;
-  letter-spacing: 0.1em;
+  font-family: var(--fonte-texto);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
   color: rgba(255, 255, 255, 0.85);
   margin: -0.8rem 0 2.4rem;
 }
@@ -960,10 +974,11 @@ p { margin: 0; }
 .rodape__bloco { margin-bottom: 2.4rem; }
 
 .rodape__titulo {
-  font-family: var(--fonte-dizeres);
-  font-weight: 400;
-  font-size: 1.05rem;
-  letter-spacing: 0.12em;
+  font-family: var(--fonte-texto);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
   color: rgba(255, 255, 255, 0.7);
   margin-bottom: 0.9rem;
 }
@@ -1007,6 +1022,7 @@ p { margin: 0; }
   font-weight: 800;
   font-size: clamp(5rem, 25vw, 9rem);
   line-height: 1;
+  letter-spacing: -0.02em;
   color: var(--rosa);
 }
 @supports ((-webkit-background-clip: text) or (background-clip: text)) {
@@ -1022,6 +1038,8 @@ p { margin: 0; }
   font-family: var(--fonte-titulo);
   font-weight: 800;
   font-size: clamp(1.6rem, 5vw, 2.2rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
 }
 
 .pagina-404 p { max-width: 34rem; }
@@ -1044,7 +1062,7 @@ p { margin: 0; }
    ========================================================================== */
 
 .faixa-edital {
-  background-image: var(--grad);
+  background: var(--amarelo);
   border-block: var(--fio);
   padding-block: 1.1rem;
 }
@@ -1056,16 +1074,20 @@ p { margin: 0; }
   gap: 0.9rem 1.4rem;
 }
 
-.faixa-edital__dizer {
+.selo {
+  display: inline-block;
   font-family: var(--fonte-dizeres);
-  font-size: 1.35rem;
-  letter-spacing: 0.06em;
+  font-size: 1.25rem;
+  line-height: 1;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
-  background: var(--tinta);
-  color: var(--branco);
-  border: 2px solid var(--preto);
-  border-radius: 10px;
-  padding: 0.3rem 0.7rem;
+  color: var(--rosa-texto);
+  background: var(--papel);
+  border: var(--fio);
+  border-radius: 50%;
+  padding: 0.6rem 2rem;
+  box-shadow: -4px 4px 0 var(--preto);
+  transform: rotate(-4deg);
 }
 
 @media (min-width: 900px) {
@@ -1086,7 +1108,8 @@ p { margin: 0; }
   font-family: var(--fonte-titulo);
   font-weight: 800;
   font-size: clamp(1.9rem, 4.5vw, 3rem);
-  line-height: 1.1;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
   max-width: 24ch;
   margin-top: 0.4rem;
 }
@@ -1101,10 +1124,12 @@ p { margin: 0; }
 }
 
 .edital__essencial li {
-  font-family: var(--fonte-dizeres);
-  font-size: 0.95rem;
-  letter-spacing: 0.05em;
+  font-family: var(--fonte-texto);
+  font-weight: 700;
   text-transform: uppercase;
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+  text-wrap: balance;
   border: 2px solid var(--preto);
   border-radius: 999px;
   padding: 0.45rem 0.9rem;
@@ -1125,10 +1150,11 @@ p { margin: 0; }
 .edital__encerrado {
   display: inline-block;
   margin-top: 1.4rem;
-  font-family: var(--fonte-dizeres);
-  font-size: 1rem;
-  letter-spacing: 0.06em;
+  font-family: var(--fonte-texto);
+  font-weight: 700;
   text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
   background: var(--tinta);
   color: var(--branco);
   border: 2px solid var(--preto);
@@ -1168,11 +1194,12 @@ p { margin: 0; }
 .edital__ferramentas .botao { cursor: pointer; font-size: 0.95rem; padding: 0.55rem 1.1rem; }
 
 .edital__doc {
-  font-family: var(--fonte-dizeres);
-  font-size: 0.95rem;
-  letter-spacing: 0.08em;
+  font-family: var(--fonte-texto);
+  font-weight: 700;
   text-transform: uppercase;
-  color: rgba(16, 0, 35, 0.65);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  color: rgba(33, 33, 33, 0.65);
 }
 
 .edital-leitura {
@@ -1190,13 +1217,13 @@ p { margin: 0; }
   left: 0;
   right: 0;
   height: 2px;
-  background: rgba(16, 0, 35, 0.12);
+  background: rgba(33, 33, 33, 0.12);
 }
 
 .edital__corpo h2,
 .edital__corpo .regulamento__h {
   font-family: var(--fonte-titulo);
-  font-weight: 800;
+  font-weight: 700;
   font-size: clamp(1.3rem, 2.6vw, 1.7rem);
   display: flex;
   align-items: baseline;
@@ -1205,7 +1232,7 @@ p { margin: 0; }
 
 .edital__corpo h2 span,
 .edital__corpo .regulamento__h span {
-  font-size: 1.9em;
+  font-size: 1.6em;
   line-height: 1;
   color: var(--tinta);
   transition: color 0.35s ease;
@@ -1215,7 +1242,7 @@ p { margin: 0; }
   .edital__corpo h2 span,
   .edital__corpo .regulamento__h span {
     color: transparent;
-    -webkit-text-stroke: 2px var(--tinta);
+    -webkit-text-stroke: 1.25px var(--tinta);
   }
   .artigo--lido h2 span,
   .artigo--lido .regulamento__h span { color: var(--tinta); }
@@ -1228,7 +1255,7 @@ p { margin: 0; }
   margin-top: 1.4rem;
 }
 
-.edital__corpo p, .edital__corpo ul { margin-top: 0.9rem; color: rgba(16, 0, 35, 0.85); }
+.edital__corpo p, .edital__corpo ul { margin-top: 0.9rem; color: rgba(33, 33, 33, 0.85); }
 
 .edital__corpo ul { list-style: none; padding-left: 0.2rem; }
 
@@ -1277,7 +1304,7 @@ p { margin: 0; }
 }
 
 .edital__cronograma tr + tr th,
-.edital__cronograma tr + tr td { border-top: 2px solid rgba(16, 0, 35, 0.12); }
+.edital__cronograma tr + tr td { border-top: 2px solid rgba(33, 33, 33, 0.12); }
 
 @media (max-width: 600px) {
   .edital__cronograma tr { display: block; }
@@ -1318,11 +1345,11 @@ p { margin: 0; }
 
 .edital__temas dd { padding-left: 1.6rem; }
 
-.edital__temas dd { margin: 0.3rem 0 0; color: rgba(16, 0, 35, 0.8); }
+.edital__temas dd { margin: 0.3rem 0 0; color: rgba(33, 33, 33, 0.8); }
 
 .edital__acoes--fecho { padding-block: 2rem 0.5rem; }
 
-.edital__prazo { font-family: var(--fonte-dizeres); letter-spacing: 0.05em; text-transform: uppercase; }
+.edital__prazo { font-family: var(--fonte-texto); font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
 
 .edital__print-cabecalho,
 .edital__print-grad { display: none; }
@@ -1335,7 +1362,8 @@ p { margin: 0; }
   font-family: var(--fonte-titulo);
   font-weight: 800;
   font-size: clamp(2rem, 5.2vw, 3.5rem);
-  line-height: 1.06;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
   max-width: 19ch;
   margin-top: 0.5rem;
 }
@@ -1355,7 +1383,7 @@ p { margin: 0; }
   margin-top: 1rem;
   font-size: 1.1rem;
   max-width: 40rem;
-  color: rgba(16, 0, 35, 0.8);
+  color: rgba(33, 33, 33, 0.8);
 }
 
 /* ---- Pódios ---- */
@@ -1382,16 +1410,17 @@ p { margin: 0; }
 }
 
 .premio__rotulo {
-  font-family: var(--fonte-dizeres);
-  font-size: 0.95rem;
-  letter-spacing: 0.08em;
+  font-family: var(--fonte-texto);
+  font-weight: 700;
   text-transform: uppercase;
-  color: rgba(16, 0, 35, 0.62);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  color: rgba(33, 33, 33, 0.66);
 }
 
 .premio__nome {
   font-family: var(--fonte-titulo);
-  font-weight: 800;
+  font-weight: 700;
   font-size: 1.5rem;
   line-height: 1.15;
   margin-top: 0.15rem;
@@ -1399,7 +1428,7 @@ p { margin: 0; }
 
 .premio__desc {
   margin-top: 0.5rem;
-  color: rgba(16, 0, 35, 0.8);
+  color: rgba(33, 33, 33, 0.8);
 }
 
 .premio__parceria {
@@ -1408,7 +1437,7 @@ p { margin: 0; }
   gap: 0.5rem;
   margin-top: 0.8rem;
   font-size: 0.85rem;
-  color: rgba(16, 0, 35, 0.65);
+  color: rgba(33, 33, 33, 0.65);
 }
 
 .premio__parceria img { height: 0.85rem; width: auto; }
@@ -1455,18 +1484,18 @@ p { margin: 0; }
   border-radius: 10px 10px 0 0;
   background: var(--branco);
   font-family: var(--fonte-dizeres);
-  font-size: 1.6rem;
+  font-size: 1.45rem;
   line-height: 1;
 }
 
-.podio__lugar--1 .podio__degrau { height: 6rem; background-image: var(--grad); }
+.podio__lugar--1 .podio__degrau { height: 6rem; background-image: var(--grad); color: var(--preto); }
 .podio__lugar--2 .podio__degrau { height: 4.2rem; }
 .podio__lugar--3 .podio__degrau { height: 2.9rem; }
 
 .premios__nota {
   margin-top: 1.8rem;
   font-size: 0.95rem;
-  color: rgba(16, 0, 35, 0.75);
+  color: rgba(33, 33, 33, 0.75);
   max-width: 46rem;
 }
 
@@ -1520,7 +1549,7 @@ p { margin: 0; }
   border-radius: 50%;
   background: var(--branco);
   font-family: var(--fonte-dizeres);
-  font-size: 1.55rem;
+  font-size: 1.4rem;
   line-height: 1;
 }
 
@@ -1532,7 +1561,7 @@ p { margin: 0; }
   margin-top: 0.55rem;
 }
 
-.passo__corpo p { margin-top: 0.35rem; color: rgba(16, 0, 35, 0.8); }
+.passo__corpo p { margin-top: 0.35rem; color: rgba(33, 33, 33, 0.8); }
 .passo__corpo .passo__acao { margin-top: 1rem; }
 
 .hashtags {
@@ -1565,13 +1594,13 @@ button.hashtag {
   button.hashtag:hover { background: var(--tinta); color: var(--branco); }
 }
 
-button.hashtag[data-copiado] { background-image: var(--grad); color: var(--tinta); }
+button.hashtag[data-copiado] { background: var(--amarelo); color: var(--preto); }
 button.hashtag[data-copiado]::after { content: " · copiada"; }
 
 .passo__corpo .hashtags__dica {
   margin-top: 0.45rem;
   font-size: 0.85rem;
-  color: rgba(16, 0, 35, 0.62);
+  color: rgba(33, 33, 33, 0.66);
 }
 
 /* ---- O que não pode ---- */
@@ -1592,8 +1621,8 @@ button.hashtag[data-copiado]::after { content: " · copiada"; }
 .regras__titulo {
   font-family: var(--fonte-dizeres);
   font-weight: 400;
-  font-size: 1.6rem;
-  letter-spacing: 0.06em;
+  font-size: 1.45rem;
+  letter-spacing: 0.02em;
   text-transform: uppercase;
 }
 
@@ -1756,20 +1785,29 @@ button.hashtag[data-copiado]::after { content: " · copiada"; }
 
 .etapa__data {
   font-family: var(--fonte-dizeres);
-  font-size: 1.45rem;
-  letter-spacing: 0.04em;
+  font-size: 1.3rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
   line-height: 1.1;
 }
 
-.etapa__nome { color: rgba(16, 0, 35, 0.8); }
+.etapa__nome { color: rgba(33, 33, 33, 0.8); }
 
 .etapa--feita .etapa__ponto { background: var(--tinta); }
 .etapa--feita .etapa__data,
-.etapa--feita .etapa__nome { color: rgba(16, 0, 35, 0.55); }
+.etapa--feita .etapa__nome { color: rgba(33, 33, 33, 0.66); }
 
 .etapa--atual .etapa__ponto {
-  background-image: var(--grad);
-  box-shadow: var(--sombra-baixa);
+  border: 0;
+  box-shadow: none;
+  background: url("../assets/formas/estrela.svg") center / contain no-repeat;
+  width: 2.4rem;
+  height: 2.4rem;
+  margin: -0.35rem 0 0 -0.35rem;
+}
+
+@media (min-width: 760px) {
+  .etapa--atual .etapa__ponto { margin-bottom: 0.45rem; }
 }
 
 .etapa--atual .etapa__data::after {
@@ -1777,12 +1815,15 @@ button.hashtag[data-copiado]::after { content: " · copiada"; }
   display: inline-block;
   vertical-align: middle;
   margin-left: 0.55rem;
-  font-size: 0.85rem;
-  letter-spacing: 0.08em;
+  font-family: var(--fonte-texto);
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   background: var(--tinta);
   color: var(--branco);
   border-radius: 6px;
-  padding: 0.12rem 0.45rem 0.08rem;
+  padding: 0.14rem 0.45rem 0.1rem;
 }
 
 @media (min-width: 760px) {
@@ -1832,9 +1873,9 @@ button.hashtag[data-copiado]::after { content: " · copiada"; }
 }
 
 .regulamento__premios th[scope="col"] {
-  font-family: var(--fonte-dizeres);
-  font-weight: 400;
-  font-size: 0.95rem;
+  font-family: var(--fonte-texto);
+  font-weight: 700;
+  font-size: 0.78rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   width: auto;
@@ -1859,7 +1900,7 @@ button.hashtag[data-copiado]::after { content: " · copiada"; }
     padding: 0.8rem 1rem;
   }
 
-  .regulamento__premios tr + tr { border-top: 2px solid rgba(16, 0, 35, 0.12); }
+  .regulamento__premios tr + tr { border-top: 2px solid rgba(33, 33, 33, 0.12); }
 
   .regulamento__premios tbody th {
     flex: 0 0 100%;
@@ -1878,7 +1919,7 @@ button.hashtag[data-copiado]::after { content: " · copiada"; }
     content: attr(data-rotulo) ": ";
     font-family: var(--fonte-texto);
     font-weight: 400;
-    color: rgba(16, 0, 35, 0.62);
+    color: rgba(33, 33, 33, 0.66);
   }
 }
 
@@ -1906,11 +1947,11 @@ button.hashtag[data-copiado]::after { content: " · copiada"; }
   background: var(--branco);
   background-image: none;
   font-family: var(--fonte-dizeres);
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   line-height: 1;
 }
 
-.faq details { border-top: 2px solid rgba(16, 0, 35, 0.12); padding-block: 0.95rem; }
+.faq details { border-top: 2px solid rgba(33, 33, 33, 0.12); padding-block: 0.95rem; }
 .faq details:first-child { border-top: 0; padding-top: 0.9rem; }
 
 .faq summary {
@@ -1954,11 +1995,12 @@ button.hashtag[data-copiado]::after { content: " · copiada"; }
 }
 
 .parceiros__rotulo {
-  font-family: var(--fonte-dizeres);
-  font-size: 0.95rem;
-  letter-spacing: 0.1em;
+  font-family: var(--fonte-texto);
+  font-weight: 700;
   text-transform: uppercase;
-  color: rgba(16, 0, 35, 0.62);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  color: rgba(33, 33, 33, 0.66);
   margin-bottom: 0.8rem;
 }
 
@@ -2063,11 +2105,12 @@ html.tem-js .edital__corpo article + article.artigo--visto::before {
   .edital__print-cabecalho img { width: 118px; height: auto; }
 
   .edital__print-cabecalho span {
-    font-family: var(--fonte-dizeres);
-    font-size: 0.8rem;
-    letter-spacing: 0.09em;
+    font-family: var(--fonte-texto);
+    font-weight: 700;
+    font-size: 0.7rem;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
-    color: rgba(16, 0, 35, 0.65);
+    color: rgba(33, 33, 33, 0.65);
   }
 
   .edital__print-grad {
@@ -2078,7 +2121,7 @@ html.tem-js .edital__corpo article + article.artigo--visto::before {
   }
 
   /* selos do essencial seguem no PDF como parte da capa */
-  .edital__essencial li { border-width: 1.5px; font-size: 0.8rem; }
+  .edital__essencial li { border-width: 1.5px; font-size: 0.72rem; }
 
   /* seções: numerais na tinta, quadradinhos e fios coloridos preservados */
   .edital__corpo article { padding-block: 1.1rem; break-inside: auto; }

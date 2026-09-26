@@ -278,6 +278,6 @@ if (new URLSearchParams(window.location.search).has("enviado")) {
 // Para quem espia o código
 console.log(
   "%cSe Mexa Também",
-  'font: 800 20px "Baloo 2", sans-serif; background: linear-gradient(90deg, #ff00fa, #11cae2); color: #100023; padding: 8px 16px; border: 3px solid #000; border-radius: 12px;'
+  'font: 800 20px "Figtree", sans-serif; background: linear-gradient(90deg, #E936F1, #0CC0DF); color: #212121; padding: 8px 16px; border: 3px solid #000; border-radius: 12px;'
 );
 console.log("A transparência vale para o código também. Dúvidas: silentmajoritytalks2026@gmail.com");
