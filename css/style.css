@@ -404,6 +404,48 @@ button.hashtag[data-copiado]::selection { background: var(--tinta); color: var(-
   border-bottom: var(--fio);
 }
 
+.secao--papel { position: relative; overflow: hidden; }
+.secao--papel > .container { position: relative; z-index: 1; }
+
+.secao--papel::before {
+  content: "";
+  position: absolute;
+  right: -6%;
+  bottom: -8%;
+  width: min(46vw, 720px);
+  aspect-ratio: 900 / 700;
+  background: url("../assets/texturas/nevoa-roxa.webp") center / contain no-repeat;
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+.secao--papel .convicao { color: var(--branco); max-width: 14ch; }
+.secao--papel .convicao span { background: none; -webkit-background-clip: border-box; background-clip: border-box; color: var(--rosa); }
+.secao--papel .apoio { color: rgba(255, 255, 255, 0.85); }
+.secao--papel .apoio--marcado::before { border-color: var(--branco); background: var(--amarelo); }
+
+@media (max-width: 899.98px) {
+  .secao--papel { padding-bottom: 12rem; }
+  .secao--papel::before { width: min(90vw, 520px); right: -20%; bottom: -10%; }
+}
+
+.faixa--no-papel { background: transparent; border-top: 1px solid rgba(255, 255, 255, 0.28); border-bottom: 0; }
+
+.hero--papel { padding-block: 0; border-bottom: var(--fio); }
+.hero--papel .hero__quadro { background: transparent; border: 0; border-radius: 0; box-shadow: none; overflow: visible; }
+.hero--papel .hero__arte { border: 0; padding-block: 2.4rem 0; }
+.hero--papel .hero__arte img { max-width: 560px; }
+.hero--papel .hero__texto { padding-inline: 0; padding-block: 1.6rem 3rem; }
+.hero--papel .hero__traducao { color: rgba(255, 255, 255, 0.8); }
+.hero--papel .hero__titulo { color: var(--branco); }
+.hero--papel .hero__titulo em { font-style: normal; color: var(--amarelo); }
+
+@media (min-width: 760px) {
+  .hero--papel .hero__quadro { grid-template-columns: 46% 1fr; gap: 2.5rem; }
+  .hero--papel .hero__arte { padding-block: 2.6rem; align-items: center; }
+  .hero--papel .hero__texto { padding-block: 2.6rem; }
+}
+
 .faixa__trilho {
   display: flex;
   gap: 2.4rem;
@@ -511,6 +553,30 @@ button.hashtag[data-copiado]::selection { background: var(--tinta); color: var(-
   background: var(--tinta);
   color: var(--branco);
 }
+
+/* ---- Papel do manual: chão dos painéis escuros que carregam algo ---- */
+.painel-papel {
+  background-color: #202020;
+  background-image: url("../assets/texturas/grao.png"), url("../assets/texturas/papel-preto.webp");
+  background-size: 512px 512px, 900px auto;
+  background-repeat: repeat, repeat;
+  background-position: 0 0, center top;
+  color: var(--branco);
+}
+
+.painel-papel .apertavel { border-color: var(--branco); box-shadow: -6px 6px 0 var(--branco); }
+
+@media (hover: hover) {
+  .painel-papel .apertavel:hover { box-shadow: -9px 9px 0 var(--branco); }
+}
+
+.painel-papel .apertavel:active { box-shadow: -3px 3px 0 var(--branco); }
+.painel-papel .botao--linha { background: transparent; color: var(--branco); border-color: var(--branco); }
+.painel-papel .botao--grad { color: var(--preto); }
+.painel-papel .dizer { background: none; -webkit-background-clip: border-box; background-clip: border-box; color: var(--amarelo); }
+.painel-papel .cabeca::after { height: 1px; background: rgba(255, 255, 255, 0.35); }
+.painel-papel :focus-visible { outline-color: var(--branco); }
+.painel-papel ::selection { background: var(--amarelo); color: var(--preto); }
 
 .bloco {
   border-top: var(--fio);
@@ -807,6 +873,12 @@ button.hashtag[data-copiado]::selection { background: var(--tinta); color: var(-
   max-width: 52rem;
 }
 
+.sem-faixa .formulario { background: var(--amarelo) url("../assets/texturas/papel-amarelo.webp") center / 900px auto repeat; }
+.sem-faixa .formulario .botao--grad { background-image: none; background-color: var(--tinta); color: var(--branco); }
+.sem-faixa .formulario__nota,
+.sem-faixa .campo__rotulo em { color: rgba(0, 0, 0, 0.78); }
+.sem-faixa .formulario ::selection { background: var(--tinta); color: var(--branco); }
+
 .formulario__grade {
   display: grid;
   gap: 1.1rem;
@@ -1007,6 +1079,29 @@ button.hashtag[data-copiado]::selection { background: var(--tinta); color: var(-
    Página 404
    ========================================================================== */
 
+.pagina-404-fundo { position: relative; overflow: hidden; min-height: 100vh; }
+
+.pagina-404-fundo::before {
+  content: "";
+  position: absolute;
+  right: -6%;
+  bottom: -8%;
+  width: min(50vw, 720px);
+  aspect-ratio: 900 / 700;
+  background: url("../assets/texturas/nevoa-teal.webp") center / contain no-repeat;
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+.pagina-404-fundo .pagina-404 { position: relative; z-index: 1; min-height: 100vh; }
+.pagina-404-fundo .pagina-404 .pagina-404__numero { font-family: var(--fonte-dizeres); font-weight: 400; letter-spacing: 0; line-height: 0.9; background: none; -webkit-background-clip: border-box; background-clip: border-box; color: var(--amarelo); }
+.pagina-404-fundo .pagina-404 p { color: rgba(255, 255, 255, 0.85); }
+
+@media (max-width: 759.98px) {
+  .pagina-404-fundo .pagina-404 { justify-content: flex-start; padding-top: 4rem; padding-bottom: 12rem; }
+  .pagina-404-fundo::before { width: min(90vw, 520px); right: -20%; bottom: -10%; }
+}
+
 .pagina-404 {
   min-height: 80vh;
   display: flex;
@@ -1062,8 +1157,12 @@ button.hashtag[data-copiado]::selection { background: var(--tinta); color: var(-
    ========================================================================== */
 
 .faixa-edital {
-  background: var(--amarelo);
-  border-block: var(--fio);
+  background-color: var(--amarelo);
+  background-image: url("../assets/texturas/papel-amarelo.webp");
+  background-size: 900px auto;
+  background-repeat: repeat;
+  background-position: center 30%;
+  border-bottom: var(--fio);
   padding-block: 1.1rem;
 }
 
@@ -1203,7 +1302,10 @@ button.hashtag[data-copiado]::selection { background: var(--tinta); color: var(-
 }
 
 .edital-leitura {
-  background-color: var(--tinta);
+  background-color: #202020;
+  background-image: url("../assets/texturas/grao.png"), url("../assets/texturas/papel-preto.webp");
+  background-size: 512px 512px, 900px auto;
+  background-repeat: repeat, repeat;
 }
 
 .edital__corpo { max-width: 50rem; }
@@ -1358,6 +1460,14 @@ button.hashtag[data-copiado]::selection { background: var(--tinta); color: var(-
    Página do concurso
    ========================================================================== */
 
+.concurso-so-print { display: none; }
+.concurso-abre .selo { margin-bottom: 1.2rem; }
+.concurso-abre .concurso__titulo { color: var(--branco); }
+.concurso-abre .concurso__titulo span { background: none; -webkit-background-clip: border-box; background-clip: border-box; color: var(--amarelo); }
+.concurso-abre .concurso__sub { color: rgba(255, 255, 255, 0.85); }
+.concurso-abre .edital__essencial li { color: var(--tinta); }
+.concurso-abre .edital__encerrado { background: var(--papel); color: var(--tinta); }
+
 .concurso__titulo {
   font-family: var(--fonte-titulo);
   font-weight: 800;
@@ -1405,7 +1515,7 @@ button.hashtag[data-copiado]::selection { background: var(--tinta); color: var(-
   border: var(--fio);
   border-radius: 22px;
   box-shadow: var(--sombra-repouso);
-  padding: 1.5rem 1.4rem 0;
+  padding: 1.5rem 1.4rem 1.4rem;
   overflow: hidden;
 }
 
@@ -1449,48 +1559,48 @@ button.hashtag[data-copiado]::selection { background: var(--tinta); color: var(-
   width: 100%;
   max-width: 24rem;
   margin: auto 0 0;
-  padding: 1.8rem 0 0;
+  padding: 1.5rem 0 0;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  align-items: end;
-  gap: 0.5rem;
+  gap: 0.55rem;
 }
 
 .podio__lugar {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  column-gap: 0.8rem;
+  text-align: left;
 }
 
-/* ordem visual de pódio (2, 1, 3); leitores de tela seguem 1, 2, 3 */
-.podio__lugar--1 { order: 2; }
-.podio__lugar--2 { order: 1; }
-.podio__lugar--3 { order: 3; }
-
 .podio__valor {
+  order: 2;
+  margin: 0;
   font-family: var(--fonte-titulo);
   font-weight: 800;
-  font-size: clamp(1rem, 1.6vw, 1.2rem);
+  font-size: 1.05rem;
   white-space: nowrap;
-  margin-bottom: 0.45rem;
 }
 
 .podio__degrau {
-  display: grid;
-  place-items: start center;
-  padding-top: 0.45rem;
-  border: var(--fio);
-  border-bottom: none;
-  border-radius: 10px 10px 0 0;
-  background: var(--branco);
+  order: 1;
+  justify-self: start;
+  display: flex;
+  align-items: center;
+  height: 2.3rem;
+  padding: 0 0 0 0.55rem;
+  border: 0;
+  border-radius: 0;
   font-family: var(--fonte-dizeres);
-  font-size: 1.45rem;
+  font-size: 1.15rem;
   line-height: 1;
+  color: var(--preto);
 }
 
-.podio__lugar--1 .podio__degrau { height: 6rem; background-image: var(--grad); color: var(--preto); }
-.podio__lugar--2 .podio__degrau { height: 4.2rem; }
-.podio__lugar--3 .podio__degrau { height: 2.9rem; }
+.podio__lugar--1 .podio__degrau { width: 100%; background: var(--amarelo); }
+.podio__lugar--2 .podio__degrau { width: 50%; background: var(--rosa); }
+.podio__lugar--3 .podio__degrau { width: 17%; min-width: 2.5rem; background: var(--azul); }
+.podio--5k .podio__lugar--2 .podio__degrau { width: 60%; }
+.podio--5k .podio__lugar--3 .podio__degrau { width: 40%; }
 
 .premios__nota {
   margin-top: 1.8rem;
@@ -2032,7 +2142,8 @@ button.hashtag[data-copiado]::after { content: " · copiada"; }
   box-shadow: var(--sombra-alta);
 }
 
-.secao-escura .js-erguido { box-shadow: -9px 9px 0 var(--branco); }
+.secao-escura .js-erguido,
+.painel-papel .js-erguido { box-shadow: -9px 9px 0 var(--branco); }
 
 .js-assenta {
   transition:
@@ -2077,6 +2188,12 @@ html.tem-js .edital__corpo article + article.artigo--visto::before {
 }
 
 @media print {
+  .painel-papel { background: #fff !important; color: var(--tinta) !important; }
+  .faixa-edital, .edital-leitura, .formulario { background-image: none; }
+  .secao--papel::before, .pagina-404-fundo::before { display: none; }
+  .secao--papel .convicao, .secao--papel .apoio { color: var(--tinta); }
+  .concurso-so-print { display: flex; }
+  .concurso-abre .concurso__titulo, .concurso-abre .concurso__sub { color: var(--tinta) !important; }
   * {
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;

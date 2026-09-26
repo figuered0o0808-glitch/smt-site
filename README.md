@@ -55,6 +55,10 @@ O GitHub Pages republica sozinho em um ou dois minutos.
 
 O domínio próprio é https://semexatambem.com (DNS na Hostinger, 4 registros A + CNAME www; canonical, sitemap.xml e og:url já apontam para ele).
 
+## Texturas e formas do manual
+
+`assets/texturas/` tem 5 arquivos gerados por `ferramentas/gera_texturas.py` (numpy + Pillow) a partir do recorte do papel preto amassado da prancha de texturas: `papel-preto.webp` (UM tile costurado por crossfade, sem espelho, brilho travado em #40), `papel-amarelo.webp` (mesmo relevo sobre #FFBC3B), `grao.png` (pontinhos em alfa por cima do papel), `nevoa-roxa.webp` e `nevoa-teal.webp` (névoa granulada sintetizada, RGBA). Onde entram: utilitário `.painel-papel` (hero e "O que defendemos" na home, abertura do concurso, 404), `.faixa-edital` em papel amarelo, `.edital-leitura` (folha branca sobre papel), formulário de influenciadores em papel amarelo quando a fita do concurso sai (`html.sem-faixa`). Regras: cor sólida (amarelo, magenta) só sobre o tile de papel preto; branco sobre qualquer papel; nenhum texto sobre o núcleo das névoas; no print tudo vira branco/tinta. `assets/formas/estrela.svg` é a única forma solta (o "agora" da linha do tempo). Se o designer mandar o papel original em alta (≥ 2000 px), basta rodar o script de novo com o novo recorte.
+
 ## Página do edital
 
 `/edital/` publica o edital de eventos (fonte: doc "EDITAL - eventos SMT" no Drive). Texto na íntegra com três correções de digitação. O botão "Baixar em PDF" baixa o arquivo `/edital/edital-eventos-smt.pdf`, gerado a partir da versão de impressão da própria página. **Sempre que editar o conteúdo do edital, regenere o PDF** com o site rodando localmente:

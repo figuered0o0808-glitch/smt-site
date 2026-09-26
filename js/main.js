@@ -76,6 +76,8 @@ document.querySelectorAll("[data-ate]").forEach((el) => {
   const limite = new Date(el.getAttribute("data-ate"));
   if (!isNaN(limite) && agora >= limite) el.remove();
 });
+// Um papel amarelo por página: o formulário só vira folha amarela quando a fita do concurso sai
+if (!document.querySelector(".faixa-edital:not([hidden])")) document.documentElement.classList.add("sem-faixa");
 document.querySelectorAll("[data-desde]").forEach((el) => {
   const inicio = new Date(el.getAttribute("data-desde"));
   if (!isNaN(inicio) && agora >= inicio) el.hidden = false;

@@ -13,6 +13,7 @@
   <meta name="theme-color" content="#F4F3F1">
   <link rel="preload" href="assets/fonts/anton-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/figtree.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/texturas/papel-preto.webp" as="image" type="image/webp">
   <link rel="preconnect" href="https://www.instagram.com">
   <link rel="preconnect" href="https://www.youtube-nocookie.com">
 
@@ -34,7 +35,7 @@
   <link rel="icon" type="image/png" sizes="64x64" href="assets/favicon-64.png">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 
-  <link rel="stylesheet" href="css/style.css?v=50">
+  <link rel="stylesheet" href="css/style.css?v=51">
 
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Se Mexa Também","alternateName":["SMT","Silent Majority Talks"],"url":"https://semexatambem.com/","logo":"https://semexatambem.com/assets/og.png","email":"silentmajoritytalks2026@gmail.com","sameAs":["https://www.instagram.com/semexatambem"]}</script>
 </head>
@@ -70,7 +71,7 @@
     </div>
 
     <!-- ============ HERO ============ -->
-    <section class="hero" aria-labelledby="titulo-hero">
+    <section class="hero hero--papel painel-papel" aria-labelledby="titulo-hero">
       <div class="container">
         <div class="hero__quadro">
           <div class="hero__arte">
@@ -78,7 +79,7 @@
           </div>
           <div class="hero__texto">
             <p class="hero__traducao">Silent Majority Talks, ou, em tradução carinhosa, Se Mexa Também</p>
-            <h1 id="titulo-hero" class="hero__titulo">Um hub de mobilização para ampliar a participação das pessoas na política.</h1>
+            <h1 id="titulo-hero" class="hero__titulo">Um hub de mobilização para ampliar a <em>participação</em> das pessoas na política.</h1>
             <div class="hero__botoes">
               <a class="botao botao--grad apertavel" href="#participe">Como participar</a>
               <a class="botao botao--linha apertavel" href="#contato">Fale com a gente</a>
@@ -86,6 +87,14 @@
           </div>
         </div>
       </div>
+      <nav class="faixa faixa--no-papel" aria-label="Frentes do hub">
+        <div class="container faixa__trilho">
+          <a href="#redes">Redes sociais</a>
+          <a href="#comunidade">Comunidade digital</a>
+          <a href="#videocast">Videocast e conteúdos</a>
+          <a href="#eventos">Eventos presenciais</a>
+        </div>
+      </nav>
     </section>
 
     <!-- ============ CHAMADA DO CONCURSO (sai sozinha no fim do prazo) ============ -->
@@ -97,15 +106,6 @@
       </div>
     </aside>
 
-    <!-- ============ FAIXA-ÍNDICE ============ -->
-    <nav class="faixa" aria-label="Frentes do hub">
-      <div class="container faixa__trilho">
-        <a href="#redes">Redes sociais</a>
-        <a href="#comunidade">Comunidade digital</a>
-        <a href="#videocast">Videocast e conteúdos</a>
-        <a href="#eventos">Eventos presenciais</a>
-      </div>
-    </nav>
 
     <!-- ============ O QUE FAZEMOS ============ -->
     <section class="secao" id="o-que-fazemos" aria-labelledby="titulo-fazemos">
@@ -173,7 +173,7 @@
     </section>
 
     <!-- ============ O QUE DEFENDEMOS ============ -->
-    <section class="secao secao--fio" id="defendemos" aria-labelledby="titulo-defendemos">
+    <section class="secao secao--fio secao--papel painel-papel" id="defendemos" aria-labelledby="titulo-defendemos">
       <div class="container">
         <div class="cabeca">
           <h2 id="titulo-defendemos" class="dizer">O que defendemos</h2>
@@ -308,6 +308,6 @@
     </div>
   </footer>
 
-  <script src="js/main.js?v=24"></script>
+  <script src="js/main.js?v=25"></script>
 </body>
 </html>
