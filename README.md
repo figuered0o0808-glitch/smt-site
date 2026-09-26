@@ -96,3 +96,7 @@ Os slots visuais existem, mas desde o lançamento do domínio o site não mostra
 Guardados para depois (removidos do site a pedido, fáceis de restaurar pelo histórico do git): a seção Quem faz com a equipe e fotos, e o bloco Núcleo de gestão do rodapé.
 
 O kit oficial da marca está completo em `assets/marca/` (S e wordmark nas versões escura, branca, degradê, contorno e badge; sombra longa em `assets/logo-smt.png`). Favicon, apple-touch-icon e og.png são gerados a partir dele.
+
+## Logo do hero (sombra até a borda + entrada animada)
+
+A logo de sombra longa é feita para nascer de um canto, então o hero usa `assets/logo-smt-longa.webp` (2396×1036, 19 KB): as letras de `assets/marca/smt-grad.png` no canto superior direito e a sombra extrudada 1700 px a 26° para baixo/esquerda. No CSS, `.hero__arte` mede só a caixa das letras (`aspect-ratio: 867 / 289`) e a imagem, posicionada em absoluto pela direita, transborda até ser cortada pela borda do painel (`.hero__miolo { overflow: hidden }`): a sombra sempre sai pela borda esquerda ou pelo pé do painel, nunca termina no ar. No celular ela passa por trás do texto (branco sobre preto e sobre o papel). Na abertura a imagem desliza pela própria trilha da sombra (`@keyframes logo-sai-do-canto`, 1,3 s) e o texto chega logo depois; com `prefers-reduced-motion` nada anima. Se a logo mudar, regenerar o WebP: silhueta das letras (alfa > 40) deslocada 1700 vezes ao longo de (−cos 26°, +sin 26°), preenchida de preto, com as letras compostas por cima.

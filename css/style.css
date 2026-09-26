@@ -433,16 +433,61 @@ button.hashtag[data-copiado]::selection { background: var(--tinta); color: var(-
 
 .hero--papel { padding-block: 0; border-bottom: var(--fio); }
 .hero--papel .hero__quadro { background: transparent; border: 0; border-radius: 0; box-shadow: none; overflow: visible; }
-.hero--papel .hero__arte { border: 0; padding-block: 2.4rem 0; }
-.hero--papel .hero__arte img { max-width: 560px; }
-.hero--papel .hero__texto { padding-inline: 0; padding-block: 1.6rem 3rem; }
+.hero--papel .hero__miolo { position: relative; overflow: hidden; }
+
+/* A arte nasce de uma borda: a caixa do .hero__arte é só a das letras; a sombra longa
+   (extrusão contínua) sai por baixo/esquerda e é cortada pela borda do painel, nunca no ar */
+.hero--papel .hero__arte {
+  position: relative;
+  border: 0;
+  padding: 0;
+  margin-top: 2.4rem;
+  aspect-ratio: 867 / 289;
+  overflow: visible;
+  display: block;
+}
+
+.hero--papel .hero__arte img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: calc(100% * 2396 / 867);
+  max-width: none;
+  height: auto;
+  animation: logo-sai-do-canto 1.3s cubic-bezier(0.16, 0.84, 0.3, 1) both;
+}
+
+/* o logo sai do canto pela própria trilha da sombra (26°) */
+@keyframes logo-sai-do-canto {
+  from { transform: translate(-640px, 312px); }
+  to { transform: none; }
+}
+
+.hero--papel .hero__texto {
+  animation: hero-texto-chega 0.7s ease-out 0.55s both;
+}
+
+@keyframes hero-texto-chega {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (max-width: 759.98px) {
+  /* no celular a sombra passa por trás do texto (branco lê sobre o preto e sobre o papel) */
+  .hero--papel .hero__arte img { animation-name: logo-sai-do-canto-curto; }
+  @keyframes logo-sai-do-canto-curto {
+    from { transform: translate(-360px, 176px); }
+    to { transform: none; }
+  }
+}
+.hero--papel .hero__texto { position: relative; z-index: 1; padding-inline: 0; padding-block: 1.6rem 3rem; }
 .hero--papel .hero__traducao { color: rgba(255, 255, 255, 0.8); }
 .hero--papel .hero__titulo { color: var(--branco); }
 .hero--papel .hero__titulo em { font-style: normal; color: var(--amarelo); }
 
 @media (min-width: 760px) {
-  .hero--papel .hero__quadro { grid-template-columns: 46% 1fr; gap: 2.5rem; }
-  .hero--papel .hero__arte { padding-block: 2.6rem; align-items: center; }
+  .hero--papel .hero__quadro { grid-template-columns: 46% 1fr; gap: 2.5rem; align-items: center; }
+  .hero--papel .hero__arte { margin-top: 0; align-self: center; }
   .hero--papel .hero__texto { padding-block: 2.6rem; }
 }
 
@@ -2180,6 +2225,8 @@ html.tem-js .edital__corpo article + article.artigo--visto::before {
 
   .js-erguido { transform: none; box-shadow: var(--sombra-repouso); }
   .js-assenta { transition: none; }
+  .hero--papel .hero__arte img,
+  .hero--papel .hero__texto { animation: none; }
 
   html.tem-js .edital__corpo article + article::before {
     transform: scaleX(1);
@@ -2189,6 +2236,7 @@ html.tem-js .edital__corpo article + article.artigo--visto::before {
 
 @media print {
   .painel-papel { background: #fff !important; color: var(--tinta) !important; }
+  .hero--papel .hero__arte { overflow: hidden; }
   .faixa-edital, .edital-leitura, .formulario { background-image: none; }
   .secao--papel::before, .pagina-404-fundo::before { display: none; }
   .secao--papel .convicao, .secao--papel .apoio { color: var(--tinta); }
