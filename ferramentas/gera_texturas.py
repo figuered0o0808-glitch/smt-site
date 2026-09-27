@@ -72,9 +72,11 @@ def grao():
     n = 512
     alpha = np.zeros((n, n), np.uint8)
     m = rng.random((n, n))
-    alpha[m < 0.020] = 22
-    alpha[m < 0.004] = 55
-    alpha[m < 0.0006] = 110
+    # pontos discretos: o mais claro fica abaixo dos realces do proprio papel (~#4b sobre #20),
+    # senao o grao le como ceu estrelado
+    alpha[m < 0.020] = 16
+    alpha[m < 0.004] = 36
+    alpha[m < 0.0006] = 56
     rgba = np.dstack([np.full((n, n), 255, np.uint8)] * 3 + [alpha])
     p = os.path.join(OUT, "grao.png")
     Image.fromarray(rgba, "RGBA").save(p, "PNG", optimize=True)
@@ -89,10 +91,14 @@ def nevoa(nome, cor, lado):
     # duas lombadas, mais alta no canto (direita ou esquerda), como na prancha
     d = yn - 0.35 - 0.18 * np.sin(4.5 * xn + 1.0) - 0.08 * np.cos(11 * xn) - 0.22 * xn
     mask = np.clip(d / 0.40, 0, 1) ** 1.2          # rampa curta: nucleo solido ocupa ~30% da altura
+    # nasce de um canto: a densidade vai a zero no lado oposto (fade nos 46% iniciais),
+    # senao a coluna 0 fica opaca e aparece como aresta reta quando a caixa cai dentro do painel
+    fx = np.clip((xn - 0.04) / 0.46, 0, 1) ** 1.4
+    mask = mask * fx
     dots = rng.random((H, W)) < mask
     solid = mask > 0.93
     borda = np.clip((d + 0.16) / 0.16, 0, 1)      # spray so numa faixa de ~110 px acima da borda
-    spray = rng.random((H, W)) < (0.035 * borda * (mask < 0.02))
+    spray = rng.random((H, W)) < (0.035 * borda * (mask < 0.02) * fx)
     alpha = np.where(dots | solid | spray, 255, 0).astype(np.uint8)
     rgb = np.zeros((H, W, 3), np.uint8)
     rgb[...] = cor

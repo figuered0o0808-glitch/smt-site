@@ -405,29 +405,28 @@ button.hashtag[data-copiado]::selection { background: var(--tinta); color: var(-
 }
 
 .secao--papel { position: relative; overflow: hidden; }
+/* pé cresce de 4rem (≥900px) a 8rem (≤675px) para a névoa ficar abaixo do parágrafo no celular */
+.secao.secao--papel { padding-bottom: clamp(4rem, 20rem - 28.45vw, 8rem); }
 .secao--papel > .container { position: relative; z-index: 1; }
 
+/* névoa do manual nasce do canto inferior direito: o asset esvanece à esquerda e no topo,
+   a caixa sangra pela direita e o núcleo denso sai pelo pé; nenhuma aresta aparece no painel */
 .secao--papel::before {
   content: "";
   position: absolute;
   right: -6%;
-  bottom: -8%;
-  width: min(46vw, 720px);
+  bottom: 0;
+  width: min(max(46vw, 520px), 90vw, 720px);
   aspect-ratio: 900 / 700;
   background: url("../assets/texturas/nevoa-roxa.webp") center / contain no-repeat;
   opacity: 0.85;
+  transform: translateY(22%);
   pointer-events: none;
 }
 
-.secao--papel .convicao { color: var(--branco); max-width: 14ch; }
-.secao--papel .convicao span { background: none; -webkit-background-clip: border-box; background-clip: border-box; color: var(--rosa); }
-.secao--papel .apoio { color: rgba(255, 255, 255, 0.85); }
-.secao--papel .apoio--marcado::before { border-color: var(--branco); background: var(--amarelo); }
-
-@media (max-width: 899.98px) {
-  .secao--papel { padding-bottom: 12rem; }
-  .secao--papel::before { width: min(90vw, 520px); right: -20%; bottom: -10%; }
-}
+.secao--papel .convicao { color: var(--branco); }
+.secao--papel .convicao span { color: var(--amarelo); }
+.secao--papel .apoio { color: rgba(255, 255, 255, 0.85); margin-top: 1.6rem; max-width: 52ch; }
 
 .faixa--no-papel { background: transparent; border-top: 1px solid rgba(255, 255, 255, 0.28); border-bottom: 0; }
 
@@ -603,7 +602,7 @@ button.hashtag[data-copiado]::selection { background: var(--tinta); color: var(-
 .painel-papel {
   background-color: #202020;
   background-image: url("../assets/texturas/grao.png"), url("../assets/texturas/papel-preto.webp");
-  background-size: 512px 512px, 900px auto;
+  background-size: 512px 512px, max(100%, 900px) auto;
   background-repeat: repeat, repeat;
   background-position: 0 0, center top;
   color: var(--branco);
@@ -639,6 +638,9 @@ button.hashtag[data-copiado]::selection { background: var(--tinta); color: var(-
   grid-column: 1 / -1;
   max-width: 46rem;
 }
+
+/* o fecho da seção já dá o respiro: sem somar o pé da grade, a emenda com o painel seguinte fica igual à de baixo */
+.bloco:last-of-type .bloco__grade { padding-bottom: 0; }
 
 @media (min-width: 900px) {
   .bloco__grade {
@@ -750,43 +752,15 @@ button.hashtag[data-copiado]::selection { background: var(--tinta); color: var(-
 
 .convicao {
   font-family: var(--fonte-dizeres);
-  font-size: clamp(2.3rem, 6vw, 3.9rem);
-  line-height: 1;
+  font-size: clamp(min(3rem, 13.5vw), 6vw, 3.9rem);
+  line-height: 1.12; /* Anton em caixa alta: abaixo disso o til do Ã encosta na linha de cima */
   letter-spacing: 0;
   text-transform: uppercase;
   margin-top: 2.2rem;
-  max-width: 18ch;
+  max-width: 14ch;
 }
 
 .convicao span { color: var(--rosa-texto); }
-
-@supports ((-webkit-background-clip: text) or (background-clip: text)) {
-  .convicao span {
-    background-image: var(--grad-texto);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
-}
-
-.apoio--marcado {
-  margin-top: 1.6rem;
-  max-width: 52ch;
-  position: relative;
-  padding-left: 1.7rem;
-}
-
-.apoio--marcado::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0.32em;
-  width: 14px;
-  height: 14px;
-  border-radius: 5px;
-  border: 2px solid var(--preto);
-  background-image: var(--grad);
-}
 
 /* ==========================================================================
    Participe: portas-cartaz
@@ -1130,8 +1104,9 @@ button.hashtag[data-copiado]::selection { background: var(--tinta); color: var(-
   content: "";
   position: absolute;
   right: -6%;
-  bottom: -8%;
-  width: min(50vw, 720px);
+  bottom: 0;
+  transform: translateY(22%);
+  width: min(max(50vw, 520px), 90vw, 720px);
   aspect-ratio: 900 / 700;
   background: url("../assets/texturas/nevoa-teal.webp") center / contain no-repeat;
   opacity: 0.85;
@@ -1144,7 +1119,6 @@ button.hashtag[data-copiado]::selection { background: var(--tinta); color: var(-
 
 @media (max-width: 759.98px) {
   .pagina-404-fundo .pagina-404 { justify-content: flex-start; padding-top: 4rem; padding-bottom: 12rem; }
-  .pagina-404-fundo::before { width: min(90vw, 520px); right: -20%; bottom: -10%; }
 }
 
 .pagina-404 {
@@ -1349,7 +1323,7 @@ button.hashtag[data-copiado]::selection { background: var(--tinta); color: var(-
 .edital-leitura {
   background-color: #202020;
   background-image: url("../assets/texturas/grao.png"), url("../assets/texturas/papel-preto.webp");
-  background-size: 512px 512px, 900px auto;
+  background-size: 512px 512px, max(100%, 900px) auto;
   background-repeat: repeat, repeat;
 }
 
@@ -2240,6 +2214,8 @@ html.tem-js .edital__corpo article + article.artigo--visto::before {
   .faixa-edital, .edital-leitura, .formulario { background-image: none; }
   .secao--papel::before, .pagina-404-fundo::before { display: none; }
   .secao--papel .convicao, .secao--papel .apoio { color: var(--tinta); }
+  .painel-papel .cabeca::after { height: 3px; background: var(--preto); }
+  .secao.secao--papel { padding-bottom: 0.4rem; }
   .concurso-so-print { display: flex; }
   .concurso-abre .concurso__titulo, .concurso-abre .concurso__sub { color: var(--tinta) !important; }
   * {
@@ -2299,6 +2275,7 @@ html.tem-js .edital__corpo article + article.artigo--visto::before {
   /* texto recortado em degradê imprime com contorno fantasma: no papel vira cor sólida */
   .dizer,
   .concurso__titulo span,
+  .secao--papel .convicao span,
   .edital__essencial b {
     background: none !important;
     -webkit-background-clip: border-box !important;
